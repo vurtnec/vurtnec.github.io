@@ -14,7 +14,7 @@
 <meta property="og:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
 这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
 <meta property="og:image" content="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2016-12-20T09:31:23.719Z">
+<meta property="og:updated_time" content="2016-12-20T12:57:39.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-方法定义">
 <meta name="twitter:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
@@ -105,7 +105,8 @@
 <li>PUT方法是幂等的，而POST不是。</li>
 <li>PUT方法该URI不得不处理该实体，如果服务器期望交由其他URI处理，则必须返回30X告知用户，由用户来判断是否跳转。而POST可以由服务器决定是否交给其他网关处理，并最终返回Response。<h5 id="DELETE-Method"><a href="#DELETE-Method" class="headerlink" title="DELETE Method"></a><strong>DELETE Method</strong></h5>DELETE方法与PUT刚好相反，用于删除由Request-URI标识的资源。同样DELETE是幂等的。</li>
 </ol>
-<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（）</p>
+<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p>
+<p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>
 
       
     </div>

@@ -98,7 +98,8 @@
 <li>PUT方法是幂等的，而POST不是。</li>
 <li>PUT方法该URI不得不处理该实体，如果服务器期望交由其他URI处理，则必须返回30X告知用户，由用户来判断是否跳转。而POST可以由服务器决定是否交给其他网关处理，并最终返回Response。<h5 id="DELETE-Method"><a href="#DELETE-Method" class="headerlink" title="DELETE Method"></a><strong>DELETE Method</strong></h5>DELETE方法与PUT刚好相反，用于删除由Request-URI标识的资源。同样DELETE是幂等的。</li>
 </ol>
-<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（）</p>
+<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p>
+<p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>
 
       
     </div>
