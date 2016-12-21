@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Eclipse to IntelliJ IDEA | Vurtnec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。不过还是分享下摸索一周来的一些小技巧，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse to IntelliJ IDEA">
+<meta property="og:url" content="http://blog.vurtnec.com/2016/10/31/Eclipse to IntelliJ IDEA/index.html">
+<meta property="og:site_name" content="Vurtnec">
+<meta property="og:description" content="身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。不过还是分享下摸索一周来的一些小技巧，">
+<meta property="og:updated_time" content="2016-12-21T14:56:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eclipse to IntelliJ IDEA">
+<meta name="twitter:description" content="身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。不过还是分享下摸索一周来的一些小技巧，">
+  
+    <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/camera.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  <link href="http://cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo"><img src="/css/images/profile.jpg" style="width: 90px;height: 90px;border: solid;border-radius: 10px;border-color: white;"></a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.vurtnec.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Eclipse to IntelliJ IDEA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/31/Eclipse to IntelliJ IDEA/" class="article-date">
+  <time datetime="2016-10-30T16:00:00.000Z" itemprop="datePublished">2016-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Eclipse to IntelliJ IDEA
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows:  Files → Setting  → keymap  </div><div class="line">Mac:  Preference  → keymap</div></pre></td></tr></table></figure>
+<p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Main Menu  → Code  → Completion  → Basic</div></pre></td></tr></table></figure>
+<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>默认的两个试图显示其实不错，不过个人喜欢Sublime，这里推荐下:</p>
+<ol>
+<li>下载  Eclectide Monokai   主题的jar包</li>
+<li>打开 File → Import Settings → Select the jar file</li>
+<li>重启 IntelliJ</li>
+</ol>
+<p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="external">monokai-theme-intellij</a></p>
+<h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="external">http://www.tuicool.com/articles/NBRnYn</a></p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong><em>Check Style</em></strong>：导入Eclipse的xml即可。</p>
+<p><strong><em>Code Formatter</em></strong>：要在IDEA的Plugin Repositories里面搜索一个叫Eclipse Code Formatter的插件，但是貌似不支持IDEA 2016。</p>
+<p><strong><em>Getter &amp; Setter</em></strong>：这个不算插件，顶多就是个模版配置，但是也写了我好久，分享给大家：</p>
+<p><strong>Getter</strong>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @return property value of $field.name</div><div class="line">*/</div><div class="line"></div><div class="line">public ##</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">$field.type ##</div><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</div><div class="line">#else</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</div><div class="line">#end</div><div class="line">#if ($field.boolean &amp;&amp; $field.primitive)</div><div class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</div><div class="line">    #set($name = $StringUtil.decapitalize($name))</div><div class="line">#else</div><div class="line">is##</div><div class="line">#end</div><div class="line">#else</div><div class="line">get##</div><div class="line">#end</div><div class="line">$&#123;name&#125;() &#123;</div><div class="line">return $field.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Setter</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</div><div class="line">#else</div><div class="line">    #set($paramName = $helper.getParamName($field, $project))</div><div class="line">#end</div><div class="line">/**</div><div class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @param p$paramName  value to be assigned to property $field.name</div><div class="line">*/</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</div><div class="line">#if ($field.name == $paramName)</div><div class="line">    #if (!$field.modifierStatic)</div><div class="line">    this.##</div><div class="line">    #else</div><div class="line">        $classname.##</div><div class="line">    #end</div><div class="line">#end</div><div class="line">$field.name = p$paramName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p>
+<p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="external">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
+<p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2016/10/31/Eclipse to IntelliJ IDEA/" data-id="ciwz2vv9m0005hlaxxf7fy6kq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/30/读后感：淘宝技术这十年/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          读后感：淘宝技术这十年
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/22/读后感：驱动力/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">读后感：驱动力</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/15/HTTP-方法定义/">HTTP-方法定义</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/30/读后感：淘宝技术这十年/">读后感：淘宝技术这十年</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/31/Eclipse to IntelliJ IDEA/">Eclipse to IntelliJ IDEA</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/22/读后感：驱动力/">读后感：驱动力</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/16/读后感：Soft Skills/">读后感：Soft Skills</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner" style="text-align: center;">
+      <a href="http://weibo.com/378910504" style="text-decoration:none;">
+	<span class="fa-stack fa-lg" style="color: white;">
+	 	<i class="fa fa-circle fa-stack-2x"></i>
+		<i class="fa fa-weibo fa-stack-1x fa-inverse" style="color: black;"></i>
+	</span>
+      </a>
+      <a href="https://instagram.com/vurtnec" style="text-decoration:none;">
+	<span class="fa-stack fa-lg" style="color: white;">
+	 	<i class="fa fa-circle fa-stack-2x"></i>
+		<i class="fa fa-instagram fa-stack-1x fa-inverse" style="color: black;"></i>
+	</span>
+      </a>
+      <a href="hhttps://github.com/vurtnec" style="text-decoration:none;">
+	<span class="fa-stack fa-lg" style="color: white;">
+	 	<i class="fa fa-circle fa-stack-2x"></i>
+		<i class="fa fa-github fa-stack-1x fa-inverse" style="color: black;"></i>
+	</span>
+      </a>
+
+      &copy; 2016 Zachary Hou<br>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
