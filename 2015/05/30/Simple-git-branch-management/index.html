@@ -5,20 +5,26 @@
   
   <title>简单Git branch管理策略 | Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
-master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
+  <meta name="description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。
+git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 
+
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单Git branch管理策略">
-<meta property="og:url" content="http://blog.vurtnec.com/2015/05/30/简单Git branch管理策略/index.html">
+<meta property="og:url" content="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/index.html">
 <meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
-master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
+<meta property="og:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。
+git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 
+
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本">
 <meta property="og:image" content="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-12-21T15:07:42.000Z">
+<meta property="og:updated_time" content="2016-12-26T16:17:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单Git branch管理策略">
-<meta name="twitter:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
-master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
+<meta name="twitter:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。
+git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 
+
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
   
     <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
@@ -60,7 +66,7 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.vurtnec.com"></form>
@@ -69,12 +75,16 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-简单Git branch管理策略" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Simple-git-branch-management" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/05/30/简单Git branch管理策略/" class="article-date">
+    <a href="/2015/05/30/Simple-git-branch-management/" class="article-date">
   <time datetime="2015-05-29T16:00:00.000Z" itemprop="datePublished">2015-05-30</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programing/">Programing</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -91,7 +101,9 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><img src="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Git branch"></p>
+        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。
+git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 
+<img src="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Git branch"></p>
 <h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
 <h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
 <h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
@@ -104,7 +116,7 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2015/05/30/简单Git branch管理策略/" data-id="ciwz2vv9g0003hlax8ec58inp" class="article-share-link">Delen</a>
+      <a data-url="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/" data-id="cix6b5uzr00006eax3wj361uy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,8 +125,8 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
     
 <nav id="article-nav">
   
-    <a href="/2016/10/16/读后感：Soft Skills/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nieuwer</strong>
+    <a href="/2016/10/16/Soft Skills/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           读后感：Soft Skills
@@ -133,16 +145,37 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/">Programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thoughts/">Thoughts</a></li></ul>
+    </div>
+  </div>
 
-  
-    
 
-  
-    
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/http/" style="font-size: 10px;">http</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
     </div>
@@ -152,28 +185,28 @@ master branch首先，代码库应该有一个、且仅有一个主分支。所�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/12/24/Https小结/">Https小结</a>
+            <a href="/2016/12/24/Https-introduce/">Https小结</a>
           </li>
         
           <li>
-            <a href="/2016/12/15/HTTP-方法定义/">HTTP-方法定义</a>
+            <a href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
           </li>
         
           <li>
-            <a href="/2016/11/30/读后感：淘宝技术这十年/">读后感：淘宝技术这十年</a>
+            <a href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
           </li>
         
           <li>
-            <a href="/2016/10/31/Eclipse to IntelliJ IDEA/">Eclipse to IntelliJ IDEA</a>
+            <a href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
           </li>
         
           <li>
-            <a href="/2016/10/22/读后感：驱动力/">读后感：驱动力</a>
+            <a href="/2016/10/22/Drive/">读后感：驱动力</a>
           </li>
         
       </ul>

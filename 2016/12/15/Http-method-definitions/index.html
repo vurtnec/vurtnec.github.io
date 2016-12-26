@@ -5,20 +5,23 @@
   
   <title>HTTP-方法定义 | Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
-这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
+  <meta name="description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。
+不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
+这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP-方法定义">
-<meta property="og:url" content="http://blog.vurtnec.com/2016/12/15/HTTP-方法定义/index.html">
+<meta property="og:url" content="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/index.html">
 <meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
-这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
+<meta property="og:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。
+不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
+这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参">
 <meta property="og:image" content="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2016-12-21T14:45:36.000Z">
+<meta property="og:updated_time" content="2016-12-26T16:41:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-方法定义">
-<meta name="twitter:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
-这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
+<meta name="twitter:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。
+不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
+这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
@@ -60,7 +63,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.vurtnec.com"></form>
@@ -69,12 +72,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-HTTP-方法定义" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Http-method-definitions" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/15/HTTP-方法定义/" class="article-date">
+    <a href="/2016/12/15/Http-method-definitions/" class="article-date">
   <time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished">2016-12-15</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Programing/">Programing</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -91,14 +98,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
+        <p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。
+不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
 <p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="external">HTTP RFC, Method Definitions</a>.</p>
 <p>先说两个概念，<strong>安全方法</strong>和<strong>幂等方法</strong>。</p>
-<h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。<br>同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p>
+<h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。
+同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p>
 <h4 id="幂等方法"><a href="#幂等方法" class="headerlink" title="幂等方法"></a><strong>幂等方法</strong></h4><p>幂等是数学里面的一个概念，具体可参见<a href="http://baike.baidu.com/link?url=0bAavXkdOTjl7azRk4X6iHdhDoY2sV3OWrT8tFXM8D2usJSZKqj_AynB81Uu7p2ZfVpYXLF5yrTNoF74uAtgi-e1XenogYR3dof2RfFw3me" target="_blank" rel="external">百度百科</a>，这里指的是一个请求如果访问N次产生的副作用和访问一次的副作用相同，我们可以认为是幂等的。</p>
 <p>所以我们可以认为安全方法一定是幂等的，但是幂等不一定是安全的。</p>
 <hr>
-<h5 id="什么是HTTP-Entity？"><a href="#什么是HTTP-Entity？" class="headerlink" title="什么是HTTP Entity？"></a><strong>什么是HTTP Entity？</strong></h5><p>我们知道一个Http请求包含了报文首部和主体部分，中间以空行隔开。而通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。<br><img src="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Http Header"></p>
+<h5 id="什么是HTTP-Entity？"><a href="#什么是HTTP-Entity？" class="headerlink" title="什么是HTTP Entity？"></a><strong>什么是HTTP Entity？</strong></h5><p>我们知道一个Http请求包含了报文首部和主体部分，中间以空行隔开。而通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。
+<img src="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Http Header"></p>
 <h5 id="GET-Method"><a href="#GET-Method" class="headerlink" title="GET Method"></a><strong>GET Method</strong></h5><p>GET属于安全方法，代表从指定的URI以实体（Entity）形式获取信息。也就是说，如果请求的资源说文本，则保持原样返回，如果说一段程序，则返回执行后的输出结果，而不是返回源程序。</p>
 <h5 id="POST-Method"><a href="#POST-Method" class="headerlink" title="POST Method"></a><strong>POST Method</strong></h5><p>POST方法允许请求中包含实体作为从属的Request-URI发送给服务器。简而言之就是一个POST的请求包含了报文首部和实体主体传送给服务器，而且POST既不是安全，也不是幂等的方法。</p>
 <h5 id="PUT-Method"><a href="#PUT-Method" class="headerlink" title="PUT Method"></a><strong>PUT Method</strong></h5><p>PUt方法则用于将请求中包含的实体储存在Request-URI下。它和POST的根本区别在于：</p>
@@ -112,17 +122,19 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/15/HTTP-方法定义/" data-id="ciwz2vv9k0004hlaxacki8zw4" class="article-share-link">Delen</a>
+      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cix6b5uzw00026eaxcmpjr5m5" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/12/24/Https小结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nieuwer</strong>
+    <a href="/2016/12/24/Https-introduce/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           Https小结
@@ -131,8 +143,8 @@
     </a>
   
   
-    <a href="/2016/11/30/读后感：淘宝技术这十年/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+    <a href="/2016/11/30/Taobao-tech/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">读后感：淘宝技术这十年</div>
     </a>
   
@@ -146,16 +158,37 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/">Programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thoughts/">Thoughts</a></li></ul>
+    </div>
+  </div>
 
-  
-    
 
-  
-    
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/http/" style="font-size: 10px;">http</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
     </div>
@@ -165,28 +198,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/12/24/Https小结/">Https小结</a>
+            <a href="/2016/12/24/Https-introduce/">Https小结</a>
           </li>
         
           <li>
-            <a href="/2016/12/15/HTTP-方法定义/">HTTP-方法定义</a>
+            <a href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
           </li>
         
           <li>
-            <a href="/2016/11/30/读后感：淘宝技术这十年/">读后感：淘宝技术这十年</a>
+            <a href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
           </li>
         
           <li>
-            <a href="/2016/10/31/Eclipse to IntelliJ IDEA/">Eclipse to IntelliJ IDEA</a>
+            <a href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
           </li>
         
           <li>
-            <a href="/2016/10/22/读后感：驱动力/">读后感：驱动力</a>
+            <a href="/2016/10/22/Drive/">读后感：驱动力</a>
           </li>
         
       </ul>
