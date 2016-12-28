@@ -5,6 +5,9 @@
   
   <title>HTTP-方法定义 | Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  	<meta name="keywords" content="HTTP,方法定义,get和post的区别,幂等,GET,POST,PUT,DELETE,REST" />
+  
   <meta name="description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
 这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
 <meta property="og:type" content="article">
@@ -14,7 +17,7 @@
 <meta property="og:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
 这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅">
 <meta property="og:image" content="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2016-12-28T11:09:02.707Z">
+<meta property="og:updated_time" content="2016-12-28T13:28:18.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP-方法定义">
 <meta name="twitter:description" content="上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。
@@ -116,7 +119,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cix8ubsa30004hgjbt82jj64t" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cix8zb1o7000beojblwxkmh7e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -153,45 +156,6 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programing/">programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/thoughts/">thoughts</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/http/" style="font-size: 10px;">http</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
@@ -221,6 +185,36 @@
   </div>
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programing/">programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/thoughts/">thoughts</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
 </aside>
         
       </div>
@@ -228,19 +222,19 @@
   
   <div class="outer">
     <div id="footer-info" class="inner" style="text-align: center;">
-      <a href="http://weibo.com/378910504" style="text-decoration:none;">
+      <a href="http://weibo.com/378910504" rel="external nofollow" style="text-decoration:none;">
 	<span class="fa-stack fa-lg" style="color: white;">
 	 	<i class="fa fa-circle fa-stack-2x"></i>
 		<i class="fa fa-weibo fa-stack-1x fa-inverse" style="color: black;"></i>
 	</span>
       </a>
-      <a href="https://instagram.com/vurtnec" style="text-decoration:none;">
+      <a href="https://instagram.com/vurtnec" rel="external nofollow" style="text-decoration:none;">
 	<span class="fa-stack fa-lg" style="color: white;">
 	 	<i class="fa fa-circle fa-stack-2x"></i>
 		<i class="fa fa-instagram fa-stack-1x fa-inverse" style="color: black;"></i>
 	</span>
       </a>
-      <a href="hhttps://github.com/vurtnec" style="text-decoration:none;">
+      <a href="hhttps://github.com/vurtnec" rel="external nofollow" style="text-decoration:none;">
 	<span class="fa-stack fa-lg" style="color: white;">
 	 	<i class="fa fa-circle fa-stack-2x"></i>
 		<i class="fa fa-github fa-stack-1x fa-inverse" style="color: black;"></i>
