@@ -22,7 +22,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
 <meta property="og:image" content="http://img.blog.csdn.net/20161224163733133?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161224175718032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161224171233971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2016-12-26T16:41:42.000Z">
+<meta property="og:updated_time" content="2016-12-28T11:09:08.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Https小结">
 <meta name="twitter:description" content="最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。
@@ -87,7 +87,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Programing/">Programing</a>
+    <a class="article-category-link" href="/categories/programing/">programing</a>
   </div>
 
   </div>
@@ -112,8 +112,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
 <p><strong>TLS/SSL</strong></p>
 <p>TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密数据，而私钥用来解密收到的数据。公钥和私钥是配对的，（其实可以理解成是一把锁和对应的钥钥），所以在建立安全传输之前，客户端和服务器端会互换公钥（锁头），客户端发送的数据要通过服务器公钥加密，服务器端发送数据时则需要客户端公钥加密。</p>
 <p><img src="http://img.blog.csdn.net/20161224175718032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="TSL/SSL"></p>
-<p>这里还引入了一个第三方：CA（Certificate Authority，数字证书认证中心）。客户端在发起安全连接前会去获取服务器端的证书，并通过CA的帧数验证服务器端证书的真伪。除了验证真伪外，通常还含有对服务器名称，IP地址等进行验证的过程。
-简单点说就是在公钥互换的时候，客户端需要验证服务器给过来的公钥是否真的是我们想要的服务器发过来的，而不是其他中间人伪造的。</p>
+<p>这里还引入了一个第三方：CA（Certificate Authority，数字证书认证中心）。客户端在发起安全连接前会去获取服务器端的证书，并通过CA的帧数验证服务器端证书的真伪。除了验证真伪外，通常还含有对服务器名称，IP地址等进行验证的过程。<br>简单点说就是在公钥互换的时候，客户端需要验证服务器给过来的公钥是否真的是我们想要的服务器发过来的，而不是其他中间人伪造的。</p>
 <p><img src="http://img.blog.csdn.net/20161224171233971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="CA"></p>
 <h4 id="Https的安全通信机制"><a href="#Https的安全通信机制" class="headerlink" title="Https的安全通信机制"></a>Https的安全通信机制</h4><p>为了更好的理解Https，来看下Https的通信步骤。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">客户端--&gt;服务器端: 1. Handshake：Client Hello</div><div class="line">服务器端-&gt;客户端: 2. Handshake：Server Hello</div><div class="line">服务器端-&gt;客户端: 3. Handshake：Certificate</div><div class="line">服务器端--&gt;客户端: 4. Handshake：Server Hello Done</div><div class="line">客户端-&gt;服务器端: 5. Handshake：Client Key Exchange</div><div class="line">客户端-&gt;服务器端: 6. Change Cipher Spec</div><div class="line">客户端--&gt;服务器端: 7. Handshake：Finished</div><div class="line">服务器端-&gt;客户端: 8. Change Cipher Spec</div><div class="line">服务器端--&gt;客户端: 9. Handshake：Finished</div><div class="line">客户端-&gt;服务器端: 10. Transfer Application data（HTTP）</div><div class="line">服务器端-&gt;客户端: 11. Transfer Application data（HTTP）</div><div class="line">客户端--&gt;服务器端: 12. Alert: warning, close notify</div></pre></td></tr></table></figure>
@@ -148,7 +147,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/24/Https-introduce/" data-id="cix6b5uzt00016eaxpgp91or1" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/12/24/Https-introduce/" data-id="cix8ubsa10003hgjb45vwbidu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
@@ -178,7 +177,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Programing/">Programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Thoughts/">Thoughts</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programing/">programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/thoughts/">thoughts</a></li></ul>
     </div>
   </div>
 
