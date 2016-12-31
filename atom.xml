@@ -1,98 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Vurtnec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Stay Hungry, Stay foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vurtnec">
-<meta property="og:url" content="http://blog.vurtnec.com/index.html">
-<meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="Stay Hungry, Stay foolish">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vurtnec">
-<meta name="twitter:description" content="Stay Hungry, Stay foolish">
+  <link href="/atom.xml" rel="self"/>
   
-    <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
+  <link href="http://blog.vurtnec.com/"/>
+  <updated>2016-12-31T06:32:01.000Z</updated>
+  <id>http://blog.vurtnec.com/</id>
   
-  
-    <link rel="icon" href="/css/images/camera.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
-  <link href="http://cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo"><img src="/css/images/profile.jpg" style="width: 90px;height: 90px;border: solid;border-radius: 10px;border-color: white;"></a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//www.baidu.com/s" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="blog.vurtnec.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Https-introduce" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/24/Https-introduce/" class="article-date">
-  <time datetime="2016-12-23T16:00:00.000Z" itemprop="datePublished">2016-12-24</time>
-</a>
+  <author>
+    <name>Zachary Hou</name>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  </author>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/24/Https-introduce/">Https小结</a>
-    </h1>
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-
-      </header>
+  <entry>
+    <title>Https小结</title>
+    <link href="http://blog.vurtnec.com/2016/12/24/Https-introduce/"/>
+    <id>http://blog.vurtnec.com/2016/12/24/Https-introduce/</id>
+    <published>2016-12-23T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。</p>
+    <content type="html"><![CDATA[<p>最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。</p>
 <h4 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h4><p>Https全称Http Secure，它并非是一种新协议。只是Http通信接口部分用SSL和TSL协议代替。简言之，Https就是身披SSL协议外壳的Http。</p>
 <p><img src="http://img.blog.csdn.net/20161224163733133?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Http&amp;Https"></p>
 <p><strong>TLS/SSL</strong></p>
@@ -129,51 +59,30 @@
 <li>书籍：深入浅出Nodejs，第七章</li>
 <li>博客：<a href="http://blog.csdn.net/howeverpf/article/details/19366215" target="_blank" rel="external"> 分析两种实现SSL会话劫持的典型技术</a></li>
 </ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/24/Https-introduce/" data-id="cixcznvff0004ojaxglfeb7hc" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/12/24/Https-introduce/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Http-method-definitions" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/Http-method-definitions/" class="article-date">
-  <time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
+]]></content>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+    <summary type="html">
+    
+      &lt;p&gt;最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。&lt;/p&gt;
+&lt;h4 id=&quot;Https简介&quot;&gt;&lt;a href=&quot;#Https简介&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
-    </h1>
-  
-
-      </header>
+      <category term="http" scheme="http://blog.vurtnec.com/tags/http/"/>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
+  </entry>
+  
+  <entry>
+    <title>HTTP-方法定义</title>
+    <link href="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/"/>
+    <id>http://blog.vurtnec.com/2016/12/15/Http-method-definitions/</id>
+    <published>2016-12-14T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
 <p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="external">HTTP RFC, Method Definitions</a>.</p>
 <p>先说两个概念，<strong>安全方法</strong>和<strong>幂等方法</strong>。</p>
 <h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。<br>同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p>
@@ -190,51 +99,29 @@
 </ol>
 <p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p>
 <p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cixcznvfc0003ojaxebp47l3v" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Taobao-tech" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/30/Taobao-tech/" class="article-date">
-  <time datetime="2016-11-29T16:00:00.000Z" itemprop="datePublished">2016-11-30</time>
-</a>
+]]></content>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/thoughts/">thoughts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+    <summary type="html">
+    
+      &lt;p&gt;上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。&lt;br&gt;不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。&lt;/
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
-    </h1>
-  
-
-      </header>
+      <category term="http" scheme="http://blog.vurtnec.com/tags/http/"/>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p>
+  </entry>
+  
+  <entry>
+    <title>读后感：淘宝技术这十年</title>
+    <link href="http://blog.vurtnec.com/2016/11/30/Taobao-tech/"/>
+    <id>http://blog.vurtnec.com/2016/11/30/Taobao-tech/</id>
+    <published>2016-11-29T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p>
 <p>正如序章所说，这根本就不是算是一本技术书记， 技术书很容易写成催眠的读物，这本书一开始作者就没有当做技术书来写。所以读者也大可抱着看一本淘宝历史的心态来阅读此书。</p>
 <p>里面有一句话说的让我特别有感触，淘宝从最开始的主动改版，创新，到最后需求，规模的不断扩大，不得不被动创新，这一步步走来和我这几年在公司项目的不断重构尤其相似，恰好我所处的项目也是电商项目。以下我针对此书总结的淘宝技术发展阶段：</p>
 <ol>
@@ -246,49 +133,27 @@
 </ol>
 <p>其实可以看出来作者很多也是点到为止，如果读者感兴趣完全就可以根据作者给的各种技术的名字找相关资料阅读。</p>
 <p>最后在聊聊自己，在一个电子商务项目三年了，前前后后重构了三次，最开始参与搜索引擎的替换，摸索中前进，到后来去除JSP里面所有业务逻辑（没办法，零几年的项目大量逻辑直接写在JSP），公司内部自己创造的MVC框架，再到最后一年整个Checkout重构，前后端分离，使用React，去除form表单，所有请求使用Rest。这中间踩过的雷和坑也是一言难尽，总之之后会单独歇歇这几年来项目重构中间的技术变化。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/11/30/Taobao-tech/" data-id="cixcznvfm0008ojax7vksyqem" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/11/30/Taobao-tech/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Eclipse-to-IntelliJ" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/31/Eclipse-to-IntelliJ/" class="article-date">
-  <time datetime="2016-10-30T16:00:00.000Z" itemprop="datePublished">2016-10-31</time>
-</a>
+]]></content>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+    <summary type="html">
+    
+      &lt;p&gt;这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道
+    
+    </summary>
+    
+      <category term="thoughts" scheme="http://blog.vurtnec.com/categories/thoughts/"/>
     
     
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
-    </h1>
-  
-
-      </header>
+  <entry>
+    <title>Eclipse to IntelliJ IDEA</title>
+    <link href="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/"/>
+    <id>http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/</id>
+    <published>2016-10-30T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
+    <content type="html"><![CDATA[<p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
 <h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows:  Files → Setting  → keymap  </div><div class="line">Mac:  Preference  → keymap</div></pre></td></tr></table></figure>
 <p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p>
@@ -311,49 +176,27 @@
 <p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p>
 <p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="external">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
 <p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/" data-id="cixcznvf70001ojaxbra9smd1" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Drive" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/22/Drive/" class="article-date">
-  <time datetime="2016-10-21T16:00:00.000Z" itemprop="datePublished">2016-10-22</time>
-</a>
+]]></content>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/thoughts/">thoughts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
+    <summary type="html">
+    
+      &lt;p&gt;身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个I
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
     
     
-      <header class="article-header">
-        
+  </entry>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/22/Drive/">读后感：驱动力</a>
-    </h1>
-  
-
-      </header>
+  <entry>
+    <title>读后感：驱动力</title>
+    <link href="http://blog.vurtnec.com/2016/10/22/Drive/"/>
+    <id>http://blog.vurtnec.com/2016/10/22/Drive/</id>
+    <published>2016-10-21T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p>
+    <content type="html"><![CDATA[<p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p>
 <p>书中阐述了三种驱动力：</p>
 <p><strong>驱动力1.0</strong>，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第一驱动力。</p>
 <p><strong>驱动力2.0</strong>，来自外在驱动，激励，KPI 考评，胡萝卜加大棒，这也是绝大多数公司采取的驱动方式；绝大多数人可能终身在第二驱动力范畴内，找到一家合适的公司，一个还可以的工作，薪水不错，给点激励就努力一点，激励不够就磨一下洋工。</p>
@@ -363,153 +206,87 @@
 <p>附平克的TED演讲</p>
 <p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="external">http://www.ted.com/talks/dan_pink_on_motivation</a></p>
 <p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="external">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/22/Drive/" data-id="cixcznvf20000ojaxpmzwrut8" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/10/22/Drive/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &raquo;</a>
-  </nav>
-</section>
-        
-          <aside id="sidebar">
-  
+]]></content>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/12/24/Https-introduce/">Https小结</a>
-          </li>
-        
-          <li>
-            <a href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/22/Drive/">读后感：驱动力</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
+    <summary type="html">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programing/">programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/thoughts/">thoughts</a></li></ul>
-    </div>
-  </div>
-
-
-  
+      &lt;p&gt;上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。&lt;/p&gt;
+&lt;p&gt;书中阐述了三种驱动力：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;驱动力1.0&lt;/strong&gt;，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    </summary>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner" style="text-align: center;">
-      <a href="http://weibo.com/378910504" rel="external nofollow" style="text-decoration:none;">
-	<span class="fa-stack fa-lg" style="color: white;">
-	 	<i class="fa fa-circle fa-stack-2x"></i>
-		<i class="fa fa-weibo fa-stack-1x fa-inverse" style="color: black;"></i>
-	</span>
-      </a>
-      <a href="https://instagram.com/vurtnec" rel="external nofollow" style="text-decoration:none;">
-	<span class="fa-stack fa-lg" style="color: white;">
-	 	<i class="fa fa-circle fa-stack-2x"></i>
-		<i class="fa fa-instagram fa-stack-1x fa-inverse" style="color: black;"></i>
-	</span>
-      </a>
-      <a href="hhttps://github.com/vurtnec" rel="external nofollow" style="text-decoration:none;">
-	<span class="fa-stack fa-lg" style="color: white;">
-	 	<i class="fa fa-circle fa-stack-2x"></i>
-		<i class="fa fa-github fa-stack-1x fa-inverse" style="color: black;"></i>
-	</span>
-      </a>
-
-      &copy; 2016 Zachary Hou<br>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+      <category term="thoughts" scheme="http://blog.vurtnec.com/categories/thoughts/"/>
     
-<script>
-  var disqus_shortname = 'vurtnec';
+    
+  </entry>
   
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
-
-
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+  <entry>
+    <title>读后感：Soft Skills</title>
+    <link href="http://blog.vurtnec.com/2016/10/16/Soft-skills/"/>
+    <id>http://blog.vurtnec.com/2016/10/16/Soft-skills/</id>
+    <published>2016-10-15T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。</p>
+<p>这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书有着不少缺点，妄图面面俱到，结果却都浅尝即止，但它依旧是一本值得一读的好书。</p>
+<p>说说优点吧，书里讲的道理其实谁都懂，但是在这个浮躁的社会，生活节奏越来越快，大家忙于工作很少有时间静下心来思考，思考生活的方方面面，本书其实就将一些很重要却又容易被人遗忘的道理有条理的整理出来。</p>
+<h3 id="职业发展"><a href="#职业发展" class="headerlink" title="职业发展"></a>职业发展</h3><p><strong><em>The driven force of a career must come form the individual.</em></strong></p>
+<p>职业生涯属于个人，很多人不明白自己想要什么，随波逐流，一个人在职业生涯明确自己的目标，知道自己想要什么尤其重要。</p>
+<h3 id="自我营销"><a href="#自我营销" class="headerlink" title="自我营销"></a>自我营销</h3><p><strong><em>At its core, marketing is just connecting a product or service with someone who wants or needs that product or service.</em></strong></p>
+<p>在程序员心中营销的名声其实并不好，这也是我现在不爱发朋友圈的原因，总觉得朋友圈的意义早已变成了一个炫耀的平台，而不是分享身边的美好。</p>
+<p>同时切记陷入林黛玉困境，吴军博士前几天刚聊了对10000个小时的理解，随着程序员coding水平的上升，面也会越来越窄，到最后身边的人谁都瞧不起，生活在自己的世界里，哪怕自己再牛也无人知晓。本书也一直在讲述一个观点，读书，自我学习的最后一步永远是分享，成为人师，帮助他人也是帮助自己。</p>
+<p>所以对于程序员，博客永远说是绝佳的营销手段。现在国内前端开发的大牛们，似乎个个都是老博主。</p>
+<h3 id="自我学习"><a href="#自我学习" class="headerlink" title="自我学习"></a>自我学习</h3><p>身边的不少朋友总是认为大学毕业之后我们再也不用拾起书本，甚至对我会在空余时间看书嗤之以鼻。</p>
+<p>我们走出学校，学习就变成了自己的事，没人会像老师一样督促你，引导你。网上有句话说，一个人的成就取决于下班之后的几个小时，这点其实我非常认同，而学会学习是teach yourself的核心技能。</p>
+<h3 id="生产效率"><a href="#生产效率" class="headerlink" title="生产效率"></a>生产效率</h3><p>外行静坐等待灵感，其他人则唤起激情努力工作。  ?? 斯蒂芬 金</p>
+<p><strong><em>No more Procrastination</em></strong>, 做一个行动主义，工作之中学会专注，工作之外学会找寻各种工具来节省重复工作时间。</p>
+<p><strong><em>Find your time wasters.</em></strong></p>
+<p>戒掉电视，少刷微博吧，好好想一想，时间都去哪了。戒掉那些耗费大把时间而又毫无意义的日常行为。</p>
+<h3 id="FINANCIAL-FITNESS-SPIRIT"><a href="#FINANCIAL-FITNESS-SPIRIT" class="headerlink" title="FINANCIAL, FITNESS, SPIRIT"></a>FINANCIAL, FITNESS, SPIRIT</h3><p>理财，健身和心态，好的身体，好的心态才能更好的工作，更好的生活，学会理财可以让我们更好的管理自己的财产，工资不是一个人所有的财产。</p>
+<p>人的身体就就是人的灵魂的最好写照。</p>
+<p>总之，书中的道理人人都懂，但是如何看待这些观点，如何执行就要看自己了。    </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。&lt;/p&gt;
+&lt;p&gt;这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书
+    
+    </summary>
+    
+      <category term="thoughts" scheme="http://blog.vurtnec.com/categories/thoughts/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>简单Git branch管理策略</title>
+    <link href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/"/>
+    <id>http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/</id>
+    <published>2015-05-29T16:00:00.000Z</published>
+    <updated>2016-12-31T06:32:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><img src="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Git branch"></p>
+<h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
+<h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
+<h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
+<h3 id="develop-branch"><a href="#develop-branch" class="headerlink" title="develop branch"></a>develop branch</h3><p>开发分支，一般来说会在每个sprint或者phrase的时候搭建一个初始develop branch出来。</p>
+<h3 id="feature-branch"><a href="#feature-branch" class="headerlink" title="feature branch"></a>feature branch</h3><p>每个开发在接到一个新的feature task时，就根据此branch搭建一个自己的feature branch出来进行开发。完成之后将本地代码push带远程服务器对应的feature branch上，在创建pull request到develop branch上去，code review就是在此时时进行（一般来说当功能做完并测试之后，该branch将会删除）。</p>
+<h3 id="bugfix-branch"><a href="#bugfix-branch" class="headerlink" title="bugfix branch"></a>bugfix branch</h3><p>跟feature branch相同，主要用于修复做新功能时产生的bug。</p>
+<p>这种策略对开发有一个很重要的要求就是，每个开发必须对自己的feature branch负责，从创建新的feature branch开始，编码，单元测试，到最后pull request通过，merge进去develop branch之后任务才算完整。</p>
+<p>我的理解难免会有不对的地方，如果有什么建议请提出来共同改进。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。&lt;br&gt;git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。&lt;br&gt;&lt;img src=&quot;http://img.blo
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
+    
+    
+  </entry>
+  
+</feed>
