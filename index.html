@@ -50,6 +50,12 @@
         
           <a class="main-nav-link" href="/archives">Archives</a>
         
+          <a class="main-nav-link" href="/categories/programing">Programing</a>
+        
+          <a class="main-nav-link" href="/categories/photography">Photography</a>
+        
+          <a class="main-nav-link" href="/categories/thoughts">Thoughts</a>
+        
       </nav>
       <nav id="sub-nav">
         
@@ -65,6 +71,196 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-idea基本配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/07/idea基本配置/" class="article-date">
+  <time datetime="2018-06-06T16:00:00.000Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/07/idea基本配置/">idea基本配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）"><a href="#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）" class="headerlink" title="主要文件介绍（\JetBrains\IntelliJ IDEA 2017.3.4\bin）"></a>主要文件介绍（<installationpath>\JetBrains\IntelliJ IDEA 2017.3.4\bin）</installationpath></h3><ul>
+<li>idea.exe 文件是 IntelliJ IDEA 32 位的可行执行文件，IntelliJ IDEA 安装完默认发送到桌面的也就是这个执行文件的快捷方式。</li>
+<li>idea.exe.vmoptions 文件是 IntelliJ IDEA 32 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
+<li>idea64.exe 文件是 IntelliJ IDEA 64 位的可行执行文件，要求必须电脑上装有 JDK 64 位版本。64 位的系统也是建议使用该文件。</li>
+<li>idea64.exe.vmoptions 文件是 IntelliJ IDEA 64 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
+<li>idea.properties 文件是 IntelliJ IDEA 的一些属性配置文件，具体配置修改会下面进行专门讲解。</li>
+</ul>
+<h3 id="idea64-exe-vmoptions"><a href="#idea64-exe-vmoptions" class="headerlink" title="idea64.exe.vmoptions"></a>idea64.exe.vmoptions</h3><p>64 位修改idea64.exe.vmoptions ，如果你是 32 位的系统你应该修改的是 idea.exe.vmoptions 文件里面的内容，但是由于 32 位系统内存一般都是 2G 左右的，所以也没有多大空间可以调整，所以一般无需调整的。<br>修改的原则主要是根据自己机器的内存情况来判断的，我个人是建议 8G 以下的机子或是静态页面开发者都是无需修改的。如果你是开发大型项目、Java 项目或是 Android 项目，并且内存大于 8G，建议进行修改，常修改的就是下面 4 个参数，我这里主要以我的机子会例进行建议，每个人机子情况不一，这里也只是做一个引子，最好的调整方式是你可以根据 jconsole 这类工具进行观察后个性化调整。</p>
+<ul>
+<li>-Xms128m，16 G 内存的机器可尝试设置为 -Xms512m</li>
+<li>-Xmx750m，16 G 内存的机器可尝试设置为 -Xmx1500m</li>
+<li>-XX:MaxPermSize=350m，16G 内存的机器可尝试设置为 -XX:MaxPermSize=500m</li>
+<li>-XX:ReservedCodeCacheSize=225m，16G 内存的机器可尝试设置为 -XX:ReservedCodeCacheSize=500m</li>
+</ul>
+<h3 id="idea-properties"><a href="#idea-properties" class="headerlink" title="idea.properties"></a>idea.properties</h3><p>IntelliJ IDEA 一些属性配置，没有 32 位和 64 位之分，修改原则主要根据个人对 IntelliJ IDEA 的个性化配置情况来分析。常修改的就是下面 4 个参数：</p>
+<ul>
+<li>idea.config.path=${user.home}/.IntelliJIdea/config，该属性主要用于指向 IntelliJ IDEA 的个性化配置目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。</li>
+<li>idea.system.path=${user.home}/.IntelliJIdea/system，该属性主要用于指向 IntelliJ IDEA 的系统文件目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。如果你的项目很多，则该目录会很大，如果你的 C 盘空间不够的时候，还是建议把该目录转移到其他盘符下。</li>
+<li>idea.max.intellisense.filesize=2500，该属性主要用于提高在编辑大文件时候的代码帮助。IntelliJ IDEA 在编辑大文件的时候还是很容易卡顿的。</li>
+<li>idea.cycle.buffer.size=1024，该属性主要用于控制控制台输出缓存。有遇到一些项目开启很多输出，控制台很快就被刷满了没办法再自动输出后面内容，这种项目建议增大该值或是直接禁用掉，禁用语句 idea.cycle.buffer.size=disabled。</li>
+</ul>
+<h3 id="配置文件同步"><a href="#配置文件同步" class="headerlink" title="配置文件同步"></a>配置文件同步</h3><p>创建一个新的git project来同步文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2018/06/07/idea基本配置/" data-id="cji4k52qx000hypax6gbiy58k" class="article-share-link">Share</a>
+      
+        <a href="http://blog.vurtnec.com/2018/06/07/idea基本配置/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Index improvment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/21/Index improvment/" class="article-date">
+  <time datetime="2017-12-20T16:00:00.000Z" itemprop="datePublished">2017-12-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/21/Index improvment/">Index improvement</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Index-improvement"><a href="#Index-improvement" class="headerlink" title="Index improvement"></a>Index improvement</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Todays topic is about index improvment, so first we need to know some backgrounds.</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>We have more than 100,000 products in production, before the full index will take almost 2 hours, so client only build index once in each day. The issue is if business change some data before do a idnex, it will cause PLP data is not match with PDP.</p>
+<p>So business want to reduce the index time, and they want to build index for each 2 hours.</p>
+<h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>At the same time, some of categories products have many child SKUs, like clothes, shoes categories. We only have 3 kind of properties need to display on PLP:</p>
+<ol>
+<li>Some product properties, like display name, brand.</li>
+<li>Some of properties on the product’s default SKU, like: default image.</li>
+<li>Other properties: al of the SKU colors on product, and all of the SKU price range.</li>
+</ol>
+<p>Means if a customer visit above categories, it will return so many useless SKUs with useless properties. </p>
+<p><strong>See a example: jsp_ref.</strong></p>
+<p>So business want to reduce response for those category request to improve performance.</p>
+<p>There is one thing you guys need to know：</p>
+<p>You guys should know our site only return results as product level, means each item is a product. But in our index, the each record is SKU level.</p>
+<p><strong>See a example: jsp_ref.</strong></p>
+<p>So how to implement this by Endeca:</p>
+<p>Endeca OOTB need define a aggregate property, in Falabella, we are using product.repositoryId as aggregate property, </p>
+<p>each record has a product.repositoryId property, Endeca will use this property to merge SKU as product group by this property.</p>
+<p><strong>See a example: jsp_ref.</strong></p>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>Next we need to know the process about index and request before do index improvement and after index improvement.</p>
+<h3 id="Full-index"><a href="#Full-index" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h4><ol>
+<li>Get all products by a RQL, <strong>see Component</strong>.</li>
+<li>Filter invalid products, <strong>see Component</strong>.</li>
+<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
+<li>Get data from CAS to build index.</li>
+</ol>
+<h4 id="After"><a href="#After" class="headerlink" title="After"></a>After</h4><ol>
+<li>Execute a procedure to calculate all valid product in a table， <strong>see Procedure</strong>.</li>
+<li>Get all valid products form the table, <strong>see Component</strong>.</li>
+<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
+<li>Get data from CAS to build index.</li>
+</ol>
+<h4 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h4><p>Most of time spent in step 2 and 3. in step 2, the Procedure time must less than Java code. In step 3, we removed some many useless properties to reduce inde time.</p>
+<h4 id="Disadvantage"><a href="#Disadvantage" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>Procedure is mote difficute than Java code, so the maintenance costs will increase.</p>
+<h3 id="Partial-index"><a href="#Partial-index" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Before-1"><a href="#Before-1" class="headerlink" title="Before"></a>Before</h4><ol>
+<li>Change a property by business.</li>
+<li>Descriptor listener will write a data to a OOTB table at SKU level, <strong>see Descriptor and listener</strong>.</li>
+<li>Get all SKUs from above table.</li>
+<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
+<li>Get changed data from CAS to do partial index.</li>
+</ol>
+<h4 id="After-1"><a href="#After-1" class="headerlink" title="After"></a>After</h4><ol>
+<li>Change a property by business.</li>
+<li>Descriptor listener will write a data to a new table at product level, <strong>see Descriptor and listener</strong>.</li>
+<li>Do a partial procedure to get data from above table and get all SKUs of the product to write the OOTB table.</li>
+<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
+<li>Get changed data from CAS to do partial index.</li>
+</ol>
+<p>We can find that there is no performance improvement here, the only change is we add a new table and use it as a mid-table to write data to OOTB table, the reason I will explain after.</p>
+<h3 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h3><h4 id="Before-2"><a href="#Before-2" class="headerlink" title="Before"></a>Before</h4><ol>
+<li>Send a Endeca request with a parameter as “ALL”, <strong>see the parameter</strong>.</li>
+<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
+<li>We can get all product properties and all of the SKUs properties, <strong>see Record Object</strong>.</li>
+<li>Display on site.</li>
+</ol>
+<h4 id="After-2"><a href="#After-2" class="headerlink" title="After"></a>After</h4><ol>
+<li>Add a aggregate property when build index on product, <strong>see structure and code</strong>.</li>
+<li>Send a Endeca request with a parameter as “ONE”, <strong>see the parameter</strong>.</li>
+<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
+<li>We can get all properties what we need, <strong>see Record Object</strong>.</li>
+<li>Display on site.</li>
+</ol>
+<h4 id="Advantage-1"><a href="#Advantage-1" class="headerlink" title="Advantage"></a>Advantage</h4><p>Reduce response, because we need return properties what we need.</p>
+<h4 id="Disadvantage-1"><a href="#Disadvantage-1" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>We need to change partial index logic, because each record is SKU level has a property product.aggregateData, the aggregateData property has all of the SKUs prices and colors.</p>
+<p>Like if business change a SKU A price under product A, we need do partial index for all of the SKUs under product A, this is the reason why we do partial index change in above.</p>
+<h2 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h2><h3 id="Full-index-1"><a href="#Full-index-1" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_sku_published</p>
+<h4 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUPublished in FalabellaRepository.<br>Add a new property “publishedChildSkus” on product, no need use this property, use “filteredChildSkus” to get all valid SKUs.</p>
+<h4 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PUBLISHED_SKU</p>
+<h4 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h4><p>CalculatePublishedSku</p>
+<p>IndexedItemsGroup</p>
+<p>SkuPublishManager</p>
+<p>ProductCatalogSimpleIndexingAdmin</p>
+<h3 id="Partial-index-1"><a href="#Partial-index-1" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Table-1"><a href="#Table-1" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_update_queue</p>
+<h4 id="Repository-1"><a href="#Repository-1" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUQueue in IncrementalItemQueueRepository.</p>
+<h4 id="Procedure-1"><a href="#Procedure-1" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PARTIAL_SKU</p>
+<h4 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h4><p>CalculateParitalSku</p>
+<p>ProductCatalogSimpleIndexingAdmin</p>
+<h3 id="Request-2"><a href="#Request-2" class="headerlink" title="Request"></a>Request</h3><h4 id="Component-2"><a href="#Component-2" class="headerlink" title="Component"></a>Component</h4><p>SkuAggregatedDataAccessor</p>
+<p>FBLPriceListMapPropertyAccessor</p>
+<p>ProductColorSKUsAccessor</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2017/12/21/Index improvment/" data-id="cji4k52qn0008ypaxptkxb892" class="article-share-link">Share</a>
+      
+        <a href="http://blog.vurtnec.com/2017/12/21/Index improvment/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Endeca/">Endeca</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Https-introduce" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -133,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/24/Https-introduce/" data-id="cixcznvff0004ojaxglfeb7hc" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/12/24/Https-introduce/" data-id="cji4k52qj0006ypax5tzsg280" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/12/24/Https-introduce/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -194,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cixcznvfc0003ojaxebp47l3v" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cji4k52q70001ypaxwo4c5g9v" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -250,126 +446,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/11/30/Taobao-tech/" data-id="cixcznvfm0008ojax7vksyqem" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/11/30/Taobao-tech/" data-id="cji4k52qw000fypaxj95z3k8s" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/11/30/Taobao-tech/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Eclipse-to-IntelliJ" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/31/Eclipse-to-IntelliJ/" class="article-date">
-  <time datetime="2016-10-30T16:00:00.000Z" itemprop="datePublished">2016-10-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows:  Files → Setting  → keymap  </div><div class="line">Mac:  Preference  → keymap</div></pre></td></tr></table></figure>
-<p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Main Menu  → Code  → Completion  → Basic</div></pre></td></tr></table></figure>
-<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>默认的两个试图显示其实不错，不过个人喜欢Sublime，这里推荐下:</p>
-<ol>
-<li>下载  Eclectide Monokai   主题的jar包</li>
-<li>打开 File → Import Settings → Select the jar file</li>
-<li>重启 IntelliJ</li>
-</ol>
-<p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="external">monokai-theme-intellij</a></p>
-<h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="external">http://www.tuicool.com/articles/NBRnYn</a></p>
-<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong><em>Check Style</em></strong>：导入Eclipse的xml即可。</p>
-<p><strong><em>Code Formatter</em></strong>：要在IDEA的Plugin Repositories里面搜索一个叫Eclipse Code Formatter的插件，但是貌似不支持IDEA 2016。</p>
-<p><strong><em>Getter &amp; Setter</em></strong>：这个不算插件，顶多就是个模版配置，但是也写了我好久，分享给大家：</p>
-<p><strong>Getter</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @return property value of $field.name</div><div class="line">*/</div><div class="line"></div><div class="line">public ##</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">$field.type ##</div><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</div><div class="line">#else</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</div><div class="line">#end</div><div class="line">#if ($field.boolean &amp;&amp; $field.primitive)</div><div class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</div><div class="line">    #set($name = $StringUtil.decapitalize($name))</div><div class="line">#else</div><div class="line">is##</div><div class="line">#end</div><div class="line">#else</div><div class="line">get##</div><div class="line">#end</div><div class="line">$&#123;name&#125;() &#123;</div><div class="line">return $field.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Setter</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</div><div class="line">#else</div><div class="line">    #set($paramName = $helper.getParamName($field, $project))</div><div class="line">#end</div><div class="line">/**</div><div class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @param p$paramName  value to be assigned to property $field.name</div><div class="line">*/</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</div><div class="line">#if ($field.name == $paramName)</div><div class="line">    #if (!$field.modifierStatic)</div><div class="line">    this.##</div><div class="line">    #else</div><div class="line">        $classname.##</div><div class="line">    #end</div><div class="line">#end</div><div class="line">$field.name = p$paramName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p>
-<p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="external">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
-<p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/" data-id="cixcznvf70001ojaxbra9smd1" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Drive" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/22/Drive/" class="article-date">
-  <time datetime="2016-10-21T16:00:00.000Z" itemprop="datePublished">2016-10-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/thoughts/">thoughts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/22/Drive/">读后感：驱动力</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p>
-<p>书中阐述了三种驱动力：</p>
-<p><strong>驱动力1.0</strong>，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第一驱动力。</p>
-<p><strong>驱动力2.0</strong>，来自外在驱动，激励，KPI 考评，胡萝卜加大棒，这也是绝大多数公司采取的驱动方式；绝大多数人可能终身在第二驱动力范畴内，找到一家合适的公司，一个还可以的工作，薪水不错，给点激励就努力一点，激励不够就磨一下洋工。</p>
-<p><strong>驱动力3.0</strong>，则为内在驱动，自发自主。而第三种驱动力又包括三大要素：自主、专精和目的。需要强调一下所说的「目的」：将自己正在从事的事情变换成乐趣，以兴趣最大化原则为导向而非利润最大化，把利润看做是取得成就后让人愉快的副产品。可能创业者或是有创业者心态的人都是用第三种驱动力做事情。用这种驱动力做事情的人，一定是一个最值得合作的人。</p>
-<p>所谓的科学向左，企业向右指的就是科学虽然不断印证驱动力3.0的正确性，可绝大多数企业却始终采取驱动力2.0的方式激励员工，提高生产力。<br>从个人出发，想想自己更倾向于哪一种人，可以更明白自己的定位，提高自己的工作效率。</p>
-<p>而书中从各种不同的角度举例印证驱动力3.0的正确性，两百多页完全没有必要。总的来说还是推荐快速阅读，了解大概即可，Daniel H. Pink的观点可以在其TED演讲上已经讲述：</p>
-<p>附平克的TED演讲</p>
-<p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="external">http://www.ted.com/talks/dan_pink_on_motivation</a></p>
-<p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="external">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/22/Drive/" data-id="cixcznvf20000ojaxpmzwrut8" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2016/10/22/Drive/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -395,6 +474,14 @@
       <ul>
         
           <li>
+            <a href="/2018/06/07/idea基本配置/">idea基本配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/21/Index improvment/">Index improvement</a>
+          </li>
+        
+          <li>
             <a href="/2016/12/24/Https-introduce/">Https小结</a>
           </li>
         
@@ -406,14 +493,6 @@
             <a href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
           </li>
         
-          <li>
-            <a href="/2016/10/31/Eclipse-to-IntelliJ/">Eclipse to IntelliJ IDEA</a>
-          </li>
-        
-          <li>
-            <a href="/2016/10/22/Drive/">读后感：驱动力</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -421,19 +500,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/programing/">programing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/thoughts/">thoughts</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -443,7 +512,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -475,7 +544,7 @@
 	</span>
       </a>
 
-      &copy; 2016 Zachary Hou<br>
+      &copy; 2018 Zachary Hou<br>
     </div>
   </div>
 </footer>
@@ -485,6 +554,12 @@
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/programing" class="mobile-nav-link">Programing</a>
+  
+    <a href="/categories/photography" class="mobile-nav-link">Photography</a>
+  
+    <a href="/categories/thoughts" class="mobile-nav-link">Thoughts</a>
   
 </nav>
     
