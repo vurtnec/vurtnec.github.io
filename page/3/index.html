@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: IDE | Vurtnec</title>
+  <title>Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="Stay Hungry, Stay foolish">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vurtnec">
-<meta property="og:url" content="http://blog.vurtnec.com/tags/IDE/index.html">
+<meta property="og:url" content="http://blog.vurtnec.com/page/3/index.html">
 <meta property="og:site_name" content="Vurtnec">
 <meta property="og:description" content="Stay Hungry, Stay foolish">
 <meta property="og:locale" content="default">
@@ -73,38 +73,62 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/06/07/Idea Configuration/" class="archive-article-date">
-  <time datetime="2018-06-06T16:00:00.000Z" itemprop="datePublished">Jun 7</time>
+    <article id="post-Simple-git-branch-management" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/30/Simple-git-branch-management/" class="article-date">
+  <time datetime="2015-05-29T16:00:00.000Z" itemprop="datePublished">2015-05-30</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/07/Idea Configuration/">Idea 基本配置</a>
+      <a class="article-title" href="/2015/05/30/Simple-git-branch-management/">简单Git branch管理策略</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p>
+<h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
+<h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
+<h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
+<h3 id="develop-branch"><a href="#develop-branch" class="headerlink" title="develop branch"></a>develop branch</h3><p>开发分支，一般来说会在每个sprint或者phrase的时候搭建一个初始develop branch出来。</p>
+<h3 id="feature-branch"><a href="#feature-branch" class="headerlink" title="feature branch"></a>feature branch</h3><p>每个开发在接到一个新的feature task时，就根据此branch搭建一个自己的feature branch出来进行开发。完成之后将本地代码push带远程服务器对应的feature branch上，在创建pull request到develop branch上去，code review就是在此时时进行（一般来说当功能做完并测试之后，该branch将会删除）。</p>
+<h3 id="bugfix-branch"><a href="#bugfix-branch" class="headerlink" title="bugfix branch"></a>bugfix branch</h3><p>跟feature branch相同，主要用于修复做新功能时产生的bug。</p>
+<p>这种策略对开发有一个很重要的要求就是，每个开发必须对自己的feature branch负责，从创建新的feature branch开始，编码，单元测试，到最后pull request通过，merge进去develop branch之后任务才算完整。</p>
+<p>我的理解难免会有不对的地方，如果有什么建议请提出来共同改进。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/" data-id="cjiafc4500006d8z3n1efkbem" class="article-share-link">Share</a>
+      
+        <a href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 </section>
         
           <aside id="sidebar">

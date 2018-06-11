@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://blog.vurtnec.com/page/2/index.html">
 <meta property="og:site_name" content="Vurtnec">
 <meta property="og:description" content="Stay Hungry, Stay foolish">
+<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vurtnec">
 <meta name="twitter:description" content="Stay Hungry, Stay foolish">
@@ -72,6 +73,121 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Http-method-definitions" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/Http-method-definitions/" class="article-date">
+  <time datetime="2016-12-14T16:00:00.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
+<p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="noopener">HTTP RFC, Method Definitions</a>.</p>
+<p>先说两个概念，<strong>安全方法</strong>和<strong>幂等方法</strong>。</p>
+<h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。<br>同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p>
+<h4 id="幂等方法"><a href="#幂等方法" class="headerlink" title="幂等方法"></a><strong>幂等方法</strong></h4><p>幂等是数学里面的一个概念，具体可参见<a href="http://baike.baidu.com/link?url=0bAavXkdOTjl7azRk4X6iHdhDoY2sV3OWrT8tFXM8D2usJSZKqj_AynB81Uu7p2ZfVpYXLF5yrTNoF74uAtgi-e1XenogYR3dof2RfFw3me" target="_blank" rel="noopener">百度百科</a>，这里指的是一个请求如果访问N次产生的副作用和访问一次的副作用相同，我们可以认为是幂等的。</p>
+<p>所以我们可以认为安全方法一定是幂等的，但是幂等不一定是安全的。</p>
+<hr>
+<h5 id="什么是HTTP-Entity？"><a href="#什么是HTTP-Entity？" class="headerlink" title="什么是HTTP Entity？"></a><strong>什么是HTTP Entity？</strong></h5><p>我们知道一个Http请求包含了报文首部和主体部分，中间以空行隔开。而通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。<br><a href="https://i.loli.net/2018/06/11/5b1e152fc64b3.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e152fc64b3.png" alt="Http header.png"></a></p>
+<h5 id="GET-Method"><a href="#GET-Method" class="headerlink" title="GET Method"></a><strong>GET Method</strong></h5><p>GET属于安全方法，代表从指定的URI以实体（Entity）形式获取信息。也就是说，如果请求的资源说文本，则保持原样返回，如果说一段程序，则返回执行后的输出结果，而不是返回源程序。</p>
+<h5 id="POST-Method"><a href="#POST-Method" class="headerlink" title="POST Method"></a><strong>POST Method</strong></h5><p>POST方法允许请求中包含实体作为从属的Request-URI发送给服务器。简而言之就是一个POST的请求包含了报文首部和实体主体传送给服务器，而且POST既不是安全，也不是幂等的方法。</p>
+<h5 id="PUT-Method"><a href="#PUT-Method" class="headerlink" title="PUT Method"></a><strong>PUT Method</strong></h5><p>PUt方法则用于将请求中包含的实体储存在Request-URI下。它和POST的根本区别在于：</p>
+<ol>
+<li>PUT方法是幂等的，而POST不是。</li>
+<li>PUT方法该URI不得不处理该实体，如果服务器期望交由其他URI处理，则必须返回30X告知用户，由用户来判断是否跳转。而POST可以由服务器决定是否交给其他网关处理，并最终返回Response。<h5 id="DELETE-Method"><a href="#DELETE-Method" class="headerlink" title="DELETE Method"></a><strong>DELETE Method</strong></h5>DELETE方法与PUT刚好相反，用于删除由Request-URI标识的资源。同样DELETE是幂等的。</li>
+</ol>
+<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p>
+<p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/" data-id="cjiafc452000ad8z3yqno6uo6" class="article-share-link">Share</a>
+      
+        <a href="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Taobao-tech" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/30/Taobao-tech/" class="article-date">
+  <time datetime="2016-11-29T16:00:00.000Z" itemprop="datePublished">2016-11-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/thoughts/">thoughts</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p>
+<p>正如序章所说，这根本就不是算是一本技术书记， 技术书很容易写成催眠的读物，这本书一开始作者就没有当做技术书来写。所以读者也大可抱着看一本淘宝历史的心态来阅读此书。</p>
+<p>里面有一句话说的让我特别有感触，淘宝从最开始的主动改版，创新，到最后需求，规模的不断扩大，不得不被动创新，这一步步走来和我这几年在公司项目的不断重构尤其相似，恰好我所处的项目也是电商项目。以下我针对此书总结的淘宝技术发展阶段：</p>
+<ol>
+<li>最初的淘宝是一套买来的 LAMP（Linux+Apache+MySQL+PHP）架构系统，一个很常见的网站架构模型。客户化也只是拆分成了一个主库，两个从库，数据库读写分离这些最基本的改进。</li>
+<li>到接下来简单架构的升级，把数据库换成了Oracle，并使用了一个开源的连接池代理服务SQL Relay，买了NAS作为数据库的存储设备，加上Oracle RAC（Real Application Clusters）来实现负载均衡。</li>
+<li>以及作者所说的脱胎换骨的升级：PHP替换称为Java，打造一个自己的WebX MVC框架，持久层支使用ibatis，控制层则是EJB和Spring，引入搜索引擎iSearch，以及后来开始使用IBM小型机，EMC存储，引入缓存系统Berkeley DB，CDN等等。</li>
+<li>再之后的随着规模扩大，成本大幅度增加，开始自主研发出淘宝文件系统TFS和淘宝KV缓存系统Tair。</li>
+<li>分布式电子商务系统的产生，服务化后使用的高性能服务框架HFS和消息中间件Notify，分布式数据访问层TDDL，TBSession框架。</li>
+</ol>
+<p>其实可以看出来作者很多也是点到为止，如果读者感兴趣完全就可以根据作者给的各种技术的名字找相关资料阅读。</p>
+<p>最后在聊聊自己，在一个电子商务项目三年了，前前后后重构了三次，最开始参与搜索引擎的替换，摸索中前进，到后来去除JSP里面所有业务逻辑（没办法，零几年的项目大量逻辑直接写在JSP），公司内部自己创造的MVC框架，再到最后一年整个Checkout重构，前后端分离，使用React，去除form表单，所有请求使用Rest。这中间踩过的雷和坑也是一言难尽，总之之后会单独歇歇这几年来项目重构中间的技术变化。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.vurtnec.com/2016/11/30/Taobao-tech/" data-id="cjiafc45b000ld8z3d6lj0s1l" class="article-share-link">Share</a>
+      
+        <a href="http://blog.vurtnec.com/2016/11/30/Taobao-tech/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Eclipse-to-IntelliJ" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/31/Eclipse-to-IntelliJ/" class="article-date">
@@ -100,32 +216,32 @@
       
         <p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
 <h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows:  Files → Setting  → keymap  </div><div class="line">Mac:  Preference  → keymap</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows:  Files → Setting  → keymap  </span><br><span class="line">Mac:  Preference  → keymap</span><br></pre></td></tr></table></figure>
 <p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Main Menu  → Code  → Completion  → Basic</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Main Menu  → Code  → Completion  → Basic</span><br></pre></td></tr></table></figure>
 <h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>默认的两个试图显示其实不错，不过个人喜欢Sublime，这里推荐下:</p>
 <ol>
 <li>下载  Eclectide Monokai   主题的jar包</li>
 <li>打开 File → Import Settings → Select the jar file</li>
 <li>重启 IntelliJ</li>
 </ol>
-<p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="external">monokai-theme-intellij</a></p>
-<h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="external">http://www.tuicool.com/articles/NBRnYn</a></p>
+<p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="noopener">monokai-theme-intellij</a></p>
+<h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="noopener">http://www.tuicool.com/articles/NBRnYn</a></p>
 <h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong><em>Check Style</em></strong>：导入Eclipse的xml即可。</p>
 <p><strong><em>Code Formatter</em></strong>：要在IDEA的Plugin Repositories里面搜索一个叫Eclipse Code Formatter的插件，但是貌似不支持IDEA 2016。</p>
 <p><strong><em>Getter &amp; Setter</em></strong>：这个不算插件，顶多就是个模版配置，但是也写了我好久，分享给大家：</p>
 <p><strong>Getter</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @return property value of $field.name</div><div class="line">*/</div><div class="line"></div><div class="line">public ##</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">$field.type ##</div><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</div><div class="line">#else</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</div><div class="line">#end</div><div class="line">#if ($field.boolean &amp;&amp; $field.primitive)</div><div class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</div><div class="line">    #set($name = $StringUtil.decapitalize($name))</div><div class="line">#else</div><div class="line">is##</div><div class="line">#end</div><div class="line">#else</div><div class="line">get##</div><div class="line">#end</div><div class="line">$&#123;name&#125;() &#123;</div><div class="line">return $field.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> property value of $field.name</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">public ##</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">$field.type ##</span><br><span class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</span><br><span class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</span><br><span class="line">#else</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</span><br><span class="line">#end</span><br><span class="line">#if ($field.boolean &amp;&amp; $field.primitive)</span><br><span class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</span><br><span class="line">    #set($name = $StringUtil.decapitalize($name))</span><br><span class="line">#else</span><br><span class="line">is##</span><br><span class="line">#end</span><br><span class="line">#else</span><br><span class="line">get##</span><br><span class="line">#end</span><br><span class="line">$&#123;name&#125;() &#123;</span><br><span class="line"><span class="keyword">return</span> $field.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>Setter</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</div><div class="line">#else</div><div class="line">    #set($paramName = $helper.getParamName($field, $project))</div><div class="line">#end</div><div class="line">/**</div><div class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @param p$paramName  value to be assigned to property $field.name</div><div class="line">*/</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</div><div class="line">#if ($field.name == $paramName)</div><div class="line">    #if (!$field.modifierStatic)</div><div class="line">    this.##</div><div class="line">    #else</div><div class="line">        $classname.##</div><div class="line">    #end</div><div class="line">#end</div><div class="line">$field.name = p$paramName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</span><br><span class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</span><br><span class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</span><br><span class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</span><br><span class="line">#else</span><br><span class="line">    #set($paramName = $helper.getParamName($field, $project))</span><br><span class="line">#end</span><br><span class="line">/**</span><br><span class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</span><br><span class="line">*</span><br><span class="line">* @param p$paramName  value to be assigned to property $field.name</span><br><span class="line">*/</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</span><br><span class="line">#if ($field.name == $paramName)</span><br><span class="line">    #if (!$field.modifierStatic)</span><br><span class="line">    this.##</span><br><span class="line">    #else</span><br><span class="line">        $classname.##</span><br><span class="line">    #end</span><br><span class="line">#end</span><br><span class="line">$field.name = p$paramName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p>
-<p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="external">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
+<p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="noopener">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
 <p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/" data-id="cji4k52qd0003ypaxykzreiu9" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/" data-id="cjiafc44s0001d8z3br5slng4" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -171,13 +287,13 @@
 <p>所谓的科学向左，企业向右指的就是科学虽然不断印证驱动力3.0的正确性，可绝大多数企业却始终采取驱动力2.0的方式激励员工，提高生产力。<br>从个人出发，想想自己更倾向于哪一种人，可以更明白自己的定位，提高自己的工作效率。</p>
 <p>而书中从各种不同的角度举例印证驱动力3.0的正确性，两百多页完全没有必要。总的来说还是推荐快速阅读，了解大概即可，Daniel H. Pink的观点可以在其TED演讲上已经讲述：</p>
 <p>附平克的TED演讲</p>
-<p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="external">http://www.ted.com/talks/dan_pink_on_motivation</a></p>
-<p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="external">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>
+<p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="noopener">http://www.ted.com/talks/dan_pink_on_motivation</a></p>
+<p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="noopener">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/22/Drive/" data-id="cji4k52q10000ypaxcpkinhw0" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/10/22/Drive/" data-id="cjiafc44x0004d8z30hrelbf1" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/10/22/Drive/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -237,60 +353,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2016/10/16/Soft-skills/" data-id="cji4k52qp000bypaxdxvi5uit" class="article-share-link">Share</a>
+      <a data-url="http://blog.vurtnec.com/2016/10/16/Soft-skills/" data-id="cjiafc457000fd8z3u8mcsmjm" class="article-share-link">Share</a>
       
         <a href="http://blog.vurtnec.com/2016/10/16/Soft-skills/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Simple-git-branch-management" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/30/Simple-git-branch-management/" class="article-date">
-  <time datetime="2015-05-29T16:00:00.000Z" itemprop="datePublished">2015-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/30/Simple-git-branch-management/">简单Git branch管理策略</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><img src="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Git branch"></p>
-<h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
-<h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
-<h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
-<h3 id="develop-branch"><a href="#develop-branch" class="headerlink" title="develop branch"></a>develop branch</h3><p>开发分支，一般来说会在每个sprint或者phrase的时候搭建一个初始develop branch出来。</p>
-<h3 id="feature-branch"><a href="#feature-branch" class="headerlink" title="feature branch"></a>feature branch</h3><p>每个开发在接到一个新的feature task时，就根据此branch搭建一个自己的feature branch出来进行开发。完成之后将本地代码push带远程服务器对应的feature branch上，在创建pull request到develop branch上去，code review就是在此时时进行（一般来说当功能做完并测试之后，该branch将会删除）。</p>
-<h3 id="bugfix-branch"><a href="#bugfix-branch" class="headerlink" title="bugfix branch"></a>bugfix branch</h3><p>跟feature branch相同，主要用于修复做新功能时产生的bug。</p>
-<p>这种策略对开发有一个很重要的要求就是，每个开发必须对自己的feature branch负责，从创建新的feature branch开始，编码，单元测试，到最后pull request通过，merge进去develop branch之后任务才算完整。</p>
-<p>我的理解难免会有不对的地方，如果有什么建议请提出来共同改进。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/" data-id="cji4k52qg0005ypax2ta8ynhz" class="article-share-link">Share</a>
-      
-        <a href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -303,7 +368,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &raquo;</a>
   </nav>
 </section>
         
@@ -316,23 +381,23 @@
       <ul>
         
           <li>
-            <a href="/2018/06/07/idea基本配置/">idea基本配置</a>
+            <a href="/2018/06/07/Idea Configuration/">Idea 基本配置</a>
           </li>
         
           <li>
-            <a href="/2017/12/21/Index improvment/">Index improvement</a>
+            <a href="/2017/12/21/Spring boot/">Spring Boot</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/21/Index Improvment/">Index Improvement</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/07/markdown - sublime/">Sublime中配置Markdown</a>
           </li>
         
           <li>
             <a href="/2016/12/24/Https-introduce/">Https小结</a>
-          </li>
-        
-          <li>
-            <a href="/2016/12/15/Http-method-definitions/">HTTP-方法定义</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/30/Taobao-tech/">读后感：淘宝技术这十年</a>
           </li>
         
       </ul>
@@ -344,7 +409,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -354,7 +419,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

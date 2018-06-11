@@ -2,10 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Vurtnec</title>
   
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.vurtnec.com/"/>
-  <updated>2018-06-07T13:03:18.000Z</updated>
+  <updated>2018-06-11T15:15:47.418Z</updated>
   <id>http://blog.vurtnec.com/</id>
   
   <author>
@@ -16,39 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>idea基本配置</title>
-    <link href="http://blog.vurtnec.com/2018/06/07/idea%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/"/>
-    <id>http://blog.vurtnec.com/2018/06/07/idea基本配置/</id>
+    <title>Idea 基本配置</title>
+    <link href="http://blog.vurtnec.com/2018/06/07/Idea%20Configuration/"/>
+    <id>http://blog.vurtnec.com/2018/06/07/Idea Configuration/</id>
     <published>2018-06-06T16:00:00.000Z</published>
-    <updated>2018-06-07T13:03:18.000Z</updated>
+    <updated>2018-06-11T15:15:47.418Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）"><a href="#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）" class="headerlink" title="主要文件介绍（\JetBrains\IntelliJ IDEA 2017.3.4\bin）"></a>主要文件介绍（<installationpath>\JetBrains\IntelliJ IDEA 2017.3.4\bin）</installationpath></h3><ul>
-<li>idea.exe 文件是 IntelliJ IDEA 32 位的可行执行文件，IntelliJ IDEA 安装完默认发送到桌面的也就是这个执行文件的快捷方式。</li>
-<li>idea.exe.vmoptions 文件是 IntelliJ IDEA 32 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
-<li>idea64.exe 文件是 IntelliJ IDEA 64 位的可行执行文件，要求必须电脑上装有 JDK 64 位版本。64 位的系统也是建议使用该文件。</li>
-<li>idea64.exe.vmoptions 文件是 IntelliJ IDEA 64 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
-<li>idea.properties 文件是 IntelliJ IDEA 的一些属性配置文件，具体配置修改会下面进行专门讲解。</li>
-</ul>
-<h3 id="idea64-exe-vmoptions"><a href="#idea64-exe-vmoptions" class="headerlink" title="idea64.exe.vmoptions"></a>idea64.exe.vmoptions</h3><p>64 位修改idea64.exe.vmoptions ，如果你是 32 位的系统你应该修改的是 idea.exe.vmoptions 文件里面的内容，但是由于 32 位系统内存一般都是 2G 左右的，所以也没有多大空间可以调整，所以一般无需调整的。<br>修改的原则主要是根据自己机器的内存情况来判断的，我个人是建议 8G 以下的机子或是静态页面开发者都是无需修改的。如果你是开发大型项目、Java 项目或是 Android 项目，并且内存大于 8G，建议进行修改，常修改的就是下面 4 个参数，我这里主要以我的机子会例进行建议，每个人机子情况不一，这里也只是做一个引子，最好的调整方式是你可以根据 jconsole 这类工具进行观察后个性化调整。</p>
-<ul>
-<li>-Xms128m，16 G 内存的机器可尝试设置为 -Xms512m</li>
-<li>-Xmx750m，16 G 内存的机器可尝试设置为 -Xmx1500m</li>
-<li>-XX:MaxPermSize=350m，16G 内存的机器可尝试设置为 -XX:MaxPermSize=500m</li>
-<li>-XX:ReservedCodeCacheSize=225m，16G 内存的机器可尝试设置为 -XX:ReservedCodeCacheSize=500m</li>
-</ul>
-<h3 id="idea-properties"><a href="#idea-properties" class="headerlink" title="idea.properties"></a>idea.properties</h3><p>IntelliJ IDEA 一些属性配置，没有 32 位和 64 位之分，修改原则主要根据个人对 IntelliJ IDEA 的个性化配置情况来分析。常修改的就是下面 4 个参数：</p>
-<ul>
-<li>idea.config.path=${user.home}/.IntelliJIdea/config，该属性主要用于指向 IntelliJ IDEA 的个性化配置目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。</li>
-<li>idea.system.path=${user.home}/.IntelliJIdea/system，该属性主要用于指向 IntelliJ IDEA 的系统文件目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。如果你的项目很多，则该目录会很大，如果你的 C 盘空间不够的时候，还是建议把该目录转移到其他盘符下。</li>
-<li>idea.max.intellisense.filesize=2500，该属性主要用于提高在编辑大文件时候的代码帮助。IntelliJ IDEA 在编辑大文件的时候还是很容易卡顿的。</li>
-<li>idea.cycle.buffer.size=1024，该属性主要用于控制控制台输出缓存。有遇到一些项目开启很多输出，控制台很快就被刷满了没办法再自动输出后面内容，这种项目建议增大该值或是直接禁用掉，禁用语句 idea.cycle.buffer.size=disabled。</li>
-</ul>
-<h3 id="配置文件同步"><a href="#配置文件同步" class="headerlink" title="配置文件同步"></a>配置文件同步</h3><p>创建一个新的git project来同步文件</p>
-]]></content>
+    <content type="html"><![CDATA[<h3 id="主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）"><a href="#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）" class="headerlink" title="主要文件介绍（\JetBrains\IntelliJ IDEA 2017.3.4\bin）"></a>主要文件介绍（<installationpath>\JetBrains\IntelliJ IDEA 2017.3.4\bin）</installationpath></h3><ul><li>idea.exe 文件是 IntelliJ IDEA 32 位的可行执行文件，IntelliJ IDEA 安装完默认发送到桌面的也就是这个执行文件的快捷方式。</li><li>idea.exe.vmoptions 文件是 IntelliJ IDEA 32 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li><li>idea64.exe 文件是 IntelliJ IDEA 64 位的可行执行文件，要求必须电脑上装有 JDK 64 位版本。64 位的系统也是建议使用该文件。</li><li>idea64.exe.vmoptions 文件是 IntelliJ IDEA 64 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li><li>idea.properties 文件是 IntelliJ IDEA 的一些属性配置文件，具体配置修改会下面进行专门讲解。</li></ul><h3 id="idea64-exe-vmoptions"><a href="#idea64-exe-vmoptions" class="headerlink" title="idea64.exe.vmoptions"></a>idea64.exe.vmoptions</h3><p>64 位修改idea64.exe.vmoptions ，如果你是 32 位的系统你应该修改的是 idea.exe.vmoptions 文件里面的内容，但是由于 32 位系统内存一般都是 2G 左右的，所以也没有多大空间可以调整，所以一般无需调整的。<br>修改的原则主要是根据自己机器的内存情况来判断的，我个人是建议 8G 以下的机子或是静态页面开发者都是无需修改的。如果你是开发大型项目、Java 项目或是 Android 项目，并且内存大于 8G，建议进行修改，常修改的就是下面 4 个参数，我这里主要以我的机子会例进行建议，每个人机子情况不一，这里也只是做一个引子，最好的调整方式是你可以根据 jconsole 这类工具进行观察后个性化调整。</p><ul><li>-Xms128m，16 G 内存的机器可尝试设置为 -Xms512m</li><li>-Xmx750m，16 G 内存的机器可尝试设置为 -Xmx1500m</li><li>-XX:MaxPermSize=350m，16G 内存的机器可尝试设置为 -XX:MaxPermSize=500m</li><li>-XX:ReservedCodeCacheSize=225m，16G 内存的机器可尝试设置为 -XX:ReservedCodeCacheSize=500m</li></ul><h3 id="idea-properties"><a href="#idea-properties" class="headerlink" title="idea.properties"></a>idea.properties</h3><p>IntelliJ IDEA 一些属性配置，没有 32 位和 64 位之分，修改原则主要根据个人对 IntelliJ IDEA 的个性化配置情况来分析。常修改的就是下面 4 个参数：</p><ul><li>idea.config.path=${user.home}/.IntelliJIdea/config，该属性主要用于指向 IntelliJ IDEA 的个性化配置目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。</li><li>idea.system.path=${user.home}/.IntelliJIdea/system，该属性主要用于指向 IntelliJ IDEA 的系统文件目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。如果你的项目很多，则该目录会很大，如果你的 C 盘空间不够的时候，还是建议把该目录转移到其他盘符下。</li><li>idea.max.intellisense.filesize=2500，该属性主要用于提高在编辑大文件时候的代码帮助。IntelliJ IDEA 在编辑大文件的时候还是很容易卡顿的。</li><li>idea.cycle.buffer.size=1024，该属性主要用于控制控制台输出缓存。有遇到一些项目开启很多输出，控制台很快就被刷满了没办法再自动输出后面内容，这种项目建议增大该值或是直接禁用掉，禁用语句 idea.cycle.buffer.size=disabled。</li></ul><h3 id="配置文件同步"><a href="#配置文件同步" class="headerlink" title="配置文件同步"></a>配置文件同步</h3><p>创建一个新的git project来同步文件</p>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）&quot;&gt;&lt;a href=&quot;#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）&quot; class=&quot;headerlink&quot; title=&quot;主要
+      
+      
+        &lt;h3 id=&quot;主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）&quot;&gt;&lt;a href=&quot;#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）&quot; class=&quot;headerlink&quot; title=&quot;主要
+      
     
     </summary>
     
@@ -60,97 +42,49 @@
   </entry>
   
   <entry>
-    <title>Index improvement</title>
-    <link href="http://blog.vurtnec.com/2017/12/21/Index%20improvment/"/>
-    <id>http://blog.vurtnec.com/2017/12/21/Index improvment/</id>
+    <title>Spring Boot</title>
+    <link href="http://blog.vurtnec.com/2017/12/21/Spring%20boot/"/>
+    <id>http://blog.vurtnec.com/2017/12/21/Spring boot/</id>
     <published>2017-12-20T16:00:00.000Z</published>
-    <updated>2018-06-07T13:07:40.000Z</updated>
+    <updated>2018-06-11T15:31:41.030Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Index-improvement"><a href="#Index-improvement" class="headerlink" title="Index improvement"></a>Index improvement</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Todays topic is about index improvment, so first we need to know some backgrounds.</p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>We have more than 100,000 products in production, before the full index will take almost 2 hours, so client only build index once in each day. The issue is if business change some data before do a idnex, it will cause PLP data is not match with PDP.</p>
-<p>So business want to reduce the index time, and they want to build index for each 2 hours.</p>
-<h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>At the same time, some of categories products have many child SKUs, like clothes, shoes categories. We only have 3 kind of properties need to display on PLP:</p>
-<ol>
-<li>Some product properties, like display name, brand.</li>
-<li>Some of properties on the product’s default SKU, like: default image.</li>
-<li>Other properties: al of the SKU colors on product, and all of the SKU price range.</li>
-</ol>
-<p>Means if a customer visit above categories, it will return so many useless SKUs with useless properties. </p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<p>So business want to reduce response for those category request to improve performance.</p>
-<p>There is one thing you guys need to know：</p>
-<p>You guys should know our site only return results as product level, means each item is a product. But in our index, the each record is SKU level.</p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<p>So how to implement this by Endeca:</p>
-<p>Endeca OOTB need define a aggregate property, in Falabella, we are using product.repositoryId as aggregate property, </p>
-<p>each record has a product.repositoryId property, Endeca will use this property to merge SKU as product group by this property.</p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>Next we need to know the process about index and request before do index improvement and after index improvement.</p>
-<h3 id="Full-index"><a href="#Full-index" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Get all products by a RQL, <strong>see Component</strong>.</li>
-<li>Filter invalid products, <strong>see Component</strong>.</li>
-<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
-<li>Get data from CAS to build index.</li>
-</ol>
-<h4 id="After"><a href="#After" class="headerlink" title="After"></a>After</h4><ol>
-<li>Execute a procedure to calculate all valid product in a table， <strong>see Procedure</strong>.</li>
-<li>Get all valid products form the table, <strong>see Component</strong>.</li>
-<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
-<li>Get data from CAS to build index.</li>
-</ol>
-<h4 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h4><p>Most of time spent in step 2 and 3. in step 2, the Procedure time must less than Java code. In step 3, we removed some many useless properties to reduce inde time.</p>
-<h4 id="Disadvantage"><a href="#Disadvantage" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>Procedure is mote difficute than Java code, so the maintenance costs will increase.</p>
-<h3 id="Partial-index"><a href="#Partial-index" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Before-1"><a href="#Before-1" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Change a property by business.</li>
-<li>Descriptor listener will write a data to a OOTB table at SKU level, <strong>see Descriptor and listener</strong>.</li>
-<li>Get all SKUs from above table.</li>
-<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
-<li>Get changed data from CAS to do partial index.</li>
-</ol>
-<h4 id="After-1"><a href="#After-1" class="headerlink" title="After"></a>After</h4><ol>
-<li>Change a property by business.</li>
-<li>Descriptor listener will write a data to a new table at product level, <strong>see Descriptor and listener</strong>.</li>
-<li>Do a partial procedure to get data from above table and get all SKUs of the product to write the OOTB table.</li>
-<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
-<li>Get changed data from CAS to do partial index.</li>
-</ol>
-<p>We can find that there is no performance improvement here, the only change is we add a new table and use it as a mid-table to write data to OOTB table, the reason I will explain after.</p>
-<h3 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h3><h4 id="Before-2"><a href="#Before-2" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Send a Endeca request with a parameter as “ALL”, <strong>see the parameter</strong>.</li>
-<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
-<li>We can get all product properties and all of the SKUs properties, <strong>see Record Object</strong>.</li>
-<li>Display on site.</li>
-</ol>
-<h4 id="After-2"><a href="#After-2" class="headerlink" title="After"></a>After</h4><ol>
-<li>Add a aggregate property when build index on product, <strong>see structure and code</strong>.</li>
-<li>Send a Endeca request with a parameter as “ONE”, <strong>see the parameter</strong>.</li>
-<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
-<li>We can get all properties what we need, <strong>see Record Object</strong>.</li>
-<li>Display on site.</li>
-</ol>
-<h4 id="Advantage-1"><a href="#Advantage-1" class="headerlink" title="Advantage"></a>Advantage</h4><p>Reduce response, because we need return properties what we need.</p>
-<h4 id="Disadvantage-1"><a href="#Disadvantage-1" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>We need to change partial index logic, because each record is SKU level has a property product.aggregateData, the aggregateData property has all of the SKUs prices and colors.</p>
-<p>Like if business change a SKU A price under product A, we need do partial index for all of the SKUs under product A, this is the reason why we do partial index change in above.</p>
-<h2 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h2><h3 id="Full-index-1"><a href="#Full-index-1" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_sku_published</p>
-<h4 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUPublished in FalabellaRepository.<br>Add a new property “publishedChildSkus” on product, no need use this property, use “filteredChildSkus” to get all valid SKUs.</p>
-<h4 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PUBLISHED_SKU</p>
-<h4 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h4><p>CalculatePublishedSku</p>
-<p>IndexedItemsGroup</p>
-<p>SkuPublishManager</p>
-<p>ProductCatalogSimpleIndexingAdmin</p>
-<h3 id="Partial-index-1"><a href="#Partial-index-1" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Table-1"><a href="#Table-1" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_update_queue</p>
-<h4 id="Repository-1"><a href="#Repository-1" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUQueue in IncrementalItemQueueRepository.</p>
-<h4 id="Procedure-1"><a href="#Procedure-1" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PARTIAL_SKU</p>
-<h4 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h4><p>CalculateParitalSku</p>
-<p>ProductCatalogSimpleIndexingAdmin</p>
-<h3 id="Request-2"><a href="#Request-2" class="headerlink" title="Request"></a>Request</h3><h4 id="Component-2"><a href="#Component-2" class="headerlink" title="Component"></a>Component</h4><p>SkuAggregatedDataAccessor</p>
-<p>FBLPriceListMapPropertyAccessor</p>
-<p>ProductColorSKUsAccessor</p>
-]]></content>
+    <content type="html"><![CDATA[<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>创建Spring boot项目的三种方式：</p><ul><li><h2 id="构建第一个应用程序"><a href="#构建第一个应用程序" class="headerlink" title="构建第一个应用程序"></a>构建第一个应用程序</h2></li></ul><h3 id="创建项目并选择依赖"><a href="#创建项目并选择依赖" class="headerlink" title="创建项目并选择依赖"></a>创建项目并选择依赖</h3><h3 id="创建Bean类"><a href="#创建Bean类" class="headerlink" title="创建Bean类"></a>创建Bean类</h3><h3 id="创建-Repository"><a href="#创建-Repository" class="headerlink" title="创建 Repository"></a>创建 Repository</h3><h3 id="创建-Controller"><a href="#创建-Controller" class="headerlink" title="创建 Controller"></a>创建 Controller</h3><h3 id="创建视图层"><a href="#创建视图层" class="headerlink" title="创建视图层"></a>创建视图层</h3><h2 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h2><h3 id="使用Maven插件启动"><a href="#使用Maven插件启动" class="headerlink" title="使用Maven插件启动"></a>使用Maven插件启动</h3><h3 id="使用Gradle插件启动"><a href="#使用Gradle插件启动" class="headerlink" title="使用Gradle插件启动"></a>使用Gradle插件启动</h3><h3 id="使用IDE启动"><a href="#使用IDE启动" class="headerlink" title="使用IDE启动"></a>使用IDE启动</h3><h3 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h3><h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><h2 id="引用和参考"><a href="#引用和参考" class="headerlink" title="引用和参考"></a>引用和参考</h2>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Index-improvement&quot;&gt;&lt;a href=&quot;#Index-improvement&quot; class=&quot;headerlink&quot; title=&quot;Index improvement&quot;&gt;&lt;/a&gt;Index improvement&lt;/h1&gt;&lt;h2 id=&quot;Overv
+      
+      
+        &lt;h2 id=&quot;创建项目&quot;&gt;&lt;a href=&quot;#创建项目&quot; class=&quot;headerlink&quot; title=&quot;创建项目&quot;&gt;&lt;/a&gt;创建项目&lt;/h2&gt;&lt;p&gt;创建Spring boot项目的三种方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;构建第一个应用程序&quot;&gt;&lt;a href=
+      
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
+    
+    
+      <category term="Spring" scheme="http://blog.vurtnec.com/tags/Spring/"/>
+    
+      <category term="Spring Boot" scheme="http://blog.vurtnec.com/tags/Spring-Boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Index Improvement</title>
+    <link href="http://blog.vurtnec.com/2017/12/21/Index%20Improvment/"/>
+    <id>http://blog.vurtnec.com/2017/12/21/Index Improvment/</id>
+    <published>2017-12-20T16:00:00.000Z</published>
+    <updated>2018-06-11T15:27:29.570Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Todays topic is about index improvment, so first we need to know some backgrounds.</p><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>We have more than 100,000 products in production, before the full index will take almost 2 hours, so client only build index once in each day. The issue is if business change some data before do a idnex, it will cause PLP data is not match with PDP.</p><p>So business want to reduce the index time, and they want to build index for each 2 hours.</p><h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>At the same time, some of categories products have many child SKUs, like clothes, shoes categories. We only have 3 kind of properties need to display on PLP:</p><ol><li>Some product properties, like display name, brand.</li><li>Some of properties on the product’s default SKU, like: default image.</li><li>Other properties: al of the SKU colors on product, and all of the SKU price range.</li></ol><p>Means if a customer visit above categories, it will return so many useless SKUs with useless properties. </p><p><strong>See a example: jsp_ref.</strong></p><p>So business want to reduce response for those category request to improve performance.</p><p>There is one thing you guys need to know：</p><p>You guys should know our site only return results as product level, means each item is a product. But in our index, the each record is SKU level.</p><p><strong>See a example: jsp_ref.</strong></p><p>So how to implement this by Endeca:</p><p>Endeca OOTB need define a aggregate property, in Falabella, we are using product.repositoryId as aggregate property, </p><p>each record has a product.repositoryId property, Endeca will use this property to merge SKU as product group by this property.</p><p><strong>See a example: jsp_ref.</strong></p><h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>Next we need to know the process about index and request before do index improvement and after index improvement.</p><h3 id="Full-index"><a href="#Full-index" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h4><ol><li>Get all products by a RQL, <strong>see Component</strong>.</li><li>Filter invalid products, <strong>see Component</strong>.</li><li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li><li>Get data from CAS to build index.</li></ol><h4 id="After"><a href="#After" class="headerlink" title="After"></a>After</h4><ol><li>Execute a procedure to calculate all valid product in a table， <strong>see Procedure</strong>.</li><li>Get all valid products form the table, <strong>see Component</strong>.</li><li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li><li>Get data from CAS to build index.</li></ol><h4 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h4><p>Most of time spent in step 2 and 3. in step 2, the Procedure time must less than Java code. In step 3, we removed some many useless properties to reduce inde time.</p><h4 id="Disadvantage"><a href="#Disadvantage" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>Procedure is mote difficute than Java code, so the maintenance costs will increase.</p><h3 id="Partial-index"><a href="#Partial-index" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Before-1"><a href="#Before-1" class="headerlink" title="Before"></a>Before</h4><ol><li>Change a property by business.</li><li>Descriptor listener will write a data to a OOTB table at SKU level, <strong>see Descriptor and listener</strong>.</li><li>Get all SKUs from above table.</li><li>Build each record andeach property base on the MXL file and write record to CAS.</li><li>Get changed data from CAS to do partial index.</li></ol><h4 id="After-1"><a href="#After-1" class="headerlink" title="After"></a>After</h4><ol><li>Change a property by business.</li><li>Descriptor listener will write a data to a new table at product level, <strong>see Descriptor and listener</strong>.</li><li>Do a partial procedure to get data from above table and get all SKUs of the product to write the OOTB table.</li><li>Build each record andeach property base on the MXL file and write record to CAS.</li><li>Get changed data from CAS to do partial index.</li></ol><p>We can find that there is no performance improvement here, the only change is we add a new table and use it as a mid-table to write data to OOTB table, the reason I will explain after.</p><h3 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h3><h4 id="Before-2"><a href="#Before-2" class="headerlink" title="Before"></a>Before</h4><ol><li>Send a Endeca request with a parameter as “ALL”, <strong>see the parameter</strong>.</li><li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li><li>We can get all product properties and all of the SKUs properties, <strong>see Record Object</strong>.</li><li>Display on site.</li></ol><h4 id="After-2"><a href="#After-2" class="headerlink" title="After"></a>After</h4><ol><li>Add a aggregate property when build index on product, <strong>see structure and code</strong>.</li><li>Send a Endeca request with a parameter as “ONE”, <strong>see the parameter</strong>.</li><li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li><li>We can get all properties what we need, <strong>see Record Object</strong>.</li><li>Display on site.</li></ol><h4 id="Advantage-1"><a href="#Advantage-1" class="headerlink" title="Advantage"></a>Advantage</h4><p>Reduce response, because we need return properties what we need.</p><h4 id="Disadvantage-1"><a href="#Disadvantage-1" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>We need to change partial index logic, because each record is SKU level has a property product.aggregateData, the aggregateData property has all of the SKUs prices and colors.</p><p>Like if business change a SKU A price under product A, we need do partial index for all of the SKUs under product A, this is the reason why we do partial index change in above.</p><h2 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h2><h3 id="Full-index-1"><a href="#Full-index-1" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_sku_published</p><h4 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUPublished in FalabellaRepository.<br>Add a new property “publishedChildSkus” on product, no need use this property, use “filteredChildSkus” to get all valid SKUs.</p><h4 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PUBLISHED_SKU</p><h4 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h4><p>CalculatePublishedSku</p><p>IndexedItemsGroup</p><p>SkuPublishManager</p><p>ProductCatalogSimpleIndexingAdmin</p><h3 id="Partial-index-1"><a href="#Partial-index-1" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Table-1"><a href="#Table-1" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_update_queue</p><h4 id="Repository-1"><a href="#Repository-1" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUQueue in IncrementalItemQueueRepository.</p><h4 id="Procedure-1"><a href="#Procedure-1" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PARTIAL_SKU</p><h4 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h4><p>CalculateParitalSku</p><p>ProductCatalogSimpleIndexingAdmin</p><h3 id="Request-2"><a href="#Request-2" class="headerlink" title="Request"></a>Request</h3><h4 id="Component-2"><a href="#Component-2" class="headerlink" title="Component"></a>Component</h4><p>SkuAggregatedDataAccessor</p><p>FBLPriceListMapPropertyAccessor</p><p>ProductColorSKUsAccessor</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;Todays topic is about index improvment, so fir
+      
     
     </summary>
     
@@ -159,6 +93,33 @@
     
       <category term="Endeca" scheme="http://blog.vurtnec.com/tags/Endeca/"/>
     
+      <category term="Search Engine" scheme="http://blog.vurtnec.com/tags/Search-Engine/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime中配置Markdown</title>
+    <link href="http://blog.vurtnec.com/2017/11/07/markdown%20-%20sublime/"/>
+    <id>http://blog.vurtnec.com/2017/11/07/markdown - sublime/</id>
+    <published>2017-11-06T16:00:00.000Z</published>
+    <updated>2018-06-11T15:29:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="编辑插件"><a href="#编辑插件" class="headerlink" title="编辑插件"></a>编辑插件</h2><p>安装Markdown Editing，然后在视图-&gt;语法里选择MarkdownEditing启用,支持三种风格,分别是Standard Markdown, GitHub flavored Markdown, MultiMarkdown.</p><h2 id="预览插件"><a href="#预览插件" class="headerlink" title="预览插件"></a>预览插件</h2><p>MarkdownLivePreview<br>MarkdownLivePreview可以实现实时预览,在首选项-&gt;Package Setting里修改MarkdownLivePreview的user配置文件,设置在打开时同步预览</p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开一个新的md文件，按下alt+m</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;编辑插件&quot;&gt;&lt;a href=&quot;#编辑插件&quot; class=&quot;headerlink&quot; title=&quot;编辑插件&quot;&gt;&lt;/a&gt;编辑插件&lt;/h2&gt;&lt;p&gt;安装Markdown Editing，然后在视图-&amp;gt;语法里选择MarkdownEditing启用,支持三种风格,分别是
+      
+    
+    </summary>
+    
+      <category term="programing" scheme="http://blog.vurtnec.com/categories/programing/"/>
+    
+    
+      <category term="Tips" scheme="http://blog.vurtnec.com/tags/Tips/"/>
+    
   </entry>
   
   <entry>
@@ -166,51 +127,17 @@
     <link href="http://blog.vurtnec.com/2016/12/24/Https-introduce/"/>
     <id>http://blog.vurtnec.com/2016/12/24/Https-introduce/</id>
     <published>2016-12-23T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:34:24.859Z</updated>
     
-    <content type="html"><![CDATA[<p>最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。</p>
-<h4 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h4><p>Https全称Http Secure，它并非是一种新协议。只是Http通信接口部分用SSL和TSL协议代替。简言之，Https就是身披SSL协议外壳的Http。</p>
-<p><img src="http://img.blog.csdn.net/20161224163733133?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Http&amp;Https"></p>
-<p><strong>TLS/SSL</strong></p>
-<p>TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密数据，而私钥用来解密收到的数据。公钥和私钥是配对的，（其实可以理解成是一把锁和对应的钥钥），所以在建立安全传输之前，客户端和服务器端会互换公钥（锁头），客户端发送的数据要通过服务器公钥加密，服务器端发送数据时则需要客户端公钥加密。</p>
-<p><img src="http://img.blog.csdn.net/20161224175718032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="TSL/SSL"></p>
-<p>这里还引入了一个第三方：CA（Certificate Authority，数字证书认证中心）。客户端在发起安全连接前会去获取服务器端的证书，并通过CA的帧数验证服务器端证书的真伪。除了验证真伪外，通常还含有对服务器名称，IP地址等进行验证的过程。<br>简单点说就是在公钥互换的时候，客户端需要验证服务器给过来的公钥是否真的是我们想要的服务器发过来的，而不是其他中间人伪造的。</p>
-<p><img src="http://img.blog.csdn.net/20161224171233971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="CA"></p>
-<h4 id="Https的安全通信机制"><a href="#Https的安全通信机制" class="headerlink" title="Https的安全通信机制"></a>Https的安全通信机制</h4><p>为了更好的理解Https，来看下Https的通信步骤。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">客户端--&gt;服务器端: 1. Handshake：Client Hello</div><div class="line">服务器端-&gt;客户端: 2. Handshake：Server Hello</div><div class="line">服务器端-&gt;客户端: 3. Handshake：Certificate</div><div class="line">服务器端--&gt;客户端: 4. Handshake：Server Hello Done</div><div class="line">客户端-&gt;服务器端: 5. Handshake：Client Key Exchange</div><div class="line">客户端-&gt;服务器端: 6. Change Cipher Spec</div><div class="line">客户端--&gt;服务器端: 7. Handshake：Finished</div><div class="line">服务器端-&gt;客户端: 8. Change Cipher Spec</div><div class="line">服务器端--&gt;客户端: 9. Handshake：Finished</div><div class="line">客户端-&gt;服务器端: 10. Transfer Application data（HTTP）</div><div class="line">服务器端-&gt;客户端: 11. Transfer Application data（HTTP）</div><div class="line">客户端--&gt;服务器端: 12. Alert: warning, close notify</div></pre></td></tr></table></figure>
-<ol>
-<li>客户端发送Client Hello开始通信。</li>
-<li>服务器以Server Hello作为应答。</li>
-<li>之后服务器发送Certificate报文，包含公钥证书（此步将发送服务器端公钥给客户端）。</li>
-<li>服务器再次发送Server Hello Done通知客户端。</li>
-<li>客户端以Client Key Exchange作为回应（此步将验证服务器证书，并发送客户端公钥给服务器）。</li>
-<li>接着客户端继续发送Change Cipher Spec，提示服务器，之后会用之前发送的客户端公钥进行加密通信。</li>
-<li>客户端发送finished告知服务器。</li>
-<li>服务器同样发送Change Cipher Spec提示客户端。</li>
-<li>服务器发送finished给客户端。</li>
-<li>SSL连接建立完成，之后开始发送加密后的数据通过Http通信。</li>
-<li>服务器加密数据响应客户端。</li>
-<li>客户端断开连接，发送close_notify，这步之后再发送TCP FIN来关闭与TCP的连接。</li>
-</ol>
-<h4 id="两种Https攻击方式"><a href="#两种Https攻击方式" class="headerlink" title="两种Https攻击方式"></a>两种Https攻击方式</h4><p>简单介绍完Https，在说说现在Https下常见的两种攻击方式：</p>
-<p><strong>中间人攻击</strong></p>
-<p>客户端和服务器端在交换公钥的过程中，中间人对客户端扮演服务器的角色，对服务器扮演客户端的角色。因为客户端和服务器双方都感觉不到中间人的存在。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">客户端-&gt;中间人: 发起连接</div><div class="line">中间人-&gt;服务器: 发起连接</div><div class="line">服务器-&gt;中间人: 响应连接（服务器公钥）</div><div class="line">中间人-&gt;客户端: 响应连接（伪造的服务器公钥）</div><div class="line">note left of 客户端: 验证证书（部分验证失\n败，浏览器弹出警告）</div><div class="line">客户端-&gt;中间人: 建立连接并发送数据</div><div class="line">中间人-&gt;服务器: 转发数据</div><div class="line">服务器-&gt;中间人: 响应数据</div><div class="line">中间人-&gt;客户端: 转发数据</div></pre></td></tr></table></figure>
-<p><strong>SSLstrip</strong></p>
-<p><strong>原理</strong></p>
-<p>SSLstrip使用了社会工程学的原理：许多人为了图方便省事，在输入网址时一般不考虑传输协议，习惯上只是简单输入主机名，浏览器默认在这种情况下会使用HTTP协议。例如用户为了使用Gmail邮箱，直接输入accounts.google.com，浏览器会给谷歌服务器发送一个HTTP 请求，谷歌服务器认为电子邮件属于应加密的重要事务，使用HTTP不恰当，应改为使用HTTPS，于是它返回一个状态码为302的HTTP 响应，给出一个重定向网址<a href="https://accounts.google.com/ServiceLogin，浏览器再使用这个重定向网址发出HTTPS" target="_blank" rel="external">https://accounts.google.com/ServiceLogin，浏览器再使用这个重定向网址发出HTTPS</a> 请求。一个原本应该从头到尾使用HTTPS加密会话的过程中混入了使用明文传输的HTTP会话，一旦HTTP会话被劫持，HTTPS会话就可能受到威胁。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">客户端-&gt;SSLstrip: 请求http://www.***.com</div><div class="line">SSLstrip-&gt;服务器: 请求http://www.***.com</div><div class="line">服务器-&gt;SSLstrip: 响应302，location=https://www.***.com</div><div class="line">SSLstrip-&gt;客户端: 响应302，location=http://www.SSLstrip.com:8181</div><div class="line">客户端-&gt;SSLstrip: 建立http连接，并发送数据</div><div class="line">SSLstrip-&gt;服务器: 与服务器建立https连接，并转发数据</div><div class="line">服务器-&gt;SSLstrip: 响应数据</div><div class="line">SSLstrip-&gt;客户端: 转发数据</div></pre></td></tr></table></figure>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
-<li>书籍：图解Http，第七章</li>
-<li>书籍：深入浅出Nodejs，第七章</li>
-<li>博客：<a href="http://blog.csdn.net/howeverpf/article/details/19366215" target="_blank" rel="external"> 分析两种实现SSL会话劫持的典型技术</a></li>
-</ol>
-]]></content>
+    <content type="html"><![CDATA[<p>最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。</p><h4 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h4><p>Https全称Http Secure，它并非是一种新协议。只是Http通信接口部分用SSL和TSL协议代替。简言之，Https就是身披SSL协议外壳的Http。</p><p><a href="https://i.loli.net/2018/06/11/5b1e15cfd332f.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfd332f.png" alt="Http&amp;Https.png"></a></p><p><strong>TLS/SSL</strong></p><p>TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密数据，而私钥用来解密收到的数据。公钥和私钥是配对的，（其实可以理解成是一把锁和对应的钥钥），所以在建立安全传输之前，客户端和服务器端会互换公钥（锁头），客户端发送的数据要通过服务器公钥加密，服务器端发送数据时则需要客户端公钥加密。</p><p><a href="https://i.loli.net/2018/06/11/5b1e15cfd4f0f.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfd4f0f.png" alt="TSL&amp;SSL.png"></a></p><p>这里还引入了一个第三方：CA（Certificate Authority，数字证书认证中心）。客户端在发起安全连接前会去获取服务器端的证书，并通过CA的帧数验证服务器端证书的真伪。除了验证真伪外，通常还含有对服务器名称，IP地址等进行验证的过程。<br>简单点说就是在公钥互换的时候，客户端需要验证服务器给过来的公钥是否真的是我们想要的服务器发过来的，而不是其他中间人伪造的。</p><p><a href="https://i.loli.net/2018/06/11/5b1e15d008093.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15d008093.png" alt="CA.png"></a></p><h4 id="Https的安全通信机制"><a href="#Https的安全通信机制" class="headerlink" title="Https的安全通信机制"></a>Https的安全通信机制</h4><p>为了更好的理解Https，来看下Https的通信步骤。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">客户端--&gt;服务器端: 1. Handshake：Client Hello</span><br><span class="line">服务器端-&gt;客户端: 2. Handshake：Server Hello</span><br><span class="line">服务器端-&gt;客户端: 3. Handshake：Certificate</span><br><span class="line">服务器端--&gt;客户端: 4. Handshake：Server Hello Done</span><br><span class="line">客户端-&gt;服务器端: 5. Handshake：Client Key Exchange</span><br><span class="line">客户端-&gt;服务器端: 6. Change Cipher Spec</span><br><span class="line">客户端--&gt;服务器端: 7. Handshake：Finished</span><br><span class="line">服务器端-&gt;客户端: 8. Change Cipher Spec</span><br><span class="line">服务器端--&gt;客户端: 9. Handshake：Finished</span><br><span class="line">客户端-&gt;服务器端: 10. Transfer Application data（HTTP）</span><br><span class="line">服务器端-&gt;客户端: 11. Transfer Application data（HTTP）</span><br><span class="line">客户端--&gt;服务器端: 12. Alert: warning, close notify</span><br></pre></td></tr></table></figure><ol><li>客户端发送Client Hello开始通信。</li><li>服务器以Server Hello作为应答。</li><li>之后服务器发送Certificate报文，包含公钥证书（此步将发送服务器端公钥给客户端）。</li><li>服务器再次发送Server Hello Done通知客户端。</li><li>客户端以Client Key Exchange作为回应（此步将验证服务器证书，并发送客户端公钥给服务器）。</li><li>接着客户端继续发送Change Cipher Spec，提示服务器，之后会用之前发送的客户端公钥进行加密通信。</li><li>客户端发送finished告知服务器。</li><li>服务器同样发送Change Cipher Spec提示客户端。</li><li>服务器发送finished给客户端。</li><li>SSL连接建立完成，之后开始发送加密后的数据通过Http通信。</li><li>服务器加密数据响应客户端。</li><li>客户端断开连接，发送close_notify，这步之后再发送TCP FIN来关闭与TCP的连接。</li></ol><h4 id="两种Https攻击方式"><a href="#两种Https攻击方式" class="headerlink" title="两种Https攻击方式"></a>两种Https攻击方式</h4><p>简单介绍完Https，在说说现在Https下常见的两种攻击方式：</p><p><strong>中间人攻击</strong></p><p>客户端和服务器端在交换公钥的过程中，中间人对客户端扮演服务器的角色，对服务器扮演客户端的角色。因为客户端和服务器双方都感觉不到中间人的存在。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">客户端-&gt;中间人: 发起连接</span><br><span class="line">中间人-&gt;服务器: 发起连接</span><br><span class="line">服务器-&gt;中间人: 响应连接（服务器公钥）</span><br><span class="line">中间人-&gt;客户端: 响应连接（伪造的服务器公钥）</span><br><span class="line">note left of 客户端: 验证证书（部分验证失\n败，浏览器弹出警告）</span><br><span class="line">客户端-&gt;中间人: 建立连接并发送数据</span><br><span class="line">中间人-&gt;服务器: 转发数据</span><br><span class="line">服务器-&gt;中间人: 响应数据</span><br><span class="line">中间人-&gt;客户端: 转发数据</span><br></pre></td></tr></table></figure><p><strong>SSLstrip</strong></p><p><strong>原理</strong></p><p>SSLstrip使用了社会工程学的原理：许多人为了图方便省事，在输入网址时一般不考虑传输协议，习惯上只是简单输入主机名，浏览器默认在这种情况下会使用HTTP协议。例如用户为了使用Gmail邮箱，直接输入accounts.google.com，浏览器会给谷歌服务器发送一个HTTP 请求，谷歌服务器认为电子邮件属于应加密的重要事务，使用HTTP不恰当，应改为使用HTTPS，于是它返回一个状态码为302的HTTP 响应，给出一个重定向网址<a href="https://accounts.google.com/ServiceLogin，浏览器再使用这个重定向网址发出HTTPS" target="_blank" rel="noopener">https://accounts.google.com/ServiceLogin，浏览器再使用这个重定向网址发出HTTPS</a> 请求。一个原本应该从头到尾使用HTTPS加密会话的过程中混入了使用明文传输的HTTP会话，一旦HTTP会话被劫持，HTTPS会话就可能受到威胁。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">客户端-&gt;SSLstrip: 请求http://www.***.com</span><br><span class="line">SSLstrip-&gt;服务器: 请求http://www.***.com</span><br><span class="line">服务器-&gt;SSLstrip: 响应302，location=https://www.***.com</span><br><span class="line">SSLstrip-&gt;客户端: 响应302，location=http://www.SSLstrip.com:8181</span><br><span class="line">客户端-&gt;SSLstrip: 建立http连接，并发送数据</span><br><span class="line">SSLstrip-&gt;服务器: 与服务器建立https连接，并转发数据</span><br><span class="line">服务器-&gt;SSLstrip: 响应数据</span><br><span class="line">SSLstrip-&gt;客户端: 转发数据</span><br></pre></td></tr></table></figure><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol><li>书籍：图解Http，第七章</li><li>书籍：深入浅出Nodejs，第七章</li><li>博客：<a href="http://blog.csdn.net/howeverpf/article/details/19366215" target="_blank" rel="noopener"> 分析两种实现SSL会话劫持的典型技术</a></li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。&lt;/p&gt;
+      
+      
+        &lt;p&gt;最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。&lt;/p&gt;
 &lt;h4 id=&quot;Https简介&quot;&gt;&lt;a href=&quot;#Https简介&quot; class=&quot;headerlink&quot; title=
+      
     
     </summary>
     
@@ -226,30 +153,16 @@
     <link href="http://blog.vurtnec.com/2016/12/15/Http-method-definitions/"/>
     <id>http://blog.vurtnec.com/2016/12/15/Http-method-definitions/</id>
     <published>2016-12-14T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:35:17.563Z</updated>
     
-    <content type="html"><![CDATA[<p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
-<p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="external">HTTP RFC, Method Definitions</a>.</p>
-<p>先说两个概念，<strong>安全方法</strong>和<strong>幂等方法</strong>。</p>
-<h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。<br>同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p>
-<h4 id="幂等方法"><a href="#幂等方法" class="headerlink" title="幂等方法"></a><strong>幂等方法</strong></h4><p>幂等是数学里面的一个概念，具体可参见<a href="http://baike.baidu.com/link?url=0bAavXkdOTjl7azRk4X6iHdhDoY2sV3OWrT8tFXM8D2usJSZKqj_AynB81Uu7p2ZfVpYXLF5yrTNoF74uAtgi-e1XenogYR3dof2RfFw3me" target="_blank" rel="external">百度百科</a>，这里指的是一个请求如果访问N次产生的副作用和访问一次的副作用相同，我们可以认为是幂等的。</p>
-<p>所以我们可以认为安全方法一定是幂等的，但是幂等不一定是安全的。</p>
-<hr>
-<h5 id="什么是HTTP-Entity？"><a href="#什么是HTTP-Entity？" class="headerlink" title="什么是HTTP Entity？"></a><strong>什么是HTTP Entity？</strong></h5><p>我们知道一个Http请求包含了报文首部和主体部分，中间以空行隔开。而通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。<br><img src="http://img.blog.csdn.net/20161211163819657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Http Header"></p>
-<h5 id="GET-Method"><a href="#GET-Method" class="headerlink" title="GET Method"></a><strong>GET Method</strong></h5><p>GET属于安全方法，代表从指定的URI以实体（Entity）形式获取信息。也就是说，如果请求的资源说文本，则保持原样返回，如果说一段程序，则返回执行后的输出结果，而不是返回源程序。</p>
-<h5 id="POST-Method"><a href="#POST-Method" class="headerlink" title="POST Method"></a><strong>POST Method</strong></h5><p>POST方法允许请求中包含实体作为从属的Request-URI发送给服务器。简而言之就是一个POST的请求包含了报文首部和实体主体传送给服务器，而且POST既不是安全，也不是幂等的方法。</p>
-<h5 id="PUT-Method"><a href="#PUT-Method" class="headerlink" title="PUT Method"></a><strong>PUT Method</strong></h5><p>PUt方法则用于将请求中包含的实体储存在Request-URI下。它和POST的根本区别在于：</p>
-<ol>
-<li>PUT方法是幂等的，而POST不是。</li>
-<li>PUT方法该URI不得不处理该实体，如果服务器期望交由其他URI处理，则必须返回30X告知用户，由用户来判断是否跳转。而POST可以由服务器决定是否交给其他网关处理，并最终返回Response。<h5 id="DELETE-Method"><a href="#DELETE-Method" class="headerlink" title="DELETE Method"></a><strong>DELETE Method</strong></h5>DELETE方法与PUT刚好相反，用于删除由Request-URI标识的资源。同样DELETE是幂等的。</li>
-</ol>
-<p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p>
-<p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p><p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="noopener">HTTP RFC, Method Definitions</a>.</p><p>先说两个概念，<strong>安全方法</strong>和<strong>幂等方法</strong>。</p><h4 id="安全方法"><a href="#安全方法" class="headerlink" title="安全方法"></a><strong>安全方法</strong></h4><p>先说两个概念，方法不应具有采取除检索之外的动作的意义。这些方法应该被认为是“安全的”。就是说一个方法应该只能从服务器获取内容，且不会对服务器产生其他任何影响。<br>同时有一点很重要，我们无法保证服务器不会因为这个请求产生副作用（比如一个浏览用户访问了一个人的博客，只是查看了博文，但是服务器会使这篇博客的访问数加一），所以定义一个方法是否安全在于用户是否有请求副作用，用户不用对这个请求产生任何责任。</p><h4 id="幂等方法"><a href="#幂等方法" class="headerlink" title="幂等方法"></a><strong>幂等方法</strong></h4><p>幂等是数学里面的一个概念，具体可参见<a href="http://baike.baidu.com/link?url=0bAavXkdOTjl7azRk4X6iHdhDoY2sV3OWrT8tFXM8D2usJSZKqj_AynB81Uu7p2ZfVpYXLF5yrTNoF74uAtgi-e1XenogYR3dof2RfFw3me" target="_blank" rel="noopener">百度百科</a>，这里指的是一个请求如果访问N次产生的副作用和访问一次的副作用相同，我们可以认为是幂等的。</p><p>所以我们可以认为安全方法一定是幂等的，但是幂等不一定是安全的。</p><hr><h5 id="什么是HTTP-Entity？"><a href="#什么是HTTP-Entity？" class="headerlink" title="什么是HTTP Entity？"></a><strong>什么是HTTP Entity？</strong></h5><p>我们知道一个Http请求包含了报文首部和主体部分，中间以空行隔开。而通常报文主体等于实体主体，只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异。<br><a href="https://i.loli.net/2018/06/11/5b1e152fc64b3.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e152fc64b3.png" alt="Http header.png"></a></p><h5 id="GET-Method"><a href="#GET-Method" class="headerlink" title="GET Method"></a><strong>GET Method</strong></h5><p>GET属于安全方法，代表从指定的URI以实体（Entity）形式获取信息。也就是说，如果请求的资源说文本，则保持原样返回，如果说一段程序，则返回执行后的输出结果，而不是返回源程序。</p><h5 id="POST-Method"><a href="#POST-Method" class="headerlink" title="POST Method"></a><strong>POST Method</strong></h5><p>POST方法允许请求中包含实体作为从属的Request-URI发送给服务器。简而言之就是一个POST的请求包含了报文首部和实体主体传送给服务器，而且POST既不是安全，也不是幂等的方法。</p><h5 id="PUT-Method"><a href="#PUT-Method" class="headerlink" title="PUT Method"></a><strong>PUT Method</strong></h5><p>PUt方法则用于将请求中包含的实体储存在Request-URI下。它和POST的根本区别在于：</p><ol><li>PUT方法是幂等的，而POST不是。</li><li>PUT方法该URI不得不处理该实体，如果服务器期望交由其他URI处理，则必须返回30X告知用户，由用户来判断是否跳转。而POST可以由服务器决定是否交给其他网关处理，并最终返回Response。<h5 id="DELETE-Method"><a href="#DELETE-Method" class="headerlink" title="DELETE Method"></a><strong>DELETE Method</strong></h5>DELETE方法与PUT刚好相反，用于删除由Request-URI标识的资源。同样DELETE是幂等的。</li></ol><p>由于HTTP/1.1的PUT和DELETE方自身不带验证机制，任何人都可以删除和创建资源，存在安全问题，因此一般网站都不使用该方法。但是如果配合Web应用自身的验证机制，或采用REST标准的架构，就可能开放这两个方法。（说实话，为此我还专门看了下我们网站所使用的REST API，居然专门移除了对PUT和DELETE方法的支持，有点不大明白为什么）</p><p>关于Http方法定义就说这么多了，接下来会写写HTTPS。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。&lt;br&gt;不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。&lt;/
+      
+      
+        &lt;p&gt;上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。&lt;br&gt;不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。&lt;/
+      
     
     </summary>
     
@@ -265,25 +178,16 @@
     <link href="http://blog.vurtnec.com/2016/11/30/Taobao-tech/"/>
     <id>http://blog.vurtnec.com/2016/11/30/Taobao-tech/</id>
     <published>2016-11-29T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:16:28.901Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p>
-<p>正如序章所说，这根本就不是算是一本技术书记， 技术书很容易写成催眠的读物，这本书一开始作者就没有当做技术书来写。所以读者也大可抱着看一本淘宝历史的心态来阅读此书。</p>
-<p>里面有一句话说的让我特别有感触，淘宝从最开始的主动改版，创新，到最后需求，规模的不断扩大，不得不被动创新，这一步步走来和我这几年在公司项目的不断重构尤其相似，恰好我所处的项目也是电商项目。以下我针对此书总结的淘宝技术发展阶段：</p>
-<ol>
-<li>最初的淘宝是一套买来的 LAMP（Linux+Apache+MySQL+PHP）架构系统，一个很常见的网站架构模型。客户化也只是拆分成了一个主库，两个从库，数据库读写分离这些最基本的改进。</li>
-<li>到接下来简单架构的升级，把数据库换成了Oracle，并使用了一个开源的连接池代理服务SQL Relay，买了NAS作为数据库的存储设备，加上Oracle RAC（Real Application Clusters）来实现负载均衡。</li>
-<li>以及作者所说的脱胎换骨的升级：PHP替换称为Java，打造一个自己的WebX MVC框架，持久层支使用ibatis，控制层则是EJB和Spring，引入搜索引擎iSearch，以及后来开始使用IBM小型机，EMC存储，引入缓存系统Berkeley DB，CDN等等。</li>
-<li>再之后的随着规模扩大，成本大幅度增加，开始自主研发出淘宝文件系统TFS和淘宝KV缓存系统Tair。</li>
-<li>分布式电子商务系统的产生，服务化后使用的高性能服务框架HFS和消息中间件Notify，分布式数据访问层TDDL，TBSession框架。</li>
-</ol>
-<p>其实可以看出来作者很多也是点到为止，如果读者感兴趣完全就可以根据作者给的各种技术的名字找相关资料阅读。</p>
-<p>最后在聊聊自己，在一个电子商务项目三年了，前前后后重构了三次，最开始参与搜索引擎的替换，摸索中前进，到后来去除JSP里面所有业务逻辑（没办法，零几年的项目大量逻辑直接写在JSP），公司内部自己创造的MVC框架，再到最后一年整个Checkout重构，前后端分离，使用React，去除form表单，所有请求使用Rest。这中间踩过的雷和坑也是一言难尽，总之之后会单独歇歇这几年来项目重构中间的技术变化。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p><p>正如序章所说，这根本就不是算是一本技术书记， 技术书很容易写成催眠的读物，这本书一开始作者就没有当做技术书来写。所以读者也大可抱着看一本淘宝历史的心态来阅读此书。</p><p>里面有一句话说的让我特别有感触，淘宝从最开始的主动改版，创新，到最后需求，规模的不断扩大，不得不被动创新，这一步步走来和我这几年在公司项目的不断重构尤其相似，恰好我所处的项目也是电商项目。以下我针对此书总结的淘宝技术发展阶段：</p><ol><li>最初的淘宝是一套买来的 LAMP（Linux+Apache+MySQL+PHP）架构系统，一个很常见的网站架构模型。客户化也只是拆分成了一个主库，两个从库，数据库读写分离这些最基本的改进。</li><li>到接下来简单架构的升级，把数据库换成了Oracle，并使用了一个开源的连接池代理服务SQL Relay，买了NAS作为数据库的存储设备，加上Oracle RAC（Real Application Clusters）来实现负载均衡。</li><li>以及作者所说的脱胎换骨的升级：PHP替换称为Java，打造一个自己的WebX MVC框架，持久层支使用ibatis，控制层则是EJB和Spring，引入搜索引擎iSearch，以及后来开始使用IBM小型机，EMC存储，引入缓存系统Berkeley DB，CDN等等。</li><li>再之后的随着规模扩大，成本大幅度增加，开始自主研发出淘宝文件系统TFS和淘宝KV缓存系统Tair。</li><li>分布式电子商务系统的产生，服务化后使用的高性能服务框架HFS和消息中间件Notify，分布式数据访问层TDDL，TBSession框架。</li></ol><p>其实可以看出来作者很多也是点到为止，如果读者感兴趣完全就可以根据作者给的各种技术的名字找相关资料阅读。</p><p>最后在聊聊自己，在一个电子商务项目三年了，前前后后重构了三次，最开始参与搜索引擎的替换，摸索中前进，到后来去除JSP里面所有业务逻辑（没办法，零几年的项目大量逻辑直接写在JSP），公司内部自己创造的MVC框架，再到最后一年整个Checkout重构，前后端分离，使用React，去除form表单，所有请求使用Rest。这中间踩过的雷和坑也是一言难尽，总之之后会单独歇歇这几年来项目重构中间的技术变化。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道
+      
+      
+        &lt;p&gt;这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道
+      
     
     </summary>
     
@@ -297,36 +201,16 @@
     <link href="http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/"/>
     <id>http://blog.vurtnec.com/2016/10/31/Eclipse-to-IntelliJ/</id>
     <published>2016-10-30T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:12:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows:  Files → Setting  → keymap  </div><div class="line">Mac:  Preference  → keymap</div></pre></td></tr></table></figure>
-<p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Main Menu  → Code  → Completion  → Basic</div></pre></td></tr></table></figure>
-<h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>默认的两个试图显示其实不错，不过个人喜欢Sublime，这里推荐下:</p>
-<ol>
-<li>下载  Eclectide Monokai   主题的jar包</li>
-<li>打开 File → Import Settings → Select the jar file</li>
-<li>重启 IntelliJ</li>
-</ol>
-<p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="external">monokai-theme-intellij</a></p>
-<h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="external">http://www.tuicool.com/articles/NBRnYn</a></p>
-<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong><em>Check Style</em></strong>：导入Eclipse的xml即可。</p>
-<p><strong><em>Code Formatter</em></strong>：要在IDEA的Plugin Repositories里面搜索一个叫Eclipse Code Formatter的插件，但是貌似不支持IDEA 2016。</p>
-<p><strong><em>Getter &amp; Setter</em></strong>：这个不算插件，顶多就是个模版配置，但是也写了我好久，分享给大家：</p>
-<p><strong>Getter</strong>:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @return property value of $field.name</div><div class="line">*/</div><div class="line"></div><div class="line">public ##</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">$field.type ##</div><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</div><div class="line">#else</div><div class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</div><div class="line">#end</div><div class="line">#if ($field.boolean &amp;&amp; $field.primitive)</div><div class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</div><div class="line">    #set($name = $StringUtil.decapitalize($name))</div><div class="line">#else</div><div class="line">is##</div><div class="line">#end</div><div class="line">#else</div><div class="line">get##</div><div class="line">#end</div><div class="line">$&#123;name&#125;() &#123;</div><div class="line">return $field.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>Setter</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</div><div class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</div><div class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</div><div class="line">#else</div><div class="line">    #set($paramName = $helper.getParamName($field, $project))</div><div class="line">#end</div><div class="line">/**</div><div class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</div><div class="line">*</div><div class="line">* @param p$paramName  value to be assigned to property $field.name</div><div class="line">*/</div><div class="line">#if($field.modifierStatic)</div><div class="line">static ##</div><div class="line">#end</div><div class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</div><div class="line">#if ($field.name == $paramName)</div><div class="line">    #if (!$field.modifierStatic)</div><div class="line">    this.##</div><div class="line">    #else</div><div class="line">        $classname.##</div><div class="line">    #end</div><div class="line">#end</div><div class="line">$field.name = p$paramName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p>
-<p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="external">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p>
-<p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个IDE，因为到目前为止我还没发现有什么特别的理由让我一定要从Eclipse切换到IDEA。<br>不过还是分享下摸索一周来的一些小技巧，说说如何减轻IDE过渡之间的不使用。</p><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>开发工具中的重中之重，工作效率提升最直接的体现。IDEA支持直接切换快捷键模版，习惯Eclipse的人可以直接使用Eclipse模版，另外IDEA还提供了Eclipse for MAC OS X和Eclipse两套快捷键，方便习惯MAC键位的人员。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows:  Files → Setting  → keymap  </span><br><span class="line">Mac:  Preference  → keymap</span><br></pre></td></tr></table></figure><p>另外要单独推荐的就是find action这个快捷键了，可以方便开发人员搜索IDEA的各种功能，而不需要记住快捷键。<br>还有代码补全依然和Eclipse一样，要修改成Alt+Slash的可以打开</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Main Menu  → Code  → Completion  → Basic</span><br></pre></td></tr></table></figure><h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><p>默认的两个试图显示其实不错，不过个人喜欢Sublime，这里推荐下:</p><ol><li>下载  Eclectide Monokai   主题的jar包</li><li>打开 File → Import Settings → Select the jar file</li><li>重启 IntelliJ</li></ol><p>作者原文：<a href="https://darekkay.com/2014/11/23/monokai-theme-intellij/" target="_blank" rel="noopener">monokai-theme-intellij</a></p><h3 id="优化IDEA"><a href="#优化IDEA" class="headerlink" title="优化IDEA"></a>优化IDEA</h3><p>都说IDEA最大的好处是没有了Eclipse的卡顿问题，但是我个人使用来看，Mac上确实比Eclipse流畅，可是在Windows上，编索引的时候占满CPU我也就忍了，可是平时也巨卡无比。经过google之后才知道，原来因为我Windows电脑没有JDK1.8，导致IDEA默认启动是idea32.exe，于是悄悄安装JDK1.8，环境变量配置 IDEA_JDK_64指向JDK1.8即可，这样就不影响开发用的JDK版本。详细可以参考： <a href="http://www.tuicool.com/articles/NBRnYn" target="_blank" rel="noopener">http://www.tuicool.com/articles/NBRnYn</a></p><h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p><strong><em>Check Style</em></strong>：导入Eclipse的xml即可。</p><p><strong><em>Code Formatter</em></strong>：要在IDEA的Plugin Repositories里面搜索一个叫Eclipse Code Formatter的插件，但是貌似不支持IDEA 2016。</p><p><strong><em>Getter &amp; Setter</em></strong>：这个不算插件，顶多就是个模版配置，但是也写了我好久，分享给大家：</p><p><strong>Getter</strong>:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Getter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> property value of $field.name</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">public ##</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">$field.type ##</span><br><span class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),"_"))</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"_"))))</span><br><span class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),"m") &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m")))</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($StringUtil.substringAfter($helper.getPropertyName($field, $project),"m"))))</span><br><span class="line">#else</span><br><span class="line">    #set($name = $StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($helper.getPropertyName($field, $project))))</span><br><span class="line">#end</span><br><span class="line">#if ($field.boolean &amp;&amp; $field.primitive)</span><br><span class="line">#if ($StringUtil.startsWithIgnoreCase($name, 'is'))</span><br><span class="line">    #set($name = $StringUtil.decapitalize($name))</span><br><span class="line">#else</span><br><span class="line">is##</span><br><span class="line">#end</span><br><span class="line">#else</span><br><span class="line">get##</span><br><span class="line">#end</span><br><span class="line">$&#123;name&#125;() &#123;</span><br><span class="line"><span class="keyword">return</span> $field.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>Setter</strong>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#if ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;_&quot;))</span><br><span class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;_&quot;))</span><br><span class="line">#elseif ($StringUtil.startsWith($helper.getPropertyName($field, $project),&quot;m&quot;) &amp;&amp; $StringUtil.isCapitalized($StringUtil.substringAfter($helper.getPropertyName($field, $project),&quot;m&quot;)))</span><br><span class="line">    #set($paramName = $StringUtil.substringAfter($helper.getParamName($field, $project),&quot;m&quot;))</span><br><span class="line">#else</span><br><span class="line">    #set($paramName = $helper.getParamName($field, $project))</span><br><span class="line">#end</span><br><span class="line">/**</span><br><span class="line">* Setter method for property &lt;tt&gt;$field.name&lt;/tt&gt;.</span><br><span class="line">*</span><br><span class="line">* @param p$paramName  value to be assigned to property $field.name</span><br><span class="line">*/</span><br><span class="line">#if($field.modifierStatic)</span><br><span class="line">static ##</span><br><span class="line">#end</span><br><span class="line">void set$StringUtil.capitalizeWithJavaBeanConvention($StringUtil.sanitizeJavaIdentifier($paramName))($field.type p$paramName) &#123;</span><br><span class="line">#if ($field.name == $paramName)</span><br><span class="line">    #if (!$field.modifierStatic)</span><br><span class="line">    this.##</span><br><span class="line">    #else</span><br><span class="line">        $classname.##</span><br><span class="line">    #end</span><br><span class="line">#end</span><br><span class="line">$field.name = p$paramName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong><em>GIT</em></strong>: 比Eclipse的git插件使用起来方便很多，但是遇到个小问题就是有时Pull代码会不起作用，老是找不到有些branch，然后使用自身的那个update project却可以了。</p><p><strong><em>Debugger</em></strong>：初次配置不是Eclipse的Application，而且搜索一个叫remote的选项，配置IP和端口即可，<a href="http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。" target="_blank" rel="noopener">http://yiminghe.iteye.com/blog/1027707，使用过程也发现一个奇怪问题，在方法上打断点会特别慢，而且有时还不进断点。</a></p><p>总之，找不到特别的理由让人使用IDEA，一切还是看个人习惯。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个I
+      
+      
+        &lt;p&gt;身边越来越多的人开始使用IntelliJ IDEA，都在向我推荐用了之后工作效率提高了一大截。抱着半信半疑的心态，我也尝试使用这个新的IDE，经过一周的使用，个人体会就是好比玩dota的从dota键位改成了QWER，用智能ABC的换成了搜狗输入法。当然不要认为我是在夸这个I
+      
     
     </summary>
     
@@ -340,25 +224,18 @@
     <link href="http://blog.vurtnec.com/2016/10/22/Drive/"/>
     <id>http://blog.vurtnec.com/2016/10/22/Drive/</id>
     <published>2016-10-21T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:12:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p>
-<p>书中阐述了三种驱动力：</p>
-<p><strong>驱动力1.0</strong>，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第一驱动力。</p>
-<p><strong>驱动力2.0</strong>，来自外在驱动，激励，KPI 考评，胡萝卜加大棒，这也是绝大多数公司采取的驱动方式；绝大多数人可能终身在第二驱动力范畴内，找到一家合适的公司，一个还可以的工作，薪水不错，给点激励就努力一点，激励不够就磨一下洋工。</p>
-<p><strong>驱动力3.0</strong>，则为内在驱动，自发自主。而第三种驱动力又包括三大要素：自主、专精和目的。需要强调一下所说的「目的」：将自己正在从事的事情变换成乐趣，以兴趣最大化原则为导向而非利润最大化，把利润看做是取得成就后让人愉快的副产品。可能创业者或是有创业者心态的人都是用第三种驱动力做事情。用这种驱动力做事情的人，一定是一个最值得合作的人。</p>
-<p>所谓的科学向左，企业向右指的就是科学虽然不断印证驱动力3.0的正确性，可绝大多数企业却始终采取驱动力2.0的方式激励员工，提高生产力。<br>从个人出发，想想自己更倾向于哪一种人，可以更明白自己的定位，提高自己的工作效率。</p>
-<p>而书中从各种不同的角度举例印证驱动力3.0的正确性，两百多页完全没有必要。总的来说还是推荐快速阅读，了解大概即可，Daniel H. Pink的观点可以在其TED演讲上已经讲述：</p>
-<p>附平克的TED演讲</p>
-<p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="external">http://www.ted.com/talks/dan_pink_on_motivation</a></p>
-<p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="external">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>
-]]></content>
+    <content type="html"><![CDATA[<p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p><p>书中阐述了三种驱动力：</p><p><strong>驱动力1.0</strong>，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第一驱动力。</p><p><strong>驱动力2.0</strong>，来自外在驱动，激励，KPI 考评，胡萝卜加大棒，这也是绝大多数公司采取的驱动方式；绝大多数人可能终身在第二驱动力范畴内，找到一家合适的公司，一个还可以的工作，薪水不错，给点激励就努力一点，激励不够就磨一下洋工。</p><p><strong>驱动力3.0</strong>，则为内在驱动，自发自主。而第三种驱动力又包括三大要素：自主、专精和目的。需要强调一下所说的「目的」：将自己正在从事的事情变换成乐趣，以兴趣最大化原则为导向而非利润最大化，把利润看做是取得成就后让人愉快的副产品。可能创业者或是有创业者心态的人都是用第三种驱动力做事情。用这种驱动力做事情的人，一定是一个最值得合作的人。</p><p>所谓的科学向左，企业向右指的就是科学虽然不断印证驱动力3.0的正确性，可绝大多数企业却始终采取驱动力2.0的方式激励员工，提高生产力。<br>从个人出发，想想自己更倾向于哪一种人，可以更明白自己的定位，提高自己的工作效率。</p><p>而书中从各种不同的角度举例印证驱动力3.0的正确性，两百多页完全没有必要。总的来说还是推荐快速阅读，了解大概即可，Daniel H. Pink的观点可以在其TED演讲上已经讲述：</p><p>附平克的TED演讲</p><p>官网视频：<br><a href="http://www.ted.com/talks/dan_pink_on_motivation" target="_blank" rel="noopener">http://www.ted.com/talks/dan_pink_on_motivation</a></p><p>网易公开课翻译后的视频：<br><a href="http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html" target="_blank" rel="noopener">http://v.163.com/movie/2011/7/U/D/M7CTOI99C_M7E3PUTUD.html</a>    </p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。&lt;/p&gt;
+      
+      
+        &lt;p&gt;上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。&lt;/p&gt;
 &lt;p&gt;书中阐述了三种驱动力：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;驱动力1.0&lt;/strong&gt;，来自生存冲动。衣食住行，食色性也，人类本能。就大多数人而言，找第一份工作的时候往往基于第
+      
     
     </summary>
     
@@ -372,32 +249,17 @@
     <link href="http://blog.vurtnec.com/2016/10/16/Soft-skills/"/>
     <id>http://blog.vurtnec.com/2016/10/16/Soft-skills/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:16:16.043Z</updated>
     
-    <content type="html"><![CDATA[<p>一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。</p>
-<p>这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书有着不少缺点，妄图面面俱到，结果却都浅尝即止，但它依旧是一本值得一读的好书。</p>
-<p>说说优点吧，书里讲的道理其实谁都懂，但是在这个浮躁的社会，生活节奏越来越快，大家忙于工作很少有时间静下心来思考，思考生活的方方面面，本书其实就将一些很重要却又容易被人遗忘的道理有条理的整理出来。</p>
-<h3 id="职业发展"><a href="#职业发展" class="headerlink" title="职业发展"></a>职业发展</h3><p><strong><em>The driven force of a career must come form the individual.</em></strong></p>
-<p>职业生涯属于个人，很多人不明白自己想要什么，随波逐流，一个人在职业生涯明确自己的目标，知道自己想要什么尤其重要。</p>
-<h3 id="自我营销"><a href="#自我营销" class="headerlink" title="自我营销"></a>自我营销</h3><p><strong><em>At its core, marketing is just connecting a product or service with someone who wants or needs that product or service.</em></strong></p>
-<p>在程序员心中营销的名声其实并不好，这也是我现在不爱发朋友圈的原因，总觉得朋友圈的意义早已变成了一个炫耀的平台，而不是分享身边的美好。</p>
-<p>同时切记陷入林黛玉困境，吴军博士前几天刚聊了对10000个小时的理解，随着程序员coding水平的上升，面也会越来越窄，到最后身边的人谁都瞧不起，生活在自己的世界里，哪怕自己再牛也无人知晓。本书也一直在讲述一个观点，读书，自我学习的最后一步永远是分享，成为人师，帮助他人也是帮助自己。</p>
-<p>所以对于程序员，博客永远说是绝佳的营销手段。现在国内前端开发的大牛们，似乎个个都是老博主。</p>
-<h3 id="自我学习"><a href="#自我学习" class="headerlink" title="自我学习"></a>自我学习</h3><p>身边的不少朋友总是认为大学毕业之后我们再也不用拾起书本，甚至对我会在空余时间看书嗤之以鼻。</p>
-<p>我们走出学校，学习就变成了自己的事，没人会像老师一样督促你，引导你。网上有句话说，一个人的成就取决于下班之后的几个小时，这点其实我非常认同，而学会学习是teach yourself的核心技能。</p>
-<h3 id="生产效率"><a href="#生产效率" class="headerlink" title="生产效率"></a>生产效率</h3><p>外行静坐等待灵感，其他人则唤起激情努力工作。  ?? 斯蒂芬 金</p>
-<p><strong><em>No more Procrastination</em></strong>, 做一个行动主义，工作之中学会专注，工作之外学会找寻各种工具来节省重复工作时间。</p>
-<p><strong><em>Find your time wasters.</em></strong></p>
-<p>戒掉电视，少刷微博吧，好好想一想，时间都去哪了。戒掉那些耗费大把时间而又毫无意义的日常行为。</p>
-<h3 id="FINANCIAL-FITNESS-SPIRIT"><a href="#FINANCIAL-FITNESS-SPIRIT" class="headerlink" title="FINANCIAL, FITNESS, SPIRIT"></a>FINANCIAL, FITNESS, SPIRIT</h3><p>理财，健身和心态，好的身体，好的心态才能更好的工作，更好的生活，学会理财可以让我们更好的管理自己的财产，工资不是一个人所有的财产。</p>
-<p>人的身体就就是人的灵魂的最好写照。</p>
-<p>总之，书中的道理人人都懂，但是如何看待这些观点，如何执行就要看自己了。    </p>
-]]></content>
+    <content type="html"><![CDATA[<p>一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。</p><p>这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书有着不少缺点，妄图面面俱到，结果却都浅尝即止，但它依旧是一本值得一读的好书。</p><p>说说优点吧，书里讲的道理其实谁都懂，但是在这个浮躁的社会，生活节奏越来越快，大家忙于工作很少有时间静下心来思考，思考生活的方方面面，本书其实就将一些很重要却又容易被人遗忘的道理有条理的整理出来。</p><h3 id="职业发展"><a href="#职业发展" class="headerlink" title="职业发展"></a>职业发展</h3><p><strong><em>The driven force of a career must come form the individual.</em></strong></p><p>职业生涯属于个人，很多人不明白自己想要什么，随波逐流，一个人在职业生涯明确自己的目标，知道自己想要什么尤其重要。</p><h3 id="自我营销"><a href="#自我营销" class="headerlink" title="自我营销"></a>自我营销</h3><p><strong><em>At its core, marketing is just connecting a product or service with someone who wants or needs that product or service.</em></strong></p><p>在程序员心中营销的名声其实并不好，这也是我现在不爱发朋友圈的原因，总觉得朋友圈的意义早已变成了一个炫耀的平台，而不是分享身边的美好。</p><p>同时切记陷入林黛玉困境，吴军博士前几天刚聊了对10000个小时的理解，随着程序员coding水平的上升，面也会越来越窄，到最后身边的人谁都瞧不起，生活在自己的世界里，哪怕自己再牛也无人知晓。本书也一直在讲述一个观点，读书，自我学习的最后一步永远是分享，成为人师，帮助他人也是帮助自己。</p><p>所以对于程序员，博客永远说是绝佳的营销手段。现在国内前端开发的大牛们，似乎个个都是老博主。</p><h3 id="自我学习"><a href="#自我学习" class="headerlink" title="自我学习"></a>自我学习</h3><p>身边的不少朋友总是认为大学毕业之后我们再也不用拾起书本，甚至对我会在空余时间看书嗤之以鼻。</p><p>我们走出学校，学习就变成了自己的事，没人会像老师一样督促你，引导你。网上有句话说，一个人的成就取决于下班之后的几个小时，这点其实我非常认同，而学会学习是teach yourself的核心技能。</p><h3 id="生产效率"><a href="#生产效率" class="headerlink" title="生产效率"></a>生产效率</h3><p>外行静坐等待灵感，其他人则唤起激情努力工作。  ?? 斯蒂芬 金</p><p><strong><em>No more Procrastination</em></strong>, 做一个行动主义，工作之中学会专注，工作之外学会找寻各种工具来节省重复工作时间。</p><p><strong><em>Find your time wasters.</em></strong></p><p>戒掉电视，少刷微博吧，好好想一想，时间都去哪了。戒掉那些耗费大把时间而又毫无意义的日常行为。</p><h3 id="FINANCIAL-FITNESS-SPIRIT"><a href="#FINANCIAL-FITNESS-SPIRIT" class="headerlink" title="FINANCIAL, FITNESS, SPIRIT"></a>FINANCIAL, FITNESS, SPIRIT</h3><p>理财，健身和心态，好的身体，好的心态才能更好的工作，更好的生活，学会理财可以让我们更好的管理自己的财产，工资不是一个人所有的财产。</p><p>人的身体就就是人的灵魂的最好写照。</p><p>总之，书中的道理人人都懂，但是如何看待这些观点，如何执行就要看自己了。    </p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。&lt;/p&gt;
+      
+      
+        &lt;p&gt;一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。&lt;/p&gt;
 &lt;p&gt;这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书
+      
     
     </summary>
     
@@ -411,22 +273,16 @@
     <link href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/"/>
     <id>http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/</id>
     <published>2015-05-29T16:00:00.000Z</published>
-    <updated>2016-12-31T06:32:01.000Z</updated>
+    <updated>2018-06-11T15:34:45.213Z</updated>
     
-    <content type="html"><![CDATA[<p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><img src="http://img.blog.csdn.net/20161211114325293?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdnVydG5lYw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Git branch"></p>
-<h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
-<h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
-<h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
-<h3 id="develop-branch"><a href="#develop-branch" class="headerlink" title="develop branch"></a>develop branch</h3><p>开发分支，一般来说会在每个sprint或者phrase的时候搭建一个初始develop branch出来。</p>
-<h3 id="feature-branch"><a href="#feature-branch" class="headerlink" title="feature branch"></a>feature branch</h3><p>每个开发在接到一个新的feature task时，就根据此branch搭建一个自己的feature branch出来进行开发。完成之后将本地代码push带远程服务器对应的feature branch上，在创建pull request到develop branch上去，code review就是在此时时进行（一般来说当功能做完并测试之后，该branch将会删除）。</p>
-<h3 id="bugfix-branch"><a href="#bugfix-branch" class="headerlink" title="bugfix branch"></a>bugfix branch</h3><p>跟feature branch相同，主要用于修复做新功能时产生的bug。</p>
-<p>这种策略对开发有一个很重要的要求就是，每个开发必须对自己的feature branch负责，从创建新的feature branch开始，编码，单元测试，到最后pull request通过，merge进去develop branch之后任务才算完整。</p>
-<p>我的理解难免会有不对的地方，如果有什么建议请提出来共同改进。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p><h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p><h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p><h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p><h3 id="develop-branch"><a href="#develop-branch" class="headerlink" title="develop branch"></a>develop branch</h3><p>开发分支，一般来说会在每个sprint或者phrase的时候搭建一个初始develop branch出来。</p><h3 id="feature-branch"><a href="#feature-branch" class="headerlink" title="feature branch"></a>feature branch</h3><p>每个开发在接到一个新的feature task时，就根据此branch搭建一个自己的feature branch出来进行开发。完成之后将本地代码push带远程服务器对应的feature branch上，在创建pull request到develop branch上去，code review就是在此时时进行（一般来说当功能做完并测试之后，该branch将会删除）。</p><h3 id="bugfix-branch"><a href="#bugfix-branch" class="headerlink" title="bugfix branch"></a>bugfix branch</h3><p>跟feature branch相同，主要用于修复做新功能时产生的bug。</p><p>这种策略对开发有一个很重要的要求就是，每个开发必须对自己的feature branch负责，从创建新的feature branch开始，编码，单元测试，到最后pull request通过，merge进去develop branch之后任务才算完整。</p><p>我的理解难免会有不对的地方，如果有什么建议请提出来共同改进。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。&lt;br&gt;git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。&lt;br&gt;&lt;img src=&quot;http://img.blo
+      
+      
+        &lt;p&gt;最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。&lt;br&gt;git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。&lt;br&gt;&lt;a href=&quot;https://i.loli.
+      
     
     </summary>
     
