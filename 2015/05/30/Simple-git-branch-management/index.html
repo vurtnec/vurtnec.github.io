@@ -8,19 +8,20 @@
   
   	<meta name="keywords" content="GIT,Branch,Branch管理" />
   
-  <meta name="description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
-<meta name="keywords" content="GIT,Branch,Branch管理">
+  <meta name="description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简单Git branch管理策略">
-<meta property="og:url" content="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/index.html">
+<meta property="og:url" content="http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/index.html">
 <meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
 <meta property="og:image" content="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg">
-<meta property="og:updated_time" content="2018-06-11T15:34:45.213Z">
+<meta property="og:updated_time" content="2018-06-11T15:34:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单Git branch管理策略">
-<meta name="twitter:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。 master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
+<meta name="twitter:description" content="最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。
+master branch首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始">
 <meta name="twitter:image" content="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
@@ -71,7 +72,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//www.baidu.com/s" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="blog.vurtnec.com"></form>
+        <form action="//www.baidu.com/s" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="vurtnec.github.io"></form>
       </div>
     </div>
   </div>
@@ -103,7 +104,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p>
+        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="external"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p>
 <h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
 <h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
 <h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
@@ -116,9 +117,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/" data-id="cjiafc4500006d8z3n1efkbem" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/" data-id="cjihp8spf000q4zaxiz6cb0bl" class="article-share-link">Share</a>
       
-        <a href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -127,11 +128,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/10/16/Soft-skills/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/15/IOC&AOP/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          读后感：Soft Skills
+          IOC和AOP
         
       </div>
     </a>
@@ -163,7 +164,7 @@
           </li>
         
           <li>
-            <a href="/2017/12/21/Spring boot/">Spring Boot</a>
+            <a href="/2018/04/21/Spring Boot/">Spring Boot</a>
           </li>
         
           <li>
@@ -187,7 +188,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +198,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -251,7 +252,7 @@
 <script>
   var disqus_shortname = 'vurtnec';
   
-  var disqus_url = 'http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/';
+  var disqus_url = 'http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -262,8 +263,6 @@
   })();
 </script>
 
-
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">

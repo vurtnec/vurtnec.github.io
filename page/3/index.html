@@ -9,10 +9,9 @@
   <meta name="description" content="Stay Hungry, Stay foolish">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vurtnec">
-<meta property="og:url" content="http://blog.vurtnec.com/page/3/index.html">
+<meta property="og:url" content="http://vurtnec.github.io/page/3/index.html">
 <meta property="og:site_name" content="Vurtnec">
 <meta property="og:description" content="Stay Hungry, Stay foolish">
-<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vurtnec">
 <meta name="twitter:description" content="Stay Hungry, Stay foolish">
@@ -65,13 +64,81 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//www.baidu.com/s" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="blog.vurtnec.com"></form>
+        <form action="//www.baidu.com/s" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q1" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q6" value="vurtnec.github.io"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-IOC&amp;AOP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/15/IOC&AOP/" class="article-date">
+  <time datetime="2016-06-14T16:00:00.000Z" itemprop="datePublished">2016-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/15/IOC&AOP/">IOC和AOP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ioc简介"><a href="#Ioc简介" class="headerlink" title="Ioc简介"></a>Ioc简介</h2><h3 id="什么是Ioc"><a href="#什么是Ioc" class="headerlink" title="什么是Ioc"></a>什么是Ioc</h3><p>IOC（Ioc—Inversion of Control），即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</p>
+<h3 id="Ioc图解"><a href="#Ioc图解" class="headerlink" title="Ioc图解"></a>Ioc图解</h3><p><strong>传统程序时序图:</strong></p>
+<div id="sequence-0"></div>
+
+<p><strong>Ioc设计思路程序时序图:</strong></p>
+<div id="sequence-1"></div>
+
+<h3 id="Ioc能做什么"><a href="#Ioc能做什么" class="headerlink" title="Ioc能做什么"></a>Ioc能做什么</h3><p><strong>IOC(控制反转)的其实本质是一种工厂模式的实现。</strong><br>它指导我们如何设计出松耦合、更优良的程序。传统应用程序都是在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于维护；而有了IoC容器后，把创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象，所以对象与对象之间是松散耦合，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</p>
+<h2 id="AOP简介"><a href="#AOP简介" class="headerlink" title="AOP简介"></a>AOP简介</h2><h3 id="什么是AOP"><a href="#什么是AOP" class="headerlink" title="什么是AOP"></a>什么是AOP</h3><p>AOP是面向切面变成，<strong>其本质是代理模式的一种实现。</strong>其实就是划分出来了一个切面，然后在这个切面里面进行了一些增强,最后产生一个增加了新功能的代理对象，注意，是代理对象，这是Spring AOP实现的基础。这个对象只不过比原始对象（Bean）多了一些功能而已，比如Bean预处理，Bean后处理，异常处理等。 </p>
+<h3 id="AOP能做什么"><a href="#AOP能做什么" class="headerlink" title="AOP能做什么"></a>AOP能做什么</h3><p>例如Spring的事务管理，或者我们之前实现过的LogManager<script src="https://bramp.github.io/js-sequence-diagrams/js/webfont.js"></script><script src="https://bramp.github.io/js-sequence-diagrams/js/snap.svg-min.js"></script><script src="https://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script><script src="https://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script><textarea id="sequence-0-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
+客户端->订单: 1. 创建订单对象
+订单->客户端: 2. 返回订单对象
+实体 A-->用户信息: 依赖
+客户端->用户信息: 3. 创建用户信息对象
+用户信息->客户端: 4. 返回用户信息对象
+客户端->客户端: 5. 注入用户信息到订单</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
+客户端->Ioc容器: 1. 获取订单对象
+Ioc容器->订单: 2. 创建订单对象
+订单->Ioc容器: 3. 返回订单对象
+订单-->用户信息: 依赖
+Ioc容器->用户信息: 4. 订单对象是否依赖用户,创建用户信息对象
+用户信息->Ioc容器: 5. 返回用户信息对象
+Ioc容器->Ioc容器: 6. 注入用户信息到订单
+Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2016/06/15/IOC&AOP/" data-id="cjihp8sog00064zax3m4kfx5z" class="article-share-link">Share</a>
+      
+        <a href="http://vurtnec.github.io/2016/06/15/IOC&AOP/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Simple-git-branch-management" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -99,7 +166,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p>
+        <p>最近新项目开始，突然被要求使用git，诚然git是个好东西，但从svn转下git还是出现各种不适应，在这统一做下总结吧。<br>git的优点就不介绍了，先说说我对teamwork中git branch管理策略的理解吧。<br><a href="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" target="_blank" rel="external"><img src="https://i.loli.net/2018/06/11/5b1e15cfca5f4.jpg" alt="git flow.jpg"></a></p>
 <h3 id="master-branch"><a href="#master-branch" class="headerlink" title="master branch"></a>master branch</h3><p>首先，代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。Git主分支的名字，默认叫做Master。它是自动建立的，版本库初始化以后，默认就是在主分支在进行开发。</p>
 <h3 id="hotfix-branch"><a href="#hotfix-branch" class="headerlink" title="hotfix branch"></a>hotfix branch</h3><p>主要用于hot fix生产环境的bug，且只用于hot fix生产环境的bug。</p>
 <h3 id="release-branch"><a href="#release-branch" class="headerlink" title="release branch"></a>release branch</h3><p>预发布分支，它是指发布正式版本之前（即合并到Master分支之前），我们可能需要有一个预发布的版本进行测试，这个版本也是QA会集中测试的环境，一般用此版本来搭建本地测试环境供QA验证。</p>
@@ -112,9 +179,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/" data-id="cjiafc4500006d8z3n1efkbem" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/" data-id="cjihp8spf000q4zaxiz6cb0bl" class="article-share-link">Share</a>
       
-        <a href="http://blog.vurtnec.com/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://vurtnec.github.io/2015/05/30/Simple-git-branch-management/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -144,7 +211,7 @@
           </li>
         
           <li>
-            <a href="/2017/12/21/Spring boot/">Spring Boot</a>
+            <a href="/2018/04/21/Spring Boot/">Spring Boot</a>
           </li>
         
           <li>
@@ -168,7 +235,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -178,7 +245,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -241,8 +308,6 @@
   })();
 </script>
 
-
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
