@@ -3,26 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Spring Boot | Vurtnec</title>
+  <title>Category: photography | Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  	<meta name="keywords" content="Spring,Spring Boot,Hello World,Maven,Gradle" />
-  
-  <meta name="description" content="Spring Boot简介Spring Boot不是什么过去一两年的时间里有不少和它相关的言论。原先听到或看到的东西可能给你造成了一些误解，所以首先我们要澄清一下这些误解。
-首先，Spring Boot不是应用服务器。这个误解是这样产生的：Spring Boot可以吧Web应用程序变为可执行的JAR文件，不用部署到传统Java应用服务器里就能在命令行里面执行。Spring Boot在应用程序里面内">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring Boot">
-<meta property="og:url" content="http://vurtnec.github.io/2018/04/21/Spring Boot/index.html">
+  <meta name="description" content="Stay Hungry, Stay foolish">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vurtnec">
+<meta property="og:url" content="http://vurtnec.github.io/categories/photography/index.html">
 <meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="Spring Boot简介Spring Boot不是什么过去一两年的时间里有不少和它相关的言论。原先听到或看到的东西可能给你造成了一些误解，所以首先我们要澄清一下这些误解。
-首先，Spring Boot不是应用服务器。这个误解是这样产生的：Spring Boot可以吧Web应用程序变为可执行的JAR文件，不用部署到传统Java应用服务器里就能在命令行里面执行。Spring Boot在应用程序里面内">
-<meta property="og:image" content="https://i.loli.net/2018/06/16/5b24917295d35.png">
-<meta property="og:updated_time" content="2018-06-16T04:39:05.000Z">
+<meta property="og:description" content="Stay Hungry, Stay foolish">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot">
-<meta name="twitter:description" content="Spring Boot简介Spring Boot不是什么过去一两年的时间里有不少和它相关的言论。原先听到或看到的东西可能给你造成了一些误解，所以首先我们要澄清一下这些误解。
-首先，Spring Boot不是应用服务器。这个误解是这样产生的：Spring Boot可以吧Web应用程序变为可执行的JAR文件，不用部署到传统Java应用服务器里就能在命令行里面执行。Spring Boot在应用程序里面内">
-<meta name="twitter:image" content="https://i.loli.net/2018/06/16/5b24917295d35.png">
+<meta name="twitter:title" content="Vurtnec">
+<meta name="twitter:description" content="Stay Hungry, Stay foolish">
   
     <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
   
@@ -78,87 +70,40 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/21/Spring Boot/" class="article-date">
-  <time datetime="2018-04-20T16:00:00.000Z" itemprop="datePublished">2018-04-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      Spring Boot
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2018/06/18/Torres del Paine/" class="archive-article-date">
+  <time datetime="2018-06-17T16:18:17.000Z" itemprop="datePublished">Jun 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/18/Torres del Paine/">印象百内</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Spring-Boot简介"><a href="#Spring-Boot简介" class="headerlink" title="Spring Boot简介"></a>Spring Boot简介</h2><h3 id="Spring-Boot不是什么"><a href="#Spring-Boot不是什么" class="headerlink" title="Spring Boot不是什么"></a>Spring Boot不是什么</h3><p>过去一两年的时间里有不少和它相关的言论。原先听到或看到的东西可能给你造成了一些误解，所以首先我们要澄清一下这些误解。</p>
-<p>首先，Spring Boot不是应用服务器。这个误解是这样产生的：Spring Boot可以吧Web应用程序变为可执行的JAR文件，不用部署到传统Java应用服务器里就能在命令行里面执行。Spring Boot在应用程序里面内嵌了一个Servlet容器（Tomcat，Jetty或者Undertow），以此来实现这个功能。但这是内嵌的Servlet容器提供的功能，部署Spring Boot实现的。</p>
-<p>与此类似，Spring Boot也没有实现诸如JPA或者JMS之类的企业级Java规范。它的确支持了不少企业级Java规范，但是要在Spring里自动配置支持那些特性的Bean。例如，Spring Boot没有实现JPA，但是它的自动配置了某个JPA实现，（比如Hibernate Bean），以此实现JPA。</p>
-<p>最后Spring Boot没有引入任何形式的代码生成，而是利用了Spring 4的条件化配置特性，以及Maven和Gradle提供的传递依赖解析，以此实现Srping应用程序上下文的自动配置。</p>
-<h3 id="String-Boot是什么"><a href="#String-Boot是什么" class="headerlink" title="String Boot是什么"></a>String Boot是什么</h3><p>简而言之，本质上来说Spring Boot就是Spring，它走了那些没有它你自己也会去做的Spring Bean配置。它帮你提供了一种更简单的方式来配置Spring Bean，以此来搭建Spring环境。</p>
-<h3 id="String-Boot是怎么工作的"><a href="#String-Boot是怎么工作的" class="headerlink" title="String Boot是怎么工作的"></a>String Boot是怎么工作的</h3><p>这里引用一个网上看到的图,详细讲述了Spring Boot是如何工作的</p>
-<p><img src="https://i.loli.net/2018/06/16/5b24917295d35.png" alt="how-spring-boot-autoconfigure-works.png"></p>
-<h3 id="我对Spring-Boot的理解"><a href="#我对Spring-Boot的理解" class="headerlink" title="我对Spring Boot的理解"></a>我对Spring Boot的理解</h3><p>Spring Boot作为一个微框架，感觉就是顺应当前微服务流行下的产物。是一个微服务框架的起点，为创建REST服务提供了简便的途径。</p>
-<h2 id="引用和参考"><a href="#引用和参考" class="headerlink" title="引用和参考"></a>引用和参考</h2><p><strong>书籍:</strong></p>
-<p>Spring Boot in Action</p>
-<p><strong>博客:</strong></p>
-<p><a href="https://afoo.me/posts/2015-07-09-how-spring-boot-works.html" target="_blank" rel="external">https://afoo.me/posts/2015-07-09-how-spring-boot-works.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/04/21/Spring Boot/" data-id="cjij1g8jr000cdyaxypb6ofi4" class="article-share-link">Share</a>
-      
-        <a href="http://vurtnec.github.io/2018/04/21/Spring Boot/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/06/07/Idea Configuration/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Idea 基本配置
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/12/21/Index Improvment/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Index Improvement</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
 </section>
         
           <aside id="sidebar">
@@ -262,13 +207,11 @@
 <script>
   var disqus_shortname = 'vurtnec';
   
-  var disqus_url = 'http://vurtnec.github.io/2018/04/21/Spring Boot/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
