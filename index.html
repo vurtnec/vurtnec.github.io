@@ -72,9 +72,80 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Torres del Paine" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Web-Develop-to-Wechat-Mini Program" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/17/Torres del Paine/" class="article-date">
+    <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/" class="article-date">
+  <time datetime="2018-06-24T16:00:00.000Z" itemprop="datePublished">2018-06-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/">Web开发到微信小程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Web开发到微信小程序"><a href="#Web开发到微信小程序" class="headerlink" title="Web开发到微信小程序"></a>Web开发到微信小程序</h2><p>闲来无事，突然想写一个小程序，于是好好的周五的晚上写了一晚上代码，从完全不知道什么情况（我的JavaScript水平很差的），到愣是写好了一个已经发布了的小程序。所以这里只是想分享一下一个Web开发人员半吊子前端水平如何写出一个小程序。</p>
+<h3 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h3><ul>
+<li>微信开发者工具，去官网下载</li>
+<li>微信小程序账号注册一个，<a href="https://mp.weixin.qq.com/" target="_blank" rel="external">https://mp.weixin.qq.com/</a></li>
+<li>ES6，这个我觉得Java程序员应该都是依样画葫芦写出来</li>
+<li>JavaScript，不一定要精通，至少要会写吧</li>
+<li>官方的微信小程序demo，<a href="https://github.com/xwartz/wechat-app-demo" target="_blank" rel="external">https://github.com/xwartz/wechat-app-demo</a></li>
+<li>官方文档一份，<a href="https://developers.weixin.qq.com/miniprogram/dev/index.html" target="_blank" rel="external">https://developers.weixin.qq.com/miniprogram/dev/index.html</a></li>
+</ul>
+<h3 id="小程序和Web开发的相似点"><a href="#小程序和Web开发的相似点" class="headerlink" title="小程序和Web开发的相似点"></a>小程序和Web开发的相似点</h3><p>其实小程序和Web开发还是有很多相似之处的，只要知道这些，开发起来也会容易很多。当然开始开始先简单阅读下官方文档的get start。</p>
+<h4 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h4><p><strong>WXML</strong></p>
+<p>这个后缀的文件其实就和JSP或者其他模板一样，里面有些微信自己封装的标签和属性，参照官方文档写就行了。</p>
+<p><strong>WXSS</strong></p>
+<p>这个文件其实就是css文件，所有样式都放在里面就好。</p>
+<h4 id="逻辑层"><a href="#逻辑层" class="headerlink" title="逻辑层"></a>逻辑层</h4><p>JS文件就是用来处理各种业务逻辑的地方，当计算好的结果要返回给视图层的时候，只需要将数据放入page对象的pageData.data，用setData方法就好。</p>
+<h4 id="配置层"><a href="#配置层" class="headerlink" title="配置层"></a>配置层</h4><p>app.json，该文件用于配置当前app的常用配置，比如将要所有页面都注册到这个配置文件里面。</p>
+<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><ul>
+<li>每次修改了pageData的data内容的时候，一定要调用setData方法，这里就跟flux有点相似，修改了store的内容，需要通知到视图层去更新。</li>
+<li>每个page的data，和css都相互独立，意思是说pageData这个对象的scope是只是当前page。</li>
+<li>全局变量建议定义在app.js里面。</li>
+<li>app.wxss是公共的css文件，会被page里面的覆盖。</li>
+</ul>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>微信小程序分为开发版，体验版和正式版。</p>
+<h4 id="开发版"><a href="#开发版" class="headerlink" title="开发版"></a>开发版</h4><p>这个只需要点击用手机扫面预览二维码就可以，但是只限于自己绑定的微信账号和给了权限的账号，一般用于开发人员。</p>
+<h4 id="体验版"><a href="#体验版" class="headerlink" title="体验版"></a>体验版</h4><p>这个需要上传代码到微信服务器，同样也需要授权给部分微信账号，才可以使用，一般用于测试人员（我猜的）。</p>
+<h4 id="正式版"><a href="#正式版" class="headerlink" title="正式版"></a>正式版</h4><p>这个就是正式发布后的，所有人都可以在手机上面搜索到该版本，但是需要提交给微信审核，审核通过之后方可发布。</p>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><p>写好的小程序源码：<a href="https://github.com/vurtnec/vPassword" target="_blank" rel="external">https://github.com/vurtnec/vPassword</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini Program/" data-id="cjiltowjs001a1gaxxlpukl87" class="article-share-link">Share</a>
+      
+        <a href="http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini Program/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Torres-del-Paine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/17/Torres-del-Paine/" class="article-date">
   <time datetime="2018-06-16T16:00:00.000Z" itemprop="datePublished">2018-06-17</time>
 </a>
     
@@ -90,7 +161,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/Torres del Paine/">印象百内</a>
+      <a class="article-title" href="/2018/06/17/Torres-del-Paine/">印象百内</a>
     </h1>
   
 
@@ -128,9 +199,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/17/Torres del Paine/" data-id="cjij1w23e000r8faxjnlpyryr" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/17/Torres-del-Paine/" data-id="cjiltowke001j1gaxlv7ilegy" class="article-share-link">Share</a>
       
-        <a href="http://vurtnec.github.io/2018/06/17/Torres del Paine/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://vurtnec.github.io/2018/06/17/Torres-del-Paine/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/摄影/">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/旅行/">旅行</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记忆/">记忆</a></li></ul>
@@ -142,9 +213,9 @@
 
 
   
-    <article id="post-Idea Configuration" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Idea-Configuration" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/07/Idea Configuration/" class="article-date">
+    <a href="/2018/06/07/Idea-Configuration/" class="article-date">
   <time datetime="2018-06-06T16:00:00.000Z" itemprop="datePublished">2018-06-07</time>
 </a>
     
@@ -160,7 +231,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/07/Idea Configuration/">Idea 基本配置</a>
+      <a class="article-title" href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
     </h1>
   
 
@@ -194,9 +265,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/07/Idea Configuration/" data-id="cjij1w22900088faxcssikvbj" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/07/Idea-Configuration/" data-id="cjiltowid000c1gax9kdfxg2i" class="article-share-link">Share</a>
       
-        <a href="http://vurtnec.github.io/2018/06/07/Idea Configuration/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://vurtnec.github.io/2018/06/07/Idea-Configuration/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li></ul>
@@ -208,9 +279,57 @@
 
 
   
-    <article id="post-Spring Boot" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HOW-THE-ECONOMIC-MACHINE-WORKS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/21/Spring Boot/" class="article-date">
+    <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" class="article-date">
+  <time datetime="2018-05-24T16:00:00.000Z" itemprop="datePublished">2018-05-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/archive/">archive</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>How does the economy really work?</strong></p>
+<p>This simple but not simplistic video by Ray Dalio, Founder of Bridgewater Associates, shows the basic driving forces behind the economy, and explains why economic cycles occur by breaking down concepts such as credit, interest rates, leveraging and deleveraging.</p>
+<p><a href="https://www.youtube.com/watch?v=rFV7wdEX-Mo" target="_blank" rel="external">https://www.youtube.com/watch?v=rFV7wdEX-Mo</a></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://www.economicprinciples.org/zh-hans/index.html" target="_blank" rel="external">http://www.economicprinciples.org/zh-hans/index.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" data-id="cjiltowg100001gax21acicfh" class="article-share-link">Share</a>
+      
+        <a href="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/economy/">economy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Spring-Boot" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/21/Spring-Boot/" class="article-date">
   <time datetime="2018-04-20T16:00:00.000Z" itemprop="datePublished">2018-04-21</time>
 </a>
     
@@ -226,7 +345,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/21/Spring Boot/">Spring Boot</a>
+      <a class="article-title" href="/2018/04/21/Spring-Boot/">Spring Boot</a>
     </h1>
   
 
@@ -250,183 +369,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/04/21/Spring Boot/" data-id="cjij1w236000l8faxrfka4njs" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/04/21/Spring-Boot/" data-id="cjiltowjo00191gaxbuv5namd" class="article-share-link">Share</a>
       
-        <a href="http://vurtnec.github.io/2018/04/21/Spring Boot/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://vurtnec.github.io/2018/04/21/Spring-Boot/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Index Improvment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/21/Index Improvment/" class="article-date">
-  <time datetime="2017-12-20T16:00:00.000Z" itemprop="datePublished">2017-12-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/Index Improvment/">Index Improvement</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Todays topic is about index improvment, so first we need to know some backgrounds.</p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>We have more than 100,000 products in production, before the full index will take almost 2 hours, so client only build index once in each day. The issue is if business change some data before do a idnex, it will cause PLP data is not match with PDP.</p>
-<p>So business want to reduce the index time, and they want to build index for each 2 hours.</p>
-<h3 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h3><p>At the same time, some of categories products have many child SKUs, like clothes, shoes categories. We only have 3 kind of properties need to display on PLP:</p>
-<ol>
-<li>Some product properties, like display name, brand.</li>
-<li>Some of properties on the product’s default SKU, like: default image.</li>
-<li>Other properties: al of the SKU colors on product, and all of the SKU price range.</li>
-</ol>
-<p>Means if a customer visit above categories, it will return so many useless SKUs with useless properties. </p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<p>So business want to reduce response for those category request to improve performance.</p>
-<p>There is one thing you guys need to know：</p>
-<p>You guys should know our site only return results as product level, means each item is a product. But in our index, the each record is SKU level.</p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<p>So how to implement this by Endeca:</p>
-<p>Endeca OOTB need define a aggregate property, in Falabella, we are using product.repositoryId as aggregate property, </p>
-<p>each record has a product.repositoryId property, Endeca will use this property to merge SKU as product group by this property.</p>
-<p><strong>See a example: jsp_ref.</strong></p>
-<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>Next we need to know the process about index and request before do index improvement and after index improvement.</p>
-<h3 id="Full-index"><a href="#Full-index" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Get all products by a RQL, <strong>see Component</strong>.</li>
-<li>Filter invalid products, <strong>see Component</strong>.</li>
-<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
-<li>Get data from CAS to build index.</li>
-</ol>
-<h4 id="After"><a href="#After" class="headerlink" title="After"></a>After</h4><ol>
-<li>Execute a procedure to calculate all valid product in a table， <strong>see Procedure</strong>.</li>
-<li>Get all valid products form the table, <strong>see Component</strong>.</li>
-<li>Build each record and each property base on the XML file, and write record to CAS(CAS is a mid-database for index input). <strong>see XML file, accessor and CAS.</strong></li>
-<li>Get data from CAS to build index.</li>
-</ol>
-<h4 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h4><p>Most of time spent in step 2 and 3. in step 2, the Procedure time must less than Java code. In step 3, we removed some many useless properties to reduce inde time.</p>
-<h4 id="Disadvantage"><a href="#Disadvantage" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>Procedure is mote difficute than Java code, so the maintenance costs will increase.</p>
-<h3 id="Partial-index"><a href="#Partial-index" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Before-1"><a href="#Before-1" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Change a property by business.</li>
-<li>Descriptor listener will write a data to a OOTB table at SKU level, <strong>see Descriptor and listener</strong>.</li>
-<li>Get all SKUs from above table.</li>
-<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
-<li>Get changed data from CAS to do partial index.</li>
-</ol>
-<h4 id="After-1"><a href="#After-1" class="headerlink" title="After"></a>After</h4><ol>
-<li>Change a property by business.</li>
-<li>Descriptor listener will write a data to a new table at product level, <strong>see Descriptor and listener</strong>.</li>
-<li>Do a partial procedure to get data from above table and get all SKUs of the product to write the OOTB table.</li>
-<li>Build each record andeach property base on the MXL file and write record to CAS.</li>
-<li>Get changed data from CAS to do partial index.</li>
-</ol>
-<p>We can find that there is no performance improvement here, the only change is we add a new table and use it as a mid-table to write data to OOTB table, the reason I will explain after.</p>
-<h3 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h3><h4 id="Before-2"><a href="#Before-2" class="headerlink" title="Before"></a>Before</h4><ol>
-<li>Send a Endeca request with a parameter as “ALL”, <strong>see the parameter</strong>.</li>
-<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
-<li>We can get all product properties and all of the SKUs properties, <strong>see Record Object</strong>.</li>
-<li>Display on site.</li>
-</ol>
-<h4 id="After-2"><a href="#After-2" class="headerlink" title="After"></a>After</h4><ol>
-<li>Add a aggregate property when build index on product, <strong>see structure and code</strong>.</li>
-<li>Send a Endeca request with a parameter as “ONE”, <strong>see the parameter</strong>.</li>
-<li>Aggregate record by product.repositoryId, and return all SKUs under the product.</li>
-<li>We can get all properties what we need, <strong>see Record Object</strong>.</li>
-<li>Display on site.</li>
-</ol>
-<h4 id="Advantage-1"><a href="#Advantage-1" class="headerlink" title="Advantage"></a>Advantage</h4><p>Reduce response, because we need return properties what we need.</p>
-<h4 id="Disadvantage-1"><a href="#Disadvantage-1" class="headerlink" title="Disadvantage"></a>Disadvantage</h4><p>We need to change partial index logic, because each record is SKU level has a property product.aggregateData, the aggregateData property has all of the SKUs prices and colors.</p>
-<p>Like if business change a SKU A price under product A, we need do partial index for all of the SKUs under product A, this is the reason why we do partial index change in above.</p>
-<h2 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h2><h3 id="Full-index-1"><a href="#Full-index-1" class="headerlink" title="Full index"></a>Full index</h3><h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_sku_published</p>
-<h4 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUPublished in FalabellaRepository.<br>Add a new property “publishedChildSkus” on product, no need use this property, use “filteredChildSkus” to get all valid SKUs.</p>
-<h4 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PUBLISHED_SKU</p>
-<h4 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h4><p>CalculatePublishedSku</p>
-<p>IndexedItemsGroup</p>
-<p>SkuPublishManager</p>
-<p>ProductCatalogSimpleIndexingAdmin</p>
-<h3 id="Partial-index-1"><a href="#Partial-index-1" class="headerlink" title="Partial index"></a>Partial index</h3><h4 id="Table-1"><a href="#Table-1" class="headerlink" title="Table"></a>Table</h4><p>fbl_srch_update_queue</p>
-<h4 id="Repository-1"><a href="#Repository-1" class="headerlink" title="Repository"></a>Repository</h4><p>Add a new descriptor searchSKUQueue in IncrementalItemQueueRepository.</p>
-<h4 id="Procedure-1"><a href="#Procedure-1" class="headerlink" title="Procedure"></a>Procedure</h4><p>PROC_CALC_PARTIAL_SKU</p>
-<h4 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h4><p>CalculateParitalSku</p>
-<p>ProductCatalogSimpleIndexingAdmin</p>
-<h3 id="Request-2"><a href="#Request-2" class="headerlink" title="Request"></a>Request</h3><h4 id="Component-2"><a href="#Component-2" class="headerlink" title="Component"></a>Component</h4><p>SkuAggregatedDataAccessor</p>
-<p>FBLPriceListMapPropertyAccessor</p>
-<p>ProductColorSKUsAccessor</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2017/12/21/Index Improvment/" data-id="cjij1w22p000a8faxganvpdoh" class="article-share-link">Share</a>
-      
-        <a href="http://vurtnec.github.io/2017/12/21/Index Improvment/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Endeca/">Endeca</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search-Engine/">Search Engine</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-markdown - sublime" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/07/markdown - sublime/" class="article-date">
-  <time datetime="2017-11-06T16:00:00.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/markdown - sublime/">Sublime中配置Markdown</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="编辑插件"><a href="#编辑插件" class="headerlink" title="编辑插件"></a>编辑插件</h2><p>安装Markdown Editing，然后在视图-&gt;语法里选择MarkdownEditing启用,支持三种风格,分别是Standard Markdown, GitHub flavored Markdown, MultiMarkdown.</p>
-<h2 id="预览插件"><a href="#预览插件" class="headerlink" title="预览插件"></a>预览插件</h2><p>MarkdownLivePreview<br>MarkdownLivePreview可以实现实时预览,在首选项-&gt;Package Setting里修改MarkdownLivePreview的user配置文件,设置在打开时同步预览</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开一个新的md文件，按下alt+m</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2017/11/07/markdown - sublime/" data-id="cjij1w23h000u8faxfxm38js4" class="article-share-link">Share</a>
-      
-        <a href="http://vurtnec.github.io/2017/11/07/markdown - sublime/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tips/">Tips</a></li></ul>
 
     </footer>
   </div>
@@ -451,23 +399,23 @@
       <ul>
         
           <li>
-            <a href="/2018/06/17/Torres del Paine/">印象百内</a>
+            <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/">Web开发到微信小程序</a>
           </li>
         
           <li>
-            <a href="/2018/06/07/Idea Configuration/">Idea 基本配置</a>
+            <a href="/2018/06/17/Torres-del-Paine/">印象百内</a>
           </li>
         
           <li>
-            <a href="/2018/04/21/Spring Boot/">Spring Boot</a>
+            <a href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
           </li>
         
           <li>
-            <a href="/2017/12/21/Index Improvment/">Index Improvement</a>
+            <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
           </li>
         
           <li>
-            <a href="/2017/11/07/markdown - sublime/">Sublime中配置Markdown</a>
+            <a href="/2018/04/21/Spring-Boot/">Spring Boot</a>
           </li>
         
       </ul>
@@ -479,7 +427,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记忆/">记忆</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/economy/">economy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记忆/">记忆</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -489,7 +437,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
