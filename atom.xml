@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://vurtnec.github.io/"/>
-  <updated>2018-06-19T15:05:12.000Z</updated>
+  <updated>2018-06-21T12:50:52.842Z</updated>
   <id>http://vurtnec.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini%20Program/"/>
     <id>http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini Program/</id>
     <published>2018-06-24T16:00:00.000Z</published>
-    <updated>2018-06-19T15:05:12.000Z</updated>
+    <updated>2018-06-21T12:50:52.842Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Web开发到微信小程序"><a href="#Web开发到微信小程序" class="headerlink" title="Web开发到微信小程序"></a>Web开发到微信小程序</h2><p>闲来无事，突然想写一个小程序，于是好好的周五的晚上写了一晚上代码，从完全不知道什么情况（我的JavaScript水平很差的），到愣是写好了一个已经发布了的小程序。所以这里只是想分享一下一个Web开发人员半吊子前端水平如何写出一个小程序。</p>
+    <content type="html"><![CDATA[<p>闲来无事，突然想写一个小程序，于是好好的周五的晚上写了一晚上代码，从完全不知道什么情况（我的JavaScript水平很差的），到愣是写好了一个已经发布了的小程序。所以这里只是想分享一下一个Web开发人员半吊子前端水平如何写出一个小程序。</p>
 <h3 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h3><ul>
 <li>微信开发者工具，去官网下载</li>
 <li>微信小程序账号注册一个，<a href="https://mp.weixin.qq.com/" target="_blank" rel="external">https://mp.weixin.qq.com/</a></li>
@@ -53,12 +53,15 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Web开发到微信小程序&quot;&gt;&lt;a href=&quot;#Web开发到微信小程序&quot; class=&quot;headerlink&quot; title=&quot;Web开发到微信小程序&quot;&gt;&lt;/a&gt;Web开发到微信小程序&lt;/h2&gt;&lt;p&gt;闲来无事，突然想写一个小程序，于是好好的周五的晚上写了一晚上代码，从
+      &lt;p&gt;闲来无事，突然想写一个小程序，于是好好的周五的晚上写了一晚上代码，从完全不知道什么情况（我的JavaScript水平很差的），到愣是写好了一个已经发布了的小程序。所以这里只是想分享一下一个Web开发人员半吊子前端水平如何写出一个小程序。&lt;/p&gt;
+&lt;h3 id=&quot;准备条件&quot;&gt;
     
     </summary>
     
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
+    
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
     
       <category term="小程序" scheme="http://vurtnec.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
@@ -69,7 +72,7 @@
     <link href="http://vurtnec.github.io/2018/06/17/Torres-del-Paine/"/>
     <id>http://vurtnec.github.io/2018/06/17/Torres-del-Paine/</id>
     <published>2018-06-16T16:00:00.000Z</published>
-    <updated>2018-06-17T16:33:19.000Z</updated>
+    <updated>2018-06-21T14:58:23.764Z</updated>
     
     <content type="html"><![CDATA[<p>还记得第一次知道百内是在两年前，那时候第一次到智利。一直琢磨着能去哪玩，这才有了对百内的第一次了。知道百内曾被国家地理杂志评选为“50”个一生必须去的地方之一，知道了百内有几条非常出名的徒步路线，同时也知道了一些百内条件的恶劣，什么每个人进去买门票的时候要记录你的进入时间，在里面的呆几天等等。由此便不由自主的在心中对百内产生了一个心里阴影，觉得百内的旅游条件肯定特别差，徒步条件特别原始。</p>
 <p>直到今年五一终于有机会去了一趟百内，才发现百内和我心中的完全不一样，智利毕竟也是发达国家（可能是圣地亚哥给我一直都是国内三线城市的印象，^_^），所以整个百内的旅游开发都很完善。所以才有这次拍照的主题，希望拍出我两年前心中的那个百内，那个荒凉，危险又让人却步的地方。</p>
@@ -112,7 +115,55 @@
     
       <category term="旅行" scheme="http://vurtnec.github.io/tags/%E6%97%85%E8%A1%8C/"/>
     
-      <category term="记忆" scheme="http://vurtnec.github.io/tags/%E8%AE%B0%E5%BF%86/"/>
+  </entry>
+  
+  <entry>
+    <title>NodeJs异步I/O</title>
+    <link href="http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/"/>
+    <id>http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/</id>
+    <published>2018-06-12T16:00:00.000Z</published>
+    <updated>2018-06-21T14:38:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>要搞清楚NodeJs的异步I/O，首先要知道以下的几点。</p>
+<h3 id="NodeJs单线程"><a href="#NodeJs单线程" class="headerlink" title="NodeJs单线程"></a>NodeJs单线程</h3><p>单线程其实就是按从上到下顺序依次来执行，而且每次只执行一个任务，只有当前这个任务执行完了，才会执行下一个任务。<br><strong>这里有个误区，Node自然其实是多线程的。只是解析和执行JavaScript代码的线程只有一个，即主线程。这就是NodeJs为何是单线程的原因了。</strong>但实际上还有其他的线程：处理AJAX请求的线程、处理DOM事件的线程、定时器线程、读写文件的线程等。这些线程称为工作线程，类似Web Workers的方式来接近JavaScript大计算阻塞UI渲染的问题。</p>
+<h3 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h3><p>事件驱动编程主要思想是通过事件或状态的变化来进行应用程序的流程控制，一般通过事件监听完成，一旦事件被检测到，则调用相应的回调函数。</p>
+<p><strong>事件驱动主要执行过程是当进来的一个新的请求的时候，请求将会被压入队列中，然后通过一个循环来检测队列中的事件状态变化，如果检测到有状态变化的事件，那么就执行该事件对应的处理代码（一般都是回调函数）。</strong></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
+<p><strong>基于事件驱动的，先同步(即按从上到下的顺序)执行整个整个js文件中的代码（此时的事件循环是暂停的），当遇到异步函数时，会从线程池中寻求有用的线程来执行该异步函数，当异步函数执行完，就将回调函数放入消息队列里面。当整个js文件执行完后，事件循环开始执行，从消息队列里面取消息，开始执行里面的回调函数。</strong></p>
+<h3 id="异步I-O"><a href="#异步I-O" class="headerlink" title="异步I/O"></a>异步I/O</h3><p>最后再来说异步I/O，NodeJs采用了事件循环的方式实现异步I/O。以下是整个异步I/O的流程：</p>
+<p><img src="https://i.loli.net/2018/06/21/5b2bb72c47871.png" alt="20160622014343_9570.png"></p>
+<h3 id="NodeJs优缺点"><a href="#NodeJs优缺点" class="headerlink" title="NodeJs优缺点"></a>NodeJs优缺点</h3><p>所以说因为异步I/O，大家说Node擅长处理I/O密集型的应用场景；因为单线程，在CPU密集的场景中，Node因为大量CPU的计算会阻塞JavaScript线程导致大家说Node不擅长处理CPU密集型场景。但是这里有两点要注意，<strong>第一，并不是说Node处理大量CPU计算就慢，而且因为单线程会阻塞其他操作，单以执行效率来做评价，V8的执行效率是毋庸置疑的。第二，Node也有单线程大计算的解决方案：采用和Web Workers相同的思路，子进程来应对单线程无法利用多核CPU的问题。</strong></p>
+<h3 id="引用和参考"><a href="#引用和参考" class="headerlink" title="引用和参考"></a>引用和参考</h3><p>深入浅出NodeJs<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"></script><script src="http://flowchart.js.org/flowchart-latest.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+e=>end: 退出
+op1=>operation: 取出一个事件
+op2=>operation: 执行回调
+
+cond1=>condition: 还有事件？
+cond2=>condition: 有关联回调？
+
+st->cond1
+cond1(no)->e
+cond1(yes)->op1->cond2
+cond2(yes)->op2->cond1
+cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;要搞清楚NodeJs的异步I/O，首先要知道以下的几点。&lt;/p&gt;
+&lt;h3 id=&quot;NodeJs单线程&quot;&gt;&lt;a href=&quot;#NodeJs单线程&quot; class=&quot;headerlink&quot; title=&quot;NodeJs单线程&quot;&gt;&lt;/a&gt;NodeJs单线程&lt;/h3&gt;&lt;p&gt;单线程其实就
+    
+    </summary>
+    
+      <category term="programming" scheme="http://vurtnec.github.io/categories/programming/"/>
+    
+    
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
+      <category term="NodeJs" scheme="http://vurtnec.github.io/tags/NodeJs/"/>
+    
+      <category term="JavaScript" scheme="http://vurtnec.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -165,7 +216,7 @@
     <link href="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/"/>
     <id>http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/</id>
     <published>2018-05-24T16:00:00.000Z</published>
-    <updated>2018-06-19T14:05:55.000Z</updated>
+    <updated>2018-06-21T12:47:57.960Z</updated>
     
     <content type="html"><![CDATA[<p><strong>How does the economy really work?</strong></p>
 <p>This simple but not simplistic video by Ray Dalio, Founder of Bridgewater Associates, shows the basic driving forces behind the economy, and explains why economic cycles occur by breaking down concepts such as credit, interest rates, leveraging and deleveraging.</p>
@@ -180,10 +231,10 @@
     
     </summary>
     
-      <category term="archive" scheme="http://vurtnec.github.io/categories/archive/"/>
+      <category term="other" scheme="http://vurtnec.github.io/categories/other/"/>
     
     
-      <category term="economy" scheme="http://vurtnec.github.io/tags/economy/"/>
+      <category term="理财" scheme="http://vurtnec.github.io/tags/%E7%90%86%E8%B4%A2/"/>
     
   </entry>
   
@@ -192,7 +243,7 @@
     <link href="http://vurtnec.github.io/2018/04/21/Spring-Boot/"/>
     <id>http://vurtnec.github.io/2018/04/21/Spring-Boot/</id>
     <published>2018-04-20T16:00:00.000Z</published>
-    <updated>2018-06-16T04:39:05.000Z</updated>
+    <updated>2018-06-21T12:50:46.926Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Spring-Boot简介"><a href="#Spring-Boot简介" class="headerlink" title="Spring Boot简介"></a>Spring Boot简介</h2><h3 id="Spring-Boot不是什么"><a href="#Spring-Boot不是什么" class="headerlink" title="Spring Boot不是什么"></a>Spring Boot不是什么</h3><p>过去一两年的时间里有不少和它相关的言论。原先听到或看到的东西可能给你造成了一些误解，所以首先我们要澄清一下这些误解。</p>
 <p>首先，Spring Boot不是应用服务器。这个误解是这样产生的：Spring Boot可以吧Web应用程序变为可执行的JAR文件，不用部署到传统Java应用服务器里就能在命令行里面执行。Spring Boot在应用程序里面内嵌了一个Servlet容器（Tomcat，Jetty或者Undertow），以此来实现这个功能。但这是内嵌的Servlet容器提供的功能，部署Spring Boot实现的。</p>
@@ -217,6 +268,8 @@
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
       <category term="Spring" scheme="http://vurtnec.github.io/tags/Spring/"/>
     
       <category term="Spring Boot" scheme="http://vurtnec.github.io/tags/Spring-Boot/"/>
@@ -228,7 +281,7 @@
     <link href="http://vurtnec.github.io/2017/12/21/Index-Improvment/"/>
     <id>http://vurtnec.github.io/2017/12/21/Index-Improvment/</id>
     <published>2017-12-20T16:00:00.000Z</published>
-    <updated>2018-06-11T15:27:29.000Z</updated>
+    <updated>2018-06-21T12:44:04.789Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Todays topic is about index improvment, so first we need to know some backgrounds.</p>
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>We have more than 100,000 products in production, before the full index will take almost 2 hours, so client only build index once in each day. The issue is if business change some data before do a idnex, it will cause PLP data is not match with PDP.</p>
@@ -323,7 +376,7 @@
     
       <category term="Endeca" scheme="http://vurtnec.github.io/tags/Endeca/"/>
     
-      <category term="Search Engine" scheme="http://vurtnec.github.io/tags/Search-Engine/"/>
+      <category term="搜索引擎" scheme="http://vurtnec.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
@@ -332,7 +385,7 @@
     <link href="http://vurtnec.github.io/2017/11/07/Markdown-Sublime/"/>
     <id>http://vurtnec.github.io/2017/11/07/Markdown-Sublime/</id>
     <published>2017-11-06T16:00:00.000Z</published>
-    <updated>2018-06-11T15:29:53.000Z</updated>
+    <updated>2018-06-21T12:48:36.272Z</updated>
     
     <content type="html"><![CDATA[<h2 id="编辑插件"><a href="#编辑插件" class="headerlink" title="编辑插件"></a>编辑插件</h2><p>安装Markdown Editing，然后在视图-&gt;语法里选择MarkdownEditing启用,支持三种风格,分别是Standard Markdown, GitHub flavored Markdown, MultiMarkdown.</p>
 <h2 id="预览插件"><a href="#预览插件" class="headerlink" title="预览插件"></a>预览插件</h2><p>MarkdownLivePreview<br>MarkdownLivePreview可以实现实时预览,在首选项-&gt;Package Setting里修改MarkdownLivePreview的user配置文件,设置在打开时同步预览</p>
@@ -348,6 +401,8 @@
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
+      <category term="IDE" scheme="http://vurtnec.github.io/tags/IDE/"/>
+    
       <category term="Tips" scheme="http://vurtnec.github.io/tags/Tips/"/>
     
   </entry>
@@ -357,7 +412,7 @@
     <link href="http://vurtnec.github.io/2016/12/24/Https-introduce/"/>
     <id>http://vurtnec.github.io/2016/12/24/Https-introduce/</id>
     <published>2016-12-23T16:00:00.000Z</published>
-    <updated>2018-06-11T15:34:24.000Z</updated>
+    <updated>2018-06-21T12:51:12.626Z</updated>
     
     <content type="html"><![CDATA[<p>最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。</p>
 <h4 id="Https简介"><a href="#Https简介" class="headerlink" title="Https简介"></a>Https简介</h4><p>Https全称Http Secure，它并非是一种新协议。只是Http通信接口部分用SSL和TSL协议代替。简言之，Https就是身披SSL协议外壳的Http。</p>
@@ -408,7 +463,7 @@
 服务器端-->客户端: 9. Handshake：Finished
 客户端->服务器端: 10. Transfer Application data（HTTP）
 服务器端->客户端: 11. Transfer Application data（HTTP）
-客户端-->服务器端: 12. Alert: warning, close notify</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">客户端->中间人: 发起连接
+客户端-->服务器端: 12. Alert: warning, close notify</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">客户端->中间人: 发起连接
 中间人->服务器: 发起连接
 服务器->中间人: 响应连接（服务器公钥）
 中间人->客户端: 响应连接（伪造的服务器公钥）
@@ -416,14 +471,14 @@ note left of 客户端: 验证证书（部分验证失\n败，浏览器弹出警
 客户端->中间人: 建立连接并发送数据
 中间人->服务器: 转发数据
 服务器->中间人: 响应数据
-中间人->客户端: 转发数据</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">客户端->SSLstrip: 请求http://www.***.com
+中间人->客户端: 转发数据</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">客户端->SSLstrip: 请求http://www.***.com
 SSLstrip->服务器: 请求http://www.***.com
 服务器->SSLstrip: 响应302，location=https://www.***.com
 SSLstrip->客户端: 响应302，location=http://www.SSLstrip.com:8181
 客户端->SSLstrip: 建立http连接，并发送数据
 SSLstrip->服务器: 与服务器建立https连接，并转发数据
 服务器->SSLstrip: 响应数据
-SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script></li>
+SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script></li>
 </ol>
 ]]></content>
     
@@ -439,6 +494,8 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     
       <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
     
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
   </entry>
   
   <entry>
@@ -446,7 +503,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     <link href="http://vurtnec.github.io/2016/12/15/Http-method-definitions/"/>
     <id>http://vurtnec.github.io/2016/12/15/Http-method-definitions/</id>
     <published>2016-12-14T16:00:00.000Z</published>
-    <updated>2018-06-11T15:35:17.000Z</updated>
+    <updated>2018-06-21T12:51:16.346Z</updated>
     
     <content type="html"><![CDATA[<p>上周用一个下午的时候读了图解Http这本书，本来是想好好帮自己回忆并整理Http相关的知识，奈何读完才发现这本书其实更适合初学者阅读，里面大量Http协议讲解也只是点到为止。<br>不过总的来说还是想从一个Web开发人员的角度写点经常会用又有很人开发人员说不清楚的东西。</p>
 <p>这篇先聊聊Http Request的方法定义，到底GET，POST，PUT，DELETE之间有什么区别，都分别代表什么意思。详细文档参阅了Http RFC原文，有兴趣的也可以阅读下原文：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9" target="_blank" rel="external">HTTP RFC, Method Definitions</a>.</p>
@@ -478,6 +535,8 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     
       <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
     
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
   </entry>
   
   <entry>
@@ -485,7 +544,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     <link href="http://vurtnec.github.io/2016/11/30/Taobao-tech/"/>
     <id>http://vurtnec.github.io/2016/11/30/Taobao-tech/</id>
     <published>2016-11-29T16:00:00.000Z</published>
-    <updated>2018-06-11T15:16:28.000Z</updated>
+    <updated>2018-06-21T12:44:40.006Z</updated>
     
     <content type="html"><![CDATA[<p>这是一本好玩的书，从前面两章看，主要是讲故事；从后面两章看，主要是讲人物；从中间几章看，主要是讲技术。我在写作的过程中，把部分章节贴到了博客上，有人看了说励志，有人看了说对技术有帮助，有人看了说对产品有帮助，有人看了说对创业有帮助，有人看了说里面的段子特别逗，现在我也不知道这是人文读物还是技术书了。</p>
 <p>正如序章所说，这根本就不是算是一本技术书记， 技术书很容易写成催眠的读物，这本书一开始作者就没有当做技术书来写。所以读者也大可抱着看一本淘宝历史的心态来阅读此书。</p>
@@ -507,7 +566,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     
     </summary>
     
-      <category term="thoughts" scheme="http://vurtnec.github.io/categories/thoughts/"/>
+      <category term="other" scheme="http://vurtnec.github.io/categories/other/"/>
     
     
   </entry>
@@ -560,7 +619,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     <link href="http://vurtnec.github.io/2016/10/22/Drive/"/>
     <id>http://vurtnec.github.io/2016/10/22/Drive/</id>
     <published>2016-10-21T16:00:00.000Z</published>
-    <updated>2018-06-11T15:12:14.000Z</updated>
+    <updated>2018-06-21T12:43:28.913Z</updated>
     
     <content type="html"><![CDATA[<p>上周末闲来无事，一口气把驱动力(DRiVE)看完了，书中的观点其实不错，但是太啰嗦。</p>
 <p>书中阐述了三种驱动力：</p>
@@ -582,7 +641,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     
     </summary>
     
-      <category term="thoughts" scheme="http://vurtnec.github.io/categories/thoughts/"/>
+      <category term="other" scheme="http://vurtnec.github.io/categories/other/"/>
     
     
   </entry>
@@ -592,7 +651,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     <link href="http://vurtnec.github.io/2016/10/16/Soft-skills/"/>
     <id>http://vurtnec.github.io/2016/10/16/Soft-skills/</id>
     <published>2016-10-15T16:00:00.000Z</published>
-    <updated>2018-06-11T15:16:16.000Z</updated>
+    <updated>2018-06-21T12:44:22.390Z</updated>
     
     <content type="html"><![CDATA[<p>一直想认真写我的博客，可是每次都不知从何说起。最近终于发现可以把读过的每一本书都分享出来，一方面帮助自己回忆书中的要点，同时也是分享给身边的人，让大家对每本书都个大致的了解。</p>
 <p>这次要聊的是一本叫软技能的书，一本关于程序员的方方面面，唯独不讲代码的书，尽管这本书有着不少缺点，妄图面面俱到，结果却都浅尝即止，但它依旧是一本值得一读的好书。</p>
@@ -621,7 +680,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     
     </summary>
     
-      <category term="thoughts" scheme="http://vurtnec.github.io/categories/thoughts/"/>
+      <category term="other" scheme="http://vurtnec.github.io/categories/other/"/>
     
     
   </entry>
@@ -631,7 +690,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
     <link href="http://vurtnec.github.io/2016/06/15/IOC&amp;AOP/"/>
     <id>http://vurtnec.github.io/2016/06/15/IOC&amp;AOP/</id>
     <published>2016-06-14T16:00:00.000Z</published>
-    <updated>2018-06-16T07:55:07.598Z</updated>
+    <updated>2018-06-21T12:50:46.938Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Ioc简介"><a href="#Ioc简介" class="headerlink" title="Ioc简介"></a>Ioc简介</h2><h3 id="什么是Ioc"><a href="#什么是Ioc" class="headerlink" title="什么是Ioc"></a>什么是Ioc</h3><p>IOC（Ioc—Inversion of Control），即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。</p>
 <h3 id="Ioc图解"><a href="#Ioc图解" class="headerlink" title="Ioc图解"></a>Ioc图解</h3><p><strong>传统程序时序图:</strong></p>
@@ -648,7 +707,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
 实体 A-->用户信息: 依赖
 客户端->用户信息: 3. 创建用户信息对象
 用户信息->客户端: 4. 返回用户信息对象
-客户端->客户端: 5. 注入用户信息到订单</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
+客户端->客户端: 5. 注入用户信息到订单</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
 客户端->Ioc容器: 1. 获取订单对象
 Ioc容器->订单: 2. 创建订单对象
 订单->Ioc容器: 3. 返回订单对象
@@ -656,7 +715,7 @@ Ioc容器->订单: 2. 创建订单对象
 Ioc容器->用户信息: 4. 订单对象是否依赖用户,创建用户信息对象
 用户信息->Ioc容器: 5. 返回用户信息对象
 Ioc容器->Ioc容器: 6. 注入用户信息到订单
-Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
+Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
 ]]></content>
     
     <summary type="html">
@@ -667,6 +726,8 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
     
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
+    
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
     
       <category term="Spring" scheme="http://vurtnec.github.io/tags/Spring/"/>
     

@@ -25,7 +25,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
 <meta property="og:image" content="https://i.loli.net/2018/06/11/5b1e15cfd332f.png">
 <meta property="og:image" content="https://i.loli.net/2018/06/11/5b1e15cfd4f0f.png">
 <meta property="og:image" content="https://i.loli.net/2018/06/11/5b1e15d008093.png">
-<meta property="og:updated_time" content="2018-06-11T15:34:24.000Z">
+<meta property="og:updated_time" content="2018-06-21T12:51:12.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Https小结">
 <meta name="twitter:description" content="最近由于复习了下Http相关的知识，所以写了一些关于Http的文章，算是自己的读书笔记。上次写的是Http方法定义的文章，这次聊聊Https。
@@ -73,7 +73,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
         
           <a class="main-nav-link" href="/categories/photography">Photography</a>
         
-          <a class="main-nav-link" href="/categories/thoughts">Thoughts</a>
+          <a class="main-nav-link" href="/categories/other">Other</a>
         
       </nav>
       <nav id="sub-nav">
@@ -164,7 +164,7 @@ TLS/SSL是一个公钥／私钥的结构，它是一个非对称的结构，每"
 服务器端-->客户端: 9. Handshake：Finished
 客户端->服务器端: 10. Transfer Application data（HTTP）
 服务器端->客户端: 11. Transfer Application data（HTTP）
-客户端-->服务器端: 12. Alert: warning, close notify</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">客户端->中间人: 发起连接
+客户端-->服务器端: 12. Alert: warning, close notify</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">客户端->中间人: 发起连接
 中间人->服务器: 发起连接
 服务器->中间人: 响应连接（服务器公钥）
 中间人->客户端: 响应连接（伪造的服务器公钥）
@@ -172,25 +172,25 @@ note left of 客户端: 验证证书（部分验证失\n败，浏览器弹出警
 客户端->中间人: 建立连接并发送数据
 中间人->服务器: 转发数据
 服务器->中间人: 响应数据
-中间人->客户端: 转发数据</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">客户端->SSLstrip: 请求http://www.***.com
+中间人->客户端: 转发数据</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script><textarea id="sequence-2-code" style="display: none">客户端->SSLstrip: 请求http://www.***.com
 SSLstrip->服务器: 请求http://www.***.com
 服务器->SSLstrip: 响应302，location=https://www.***.com
 SSLstrip->客户端: 响应302，location=http://www.SSLstrip.com:8181
 客户端->SSLstrip: 建立http连接，并发送数据
 SSLstrip->服务器: 与服务器建立https连接，并转发数据
 服务器->SSLstrip: 响应数据
-SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script></li>
+SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-2-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-2", options);</script></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2016/12/24/Https-introduce/" data-id="cjiltowhy000a1gaxd5hwc2r8" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2016/12/24/Https-introduce/" data-id="cjioo9lgo000c87axgj6pb6gr" class="article-share-link">Share</a>
       
         <a href="http://vurtnec.github.io/2016/12/24/Https-introduce/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
 
     </footer>
   </div>
@@ -243,15 +243,15 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
           </li>
         
           <li>
+            <a href="/2018/06/13/NodeJs-Asynchronous-I:O/">NodeJs异步I/O</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
           </li>
         
           <li>
             <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/21/Spring-Boot/">Spring Boot</a>
           </li>
         
       </ul>
@@ -263,7 +263,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/economy/">economy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记忆/">记忆</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -273,7 +273,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -320,7 +320,7 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
   
     <a href="/categories/photography" class="mobile-nav-link">Photography</a>
   
-    <a href="/categories/thoughts" class="mobile-nav-link">Thoughts</a>
+    <a href="/categories/other" class="mobile-nav-link">Other</a>
   
 </nav>
     

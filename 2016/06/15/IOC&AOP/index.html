@@ -28,7 +28,7 @@ Ioc设计思路程序时序图:
 
 
 Ioc能做什么IOC(控制反转)的其实本质是一种工厂模式的实现。它指导我们如何设计出松耦合、更优良的程序。传">
-<meta property="og:updated_time" content="2018-06-16T07:55:07.598Z">
+<meta property="og:updated_time" content="2018-06-21T12:50:46.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOC和AOP">
 <meta name="twitter:description" content="Ioc简介什么是IocIOC（Ioc—Inversion of Control），即“控制反转”，不是什么技术，而是一种设计思想。在Java开发中，Ioc意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。
@@ -78,7 +78,7 @@ Ioc能做什么IOC(控制反转)的其实本质是一种工厂模式的实现。
         
           <a class="main-nav-link" href="/categories/photography">Photography</a>
         
-          <a class="main-nav-link" href="/categories/thoughts">Thoughts</a>
+          <a class="main-nav-link" href="/categories/other">Other</a>
         
       </nav>
       <nav id="sub-nav">
@@ -135,7 +135,7 @@ Ioc能做什么IOC(控制反转)的其实本质是一种工厂模式的实现。
 实体 A-->用户信息: 依赖
 客户端->用户信息: 3. 创建用户信息对象
 用户信息->客户端: 4. 返回用户信息对象
-客户端->客户端: 5. 注入用户信息到订单</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
+客户端->客户端: 5. 注入用户信息到订单</textarea><textarea id="sequence-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-0-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-0", options);</script><textarea id="sequence-1-code" style="display: none">Note left of 客户端: 1. 创建订单 \n 2. 创建用户信息 \n 3. 将用户信息注入到订单中 \n 4. 生成订单
 客户端->Ioc容器: 1. 获取订单对象
 Ioc容器->订单: 2. 创建订单对象
 订单->Ioc容器: 3. 返回订单对象
@@ -143,17 +143,17 @@ Ioc容器->订单: 2. 创建订单对象
 Ioc容器->用户信息: 4. 订单对象是否依赖用户,创建用户信息对象
 用户信息->Ioc容器: 5. 返回用户信息对象
 Ioc容器->Ioc容器: 6. 注入用户信息到订单
-Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple"}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
+Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("sequence-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("sequence-1-options").value));  var diagram = Diagram.parse(code);  diagram.drawSVG("sequence-1", options);</script></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2016/06/15/IOC&AOP/" data-id="cjiltowhe00051gax2v4vv9bd" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2016/06/15/IOC&AOP/" data-id="cjioo9lgb000687axiwodo43j" class="article-share-link">Share</a>
       
         <a href="http://vurtnec.github.io/2016/06/15/IOC&AOP/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
 
     </footer>
   </div>
@@ -206,15 +206,15 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
           </li>
         
           <li>
+            <a href="/2018/06/13/NodeJs-Asynchronous-I:O/">NodeJs异步I/O</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
           </li>
         
           <li>
             <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/21/Spring-Boot/">Spring Boot</a>
           </li>
         
       </ul>
@@ -226,7 +226,7 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Search-Engine/">Search Engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/economy/">economy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记忆/">记忆</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -236,7 +236,7 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -283,7 +283,7 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
   
     <a href="/categories/photography" class="mobile-nav-link">Photography</a>
   
-    <a href="/categories/thoughts" class="mobile-nav-link">Thoughts</a>
+    <a href="/categories/other" class="mobile-nav-link">Other</a>
   
 </nav>
     
