@@ -122,7 +122,7 @@
     <link href="http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/"/>
     <id>http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/</id>
     <published>2018-06-12T16:00:00.000Z</published>
-    <updated>2018-06-21T14:38:11.000Z</updated>
+    <updated>2018-06-21T15:08:09.956Z</updated>
     
     <content type="html"><![CDATA[<p>要搞清楚NodeJs的异步I/O，首先要知道以下的几点。</p>
 <h3 id="NodeJs单线程"><a href="#NodeJs单线程" class="headerlink" title="NodeJs单线程"></a>NodeJs单线程</h3><p>单线程其实就是按从上到下顺序依次来执行，而且每次只执行一个任务，只有当前这个任务执行完了，才会执行下一个任务。<br><strong>这里有个误区，Node自然其实是多线程的。只是解析和执行JavaScript代码的线程只有一个，即主线程。这就是NodeJs为何是单线程的原因了。</strong>但实际上还有其他的线程：处理AJAX请求的线程、处理DOM事件的线程、定时器线程、读写文件的线程等。这些线程称为工作线程，类似Web Workers的方式来接近JavaScript大计算阻塞UI渲染的问题。</p>
@@ -156,7 +156,7 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
     
     </summary>
     
-      <category term="programming" scheme="http://vurtnec.github.io/categories/programming/"/>
+      <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
       <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
@@ -268,9 +268,9 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
-      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
-    
       <category term="Spring" scheme="http://vurtnec.github.io/tags/Spring/"/>
+    
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
     
       <category term="Spring Boot" scheme="http://vurtnec.github.io/tags/Spring-Boot/"/>
     
@@ -492,9 +492,9 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
-      <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
-    
       <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
+      <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
     
   </entry>
   
@@ -533,9 +533,9 @@ SSLstrip->客户端: 转发数据</textarea><textarea id="sequence-2-options" st
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
-      <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
-    
       <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
+    
+      <category term="http" scheme="http://vurtnec.github.io/tags/http/"/>
     
   </entry>
   
@@ -727,9 +727,9 @@ Ioc容器->客户端: 7. 返回订单对象</textarea><textarea id="sequence-1-o
       <category term="programing" scheme="http://vurtnec.github.io/categories/programing/"/>
     
     
-      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
-    
       <category term="Spring" scheme="http://vurtnec.github.io/tags/Spring/"/>
+    
+      <category term="Favorites" scheme="http://vurtnec.github.io/tags/Favorites/"/>
     
   </entry>
   
