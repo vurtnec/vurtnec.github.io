@@ -72,6 +72,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-kafka-partial-index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/03/kafka-partial-index/" class="article-date">
+  <time datetime="2018-07-02T16:00:00.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/03/kafka-partial-index/">利用kafka的增量索引优化思路</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.loli.net/2018/07/04/5b3cdb0ec75ce.jpg" alt="DSCF0327.jpg"></p>
+<p>之前在微信上看到一篇叫<strong>批处理已死，Kafka 当道</strong>的文章，刚好我们的项目马上要到cyber了，增量索引在每五分钟之内会有10w的数据量，导致每编一次增量索引的时间都要1个小时以上。所以想到是不是可以参考kafka来优化我们的增量索引。</p>
+<h3 id="什么是kafka"><a href="#什么是kafka" class="headerlink" title="什么是kafka"></a>什么是kafka</h3><p>什么是 Kafka？Apache Kafka 是 LinkedIn 开源的分布式消息系统，在 LinkedIn 目前每天处理几十万亿条的消息，并且已经部署到了世界范围内成千上万的组织之中，包括财富 500 强的公司。基本上成了一种工业标准。</p>
+<p>Kafka 的基础是 log 的理念，log 是只能往上追加（append），完全有序的数据结构。log 本身采用了发布 - 订阅（pubsub）的模式，发布者能够非常容易地把不可变的数据往 log 上追加，订阅者可以维护自己的指针，以便处理当前的信息。</p>
+<h3 id="增量索引模型"><a href="#增量索引模型" class="headerlink" title="增量索引模型"></a>增量索引模型</h3><h4 id="优化前"><a href="#优化前" class="headerlink" title="优化前"></a>优化前</h4><p><img src="https://i.loli.net/2018/07/04/5b3cd77516a75.jpg" alt="partial index before.jpg"></p>
+<p>优化前其实思路很简单，前端或者任何地方触发了一个产品需要增量索引，就将该产品的ID添加到Incremental Table中，然后在系统后台有一个Scheduler在每五分钟执行一次将表中的数据编入索引。这个方案在平时没什么问题，但是到了cyber的时候，会有大量产品没有库存和价格的变动，导致每五分钟内的需要进行增量索引的产品过多，每次大概在需要一个小时以上的时间。</p>
+<h4 id="优化后"><a href="#优化后" class="headerlink" title="优化后"></a>优化后</h4><p><img src="https://i.loli.net/2018/07/04/5b3cd8e162648.jpg" alt="partial index after.jpg"><br>优化后就是将整个原本写入table的产品写入kafka之中，然后用kafka的消费者Group来消化这些产品并build产品的属性到我们的CAS之中（一个nosql数据库），最后再由Scheduler将CAS数据读取出来编入索引。因为时间消耗最大的地方就是在对产品属性重新计算的时候，而我们把这部分横向扩展成了kafka的消费来来消费这部分，极大提升了增量索引的时间，优化后时间，基本能做到实时处理所有数据。（Scheduler设置每分钟的原因是因为磁盘读写，因为增量索引是直接往索引文件追加，并复制到多个索引备份中，时间大概为1分钟。）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/07/03/kafka-partial-index/" data-id="cjj789aim0012k6axtzphu38i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Endeca/">Endeca</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索引擎/">搜索引擎</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Web-Develop-to-Wechat-Mini Program" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/" class="article-date">
@@ -129,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini Program/" data-id="cjix9wjz500215rax3yn6krjd" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/25/Web-Develop-to-Wechat-Mini Program/" data-id="cjj789aj0001ck6ax97fp1mbt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li></ul>
@@ -197,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/17/Torres-del-Paine/" data-id="cjix9wjyz001u5rax3vls9zn5" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/17/Torres-del-Paine/" data-id="cjj789aiq0015k6axcf22bah7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/摄影/">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/旅行/">旅行</a></li></ul>
@@ -262,7 +311,7 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/" data-id="cjix9wjxl000m5raxa8ihs71p" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/" data-id="cjj789ahz000kk6axyrbgi1w2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li></ul>
@@ -326,56 +375,10 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/06/07/Idea-Configuration/" data-id="cjix9wjx8000c5rax6fwrcptp" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/06/07/Idea-Configuration/" data-id="cjj789aho000ak6axaafxq09l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HOW-THE-ECONOMIC-MACHINE-WORKS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" class="article-date">
-  <time datetime="2018-05-24T16:00:00.000Z" itemprop="datePublished">2018-05-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/other/">other</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>How does the economy really work?</strong></p>
-<p>This simple but not simplistic video by Ray Dalio, Founder of Bridgewater Associates, shows the basic driving forces behind the economy, and explains why economic cycles occur by breaking down concepts such as credit, interest rates, leveraging and deleveraging.</p>
-<p><a href="https://www.youtube.com/watch?v=rFV7wdEX-Mo" target="_blank" rel="external">https://www.youtube.com/watch?v=rFV7wdEX-Mo</a></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="http://www.economicprinciples.org/zh-hans/index.html" target="_blank" rel="external">http://www.economicprinciples.org/zh-hans/index.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" data-id="cjix9wjwk00005rax6zr3f3b1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理财/">理财</a></li></ul>
 
     </footer>
   </div>
@@ -400,6 +403,10 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
       <ul>
         
           <li>
+            <a href="/2018/07/03/kafka-partial-index/">利用kafka的增量索引优化思路</a>
+          </li>
+        
+          <li>
             <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/">Web开发到微信小程序</a>
           </li>
         
@@ -415,10 +422,6 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
             <a href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
           </li>
         
-          <li>
-            <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/">HOW THE ECONOMIC MACHINE WORKS</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -428,7 +431,7 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -438,7 +441,7 @@ cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: no
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 

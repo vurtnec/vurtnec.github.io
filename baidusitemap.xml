@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://vurtnec.github.io/2018/07/03/kafka-partial-index/</loc>
+    <lastmod>2018-07-04T14:35:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>利用kafka的增量索引优化思路</title>
+        <pubTime>2018-07-02T16:00:00.000Z</pubTime>
+        
+        <tag>Favorites</tag>
+         
+        <tag>Endeca</tag>
+         
+        <tag>搜索引擎</tag>
+         
+         
+           
+             
+              <breadCrumb title="programing" url="http://vurtnec.github.io/categories/programing/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://vurtnec.github.io/2017/03/08/Java-Understanding/</loc>
     <lastmod>2018-06-27T15:24:47.000Z</lastmod>
     <data>

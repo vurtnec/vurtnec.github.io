@@ -3,18 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 小程序 | Vurtnec</title>
+  <title>利用kafka的增量索引优化思路 | Vurtnec</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Stay Hungry, Stay foolish">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vurtnec">
-<meta property="og:url" content="http://vurtnec.github.io/tags/小程序/index.html">
+  	<meta name="keywords" content="搜索引擎,Endeca,kafka,性能优化,performance" />
+  
+  <meta name="description" content="之前在微信上看到一篇叫批处理已死，Kafka 当道的文章，刚好我们的项目马上要到cyber了，增量索引在每五分钟之内会有10w的数据量，导致每编一次增量索引的时间都要1个小时以上。所以想到是不是可以参考kafka来优化我们的增量索引。
+什么是kafka什么是 Kafka？Apache Kafka 是 LinkedIn 开源的分布式消息系统，在 LinkedIn 目前每天处理几十万亿条的消息，并且">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用kafka的增量索引优化思路">
+<meta property="og:url" content="http://vurtnec.github.io/2018/07/03/kafka-partial-index/index.html">
 <meta property="og:site_name" content="Vurtnec">
-<meta property="og:description" content="Stay Hungry, Stay foolish">
+<meta property="og:description" content="之前在微信上看到一篇叫批处理已死，Kafka 当道的文章，刚好我们的项目马上要到cyber了，增量索引在每五分钟之内会有10w的数据量，导致每编一次增量索引的时间都要1个小时以上。所以想到是不是可以参考kafka来优化我们的增量索引。
+什么是kafka什么是 Kafka？Apache Kafka 是 LinkedIn 开源的分布式消息系统，在 LinkedIn 目前每天处理几十万亿条的消息，并且">
+<meta property="og:image" content="https://i.loli.net/2018/07/04/5b3cdb0ec75ce.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/07/04/5b3cd77516a75.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/07/04/5b3cd8e162648.jpg">
+<meta property="og:updated_time" content="2018-07-04T14:35:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vurtnec">
-<meta name="twitter:description" content="Stay Hungry, Stay foolish">
+<meta name="twitter:title" content="利用kafka的增量索引优化思路">
+<meta name="twitter:description" content="之前在微信上看到一篇叫批处理已死，Kafka 当道的文章，刚好我们的项目马上要到cyber了，增量索引在每五分钟之内会有10w的数据量，导致每编一次增量索引的时间都要1个小时以上。所以想到是不是可以参考kafka来优化我们的增量索引。
+什么是kafka什么是 Kafka？Apache Kafka 是 LinkedIn 开源的分布式消息系统，在 LinkedIn 目前每天处理几十万亿条的消息，并且">
+<meta name="twitter:image" content="https://i.loli.net/2018/07/04/5b3cdb0ec75ce.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Vurtnec" type="application/atom+xml">
   
@@ -70,39 +80,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/" class="archive-article-date">
-  <time datetime="2018-06-24T16:00:00.000Z" itemprop="datePublished">Jun 25</time>
+        <section id="main"><article id="post-kafka-partial-index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/03/kafka-partial-index/" class="article-date">
+  <time datetime="2018-07-02T16:00:00.000Z" itemprop="datePublished">2018-07-03</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/">Web开发到微信小程序</a>
+    <h1 class="article-title" itemprop="name">
+      利用kafka的增量索引优化思路
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://i.loli.net/2018/07/04/5b3cdb0ec75ce.jpg" alt="DSCF0327.jpg"></p>
+<p>之前在微信上看到一篇叫<strong>批处理已死，Kafka 当道</strong>的文章，刚好我们的项目马上要到cyber了，增量索引在每五分钟之内会有10w的数据量，导致每编一次增量索引的时间都要1个小时以上。所以想到是不是可以参考kafka来优化我们的增量索引。</p>
+<h3 id="什么是kafka"><a href="#什么是kafka" class="headerlink" title="什么是kafka"></a>什么是kafka</h3><p>什么是 Kafka？Apache Kafka 是 LinkedIn 开源的分布式消息系统，在 LinkedIn 目前每天处理几十万亿条的消息，并且已经部署到了世界范围内成千上万的组织之中，包括财富 500 强的公司。基本上成了一种工业标准。</p>
+<p>Kafka 的基础是 log 的理念，log 是只能往上追加（append），完全有序的数据结构。log 本身采用了发布 - 订阅（pubsub）的模式，发布者能够非常容易地把不可变的数据往 log 上追加，订阅者可以维护自己的指针，以便处理当前的信息。</p>
+<h3 id="增量索引模型"><a href="#增量索引模型" class="headerlink" title="增量索引模型"></a>增量索引模型</h3><h4 id="优化前"><a href="#优化前" class="headerlink" title="优化前"></a>优化前</h4><p><img src="https://i.loli.net/2018/07/04/5b3cd77516a75.jpg" alt="partial index before.jpg"></p>
+<p>优化前其实思路很简单，前端或者任何地方触发了一个产品需要增量索引，就将该产品的ID添加到Incremental Table中，然后在系统后台有一个Scheduler在每五分钟执行一次将表中的数据编入索引。这个方案在平时没什么问题，但是到了cyber的时候，会有大量产品没有库存和价格的变动，导致每五分钟内的需要进行增量索引的产品过多，每次大概在需要一个小时以上的时间。</p>
+<h4 id="优化后"><a href="#优化后" class="headerlink" title="优化后"></a>优化后</h4><p><img src="https://i.loli.net/2018/07/04/5b3cd8e162648.jpg" alt="partial index after.jpg"><br>优化后就是将整个原本写入table的产品写入kafka之中，然后用kafka的消费者Group来消化这些产品并build产品的属性到我们的CAS之中（一个nosql数据库），最后再由Scheduler将CAS数据读取出来编入索引。因为时间消耗最大的地方就是在对产品属性重新计算的时候，而我们把这部分横向扩展成了kafka的消费来来消费这部分，极大提升了增量索引的时间，优化后时间，基本能做到实时处理所有数据。（Scheduler设置每分钟的原因是因为磁盘读写，因为增量索引是直接往索引文件追加，并复制到多个索引备份中，时间大概为1分钟。）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/07/03/kafka-partial-index/" data-id="cjj789aim0012k6axtzphu38i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Endeca/">Endeca</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索引擎/">搜索引擎</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/25/Web-Develop-to-Wechat-Mini Program/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Web开发到微信小程序</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
