@@ -4,6 +4,86 @@
 
     
   <url>
+    <loc>http://vurtnec.github.io/2016/11/30/Taobao-tech/</loc>
+    <lastmod>2018-10-21T14:01:49.240Z</lastmod>
+    <data>
+        <display>
+        <title>读后感：淘宝技术这十年</title>
+        <pubTime>2016-11-29T16:00:00.000Z</pubTime>
+        
+        <tag>读书</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://vurtnec.github.io/2018/10/21/magnum/</loc>
+    <lastmod>2018-10-21T14:01:33.586Z</lastmod>
+    <data>
+        <display>
+        <title>读后感：世界的眼睛</title>
+        <pubTime>2018-10-20T16:00:00.000Z</pubTime>
+        
+        <tag>读书</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://vurtnec.github.io/2016/10/22/Drive/</loc>
+    <lastmod>2018-10-21T14:01:33.581Z</lastmod>
+    <data>
+        <display>
+        <title>读后感：驱动力</title>
+        <pubTime>2016-10-21T16:00:00.000Z</pubTime>
+        
+        <tag>读书</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://vurtnec.github.io/2018/09/22/Blu-ray%20movie%20collection%20directory/</loc>
+    <lastmod>2018-10-21T12:59:27.316Z</lastmod>
+    <data>
+        <display>
+        <title>蓝光电影收藏目录</title>
+        <pubTime>2018-09-21T16:00:00.000Z</pubTime>
+        
+        <tag>movie</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://vurtnec.github.io/2018/07/03/kafka-partial-index/</loc>
     <lastmod>2018-07-04T14:35:55.000Z</lastmod>
     <data>
@@ -99,7 +179,7 @@
     
   <url>
     <loc>http://vurtnec.github.io/2018/06/17/Torres-del-Paine/</loc>
-    <lastmod>2018-06-21T14:58:23.764Z</lastmod>
+    <lastmod>2018-06-21T14:58:23.765Z</lastmod>
     <data>
         <display>
         <title>印象百内</title>
@@ -143,7 +223,7 @@
     
   <url>
     <loc>http://vurtnec.github.io/2016/12/24/Https-introduce/</loc>
-    <lastmod>2018-06-21T12:51:12.626Z</lastmod>
+    <lastmod>2018-06-21T12:51:12.627Z</lastmod>
     <data>
         <display>
         <title>Https小结</title>
@@ -209,7 +289,7 @@
     
   <url>
     <loc>http://vurtnec.github.io/2018/04/21/Spring-Boot/</loc>
-    <lastmod>2018-06-21T12:50:46.926Z</lastmod>
+    <lastmod>2018-06-21T12:50:46.927Z</lastmod>
     <data>
         <display>
         <title>Spring Boot</title>
@@ -233,7 +313,7 @@
     
   <url>
     <loc>http://vurtnec.github.io/2017/11/07/Markdown-Sublime/</loc>
-    <lastmod>2018-06-21T12:48:36.272Z</lastmod>
+    <lastmod>2018-06-21T12:48:36.273Z</lastmod>
     <data>
         <display>
         <title>Sublime中配置Markdown</title>
@@ -263,24 +343,6 @@
         
         <tag>理财</tag>
          
-         
-           
-             
-              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://vurtnec.github.io/2016/11/30/Taobao-tech/</loc>
-    <lastmod>2018-06-21T12:44:40.006Z</lastmod>
-    <data>
-        <display>
-        <title>读后感：淘宝技术这十年</title>
-        <pubTime>2016-11-29T16:00:00.000Z</pubTime>
-        
          
            
              
@@ -325,24 +387,6 @@
            
              
               <breadCrumb title="programing" url="http://vurtnec.github.io/categories/programing/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://vurtnec.github.io/2016/10/22/Drive/</loc>
-    <lastmod>2018-06-21T12:43:28.913Z</lastmod>
-    <data>
-        <display>
-        <title>读后感：驱动力</title>
-        <pubTime>2016-10-21T16:00:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="other" url="http://vurtnec.github.io/categories/other/"/>
           
         </display>
     </data>

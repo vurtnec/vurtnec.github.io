@@ -72,6 +72,135 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-NodeJs-Asynchronous-I:O" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/NodeJs-Asynchronous-I:O/" class="article-date">
+  <time datetime="2018-06-12T16:00:00.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/NodeJs-Asynchronous-I:O/">NodeJs异步I/O</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>要搞清楚NodeJs的异步I/O，首先要知道以下的几点。</p>
+<h3 id="NodeJs单线程"><a href="#NodeJs单线程" class="headerlink" title="NodeJs单线程"></a>NodeJs单线程</h3><p>单线程其实就是按从上到下顺序依次来执行，而且每次只执行一个任务，只有当前这个任务执行完了，才会执行下一个任务。<br><strong>这里有个误区，Node自然其实是多线程的。只是解析和执行JavaScript代码的线程只有一个，即主线程。这就是NodeJs为何是单线程的原因了。</strong>但实际上还有其他的线程：处理AJAX请求的线程、处理DOM事件的线程、定时器线程、读写文件的线程等。这些线程称为工作线程，类似Web Workers的方式来接近JavaScript大计算阻塞UI渲染的问题。</p>
+<h3 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h3><p>事件驱动编程主要思想是通过事件或状态的变化来进行应用程序的流程控制，一般通过事件监听完成，一旦事件被检测到，则调用相应的回调函数。</p>
+<p><strong>事件驱动主要执行过程是当进来的一个新的请求的时候，请求将会被压入队列中，然后通过一个循环来检测队列中的事件状态变化，如果检测到有状态变化的事件，那么就执行该事件对应的处理代码（一般都是回调函数）。</strong></p>
+<div id="flowchart-0" class="flow-chart"></div>
+
+<p><strong>基于事件驱动的，先同步(即按从上到下的顺序)执行整个整个js文件中的代码（此时的事件循环是暂停的），当遇到异步函数时，会从线程池中寻求有用的线程来执行该异步函数，当异步函数执行完，就将回调函数放入消息队列里面。当整个js文件执行完后，事件循环开始执行，从消息队列里面取消息，开始执行里面的回调函数。</strong></p>
+<h3 id="异步I-O"><a href="#异步I-O" class="headerlink" title="异步I/O"></a>异步I/O</h3><p>最后再来说异步I/O，NodeJs采用了事件循环的方式实现异步I/O。以下是整个异步I/O的流程：</p>
+<p><img src="https://i.loli.net/2018/06/21/5b2bb72c47871.png" alt="20160622014343_9570.png"></p>
+<h3 id="NodeJs优缺点"><a href="#NodeJs优缺点" class="headerlink" title="NodeJs优缺点"></a>NodeJs优缺点</h3><p>所以说因为异步I/O，大家说Node擅长处理I/O密集型的应用场景；因为单线程，在CPU密集的场景中，Node因为大量CPU的计算会阻塞JavaScript线程导致大家说Node不擅长处理CPU密集型场景。但是这里有两点要注意，<strong>第一，并不是说Node处理大量CPU计算就慢，而且因为单线程会阻塞其他操作，单以执行效率来做评价，V8的执行效率是毋庸置疑的。第二，Node也有单线程大计算的解决方案：采用和Web Workers相同的思路，子进程来应对单线程无法利用多核CPU的问题。</strong></p>
+<h3 id="引用和参考"><a href="#引用和参考" class="headerlink" title="引用和参考"></a>引用和参考</h3><p>深入浅出NodeJs<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.0/raphael-min.js"></script><script src="http://flowchart.js.org/flowchart-latest.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 开始
+e=>end: 退出
+op1=>operation: 取出一个事件
+op2=>operation: 执行回调
+
+cond1=>condition: 还有事件？
+cond2=>condition: 有关联回调？
+
+st->cond1
+cond1(no)->e
+cond1(yes)->op1->cond2
+cond2(yes)->op2->cond1
+cond2(no)->cond1</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/06/13/NodeJs-Asynchronous-I:O/" data-id="cjniy0cvz000t14axn83bmvkv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Idea-Configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/07/Idea-Configuration/" class="article-date">
+  <time datetime="2018-06-06T16:00:00.000Z" itemprop="datePublished">2018-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programing/">programing</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）"><a href="#主要文件介绍（-JetBrains-IntelliJ-IDEA-2017-3-4-bin）" class="headerlink" title="主要文件介绍（\JetBrains\IntelliJ IDEA 2017.3.4\bin）"></a>主要文件介绍（<installationpath>\JetBrains\IntelliJ IDEA 2017.3.4\bin）</installationpath></h3><ul>
+<li>idea.exe 文件是 IntelliJ IDEA 32 位的可行执行文件，IntelliJ IDEA 安装完默认发送到桌面的也就是这个执行文件的快捷方式。</li>
+<li>idea.exe.vmoptions 文件是 IntelliJ IDEA 32 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
+<li>idea64.exe 文件是 IntelliJ IDEA 64 位的可行执行文件，要求必须电脑上装有 JDK 64 位版本。64 位的系统也是建议使用该文件。</li>
+<li>idea64.exe.vmoptions 文件是 IntelliJ IDEA 64 位的可执行文件的 VM 配置文件，具体配置修改会下面进行专门讲解。</li>
+<li>idea.properties 文件是 IntelliJ IDEA 的一些属性配置文件，具体配置修改会下面进行专门讲解。</li>
+</ul>
+<h3 id="idea64-exe-vmoptions"><a href="#idea64-exe-vmoptions" class="headerlink" title="idea64.exe.vmoptions"></a>idea64.exe.vmoptions</h3><p>64 位修改idea64.exe.vmoptions ，如果你是 32 位的系统你应该修改的是 idea.exe.vmoptions 文件里面的内容，但是由于 32 位系统内存一般都是 2G 左右的，所以也没有多大空间可以调整，所以一般无需调整的。<br>修改的原则主要是根据自己机器的内存情况来判断的，我个人是建议 8G 以下的机子或是静态页面开发者都是无需修改的。如果你是开发大型项目、Java 项目或是 Android 项目，并且内存大于 8G，建议进行修改，常修改的就是下面 4 个参数，我这里主要以我的机子会例进行建议，每个人机子情况不一，这里也只是做一个引子，最好的调整方式是你可以根据 jconsole 这类工具进行观察后个性化调整。</p>
+<ul>
+<li>-Xms128m，16 G 内存的机器可尝试设置为 -Xms512m</li>
+<li>-Xmx750m，16 G 内存的机器可尝试设置为 -Xmx1500m</li>
+<li>-XX:MaxPermSize=350m，16G 内存的机器可尝试设置为 -XX:MaxPermSize=500m</li>
+<li>-XX:ReservedCodeCacheSize=225m，16G 内存的机器可尝试设置为 -XX:ReservedCodeCacheSize=500m</li>
+</ul>
+<h3 id="idea-properties"><a href="#idea-properties" class="headerlink" title="idea.properties"></a>idea.properties</h3><p>IntelliJ IDEA 一些属性配置，没有 32 位和 64 位之分，修改原则主要根据个人对 IntelliJ IDEA 的个性化配置情况来分析。常修改的就是下面 4 个参数：</p>
+<ul>
+<li>idea.config.path=${user.home}/.IntelliJIdea/config，该属性主要用于指向 IntelliJ IDEA 的个性化配置目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。</li>
+<li>idea.system.path=${user.home}/.IntelliJIdea/system，该属性主要用于指向 IntelliJ IDEA 的系统文件目录，默认是被注释，打开注释之后才算启用该属性，这里需要特别注意的是斜杠方向，这里用的是正斜杠。如果你的项目很多，则该目录会很大，如果你的 C 盘空间不够的时候，还是建议把该目录转移到其他盘符下。</li>
+<li>idea.max.intellisense.filesize=2500，该属性主要用于提高在编辑大文件时候的代码帮助。IntelliJ IDEA 在编辑大文件的时候还是很容易卡顿的。</li>
+<li>idea.cycle.buffer.size=1024，该属性主要用于控制控制台输出缓存。有遇到一些项目开启很多输出，控制台很快就被刷满了没办法再自动输出后面内容，这种项目建议增大该值或是直接禁用掉，禁用语句 idea.cycle.buffer.size=disabled。</li>
+</ul>
+<h3 id="配置文件同步"><a href="#配置文件同步" class="headerlink" title="配置文件同步"></a>配置文件同步</h3><p>创建一个新的git project来同步文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vurtnec.github.io/2018/06/07/Idea-Configuration/" data-id="cjniy0cvq000c14axv0onz22m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HOW-THE-ECONOMIC-MACHINE-WORKS" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" class="article-date">
@@ -106,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" data-id="cjj789aha0003k6axepyfoqdh" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/05/25/HOW-THE-ECONOMIC-MACHINE-WORKS/" data-id="cjniy0cvl000514axvggke2bj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理财/">理财</a></li></ul>
@@ -160,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2018/04/21/Spring-Boot/" data-id="cjj789ai1000mk6ax425tl38d" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2018/04/21/Spring-Boot/" data-id="cjniy0cw3001214axe70dya0g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
@@ -282,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2017/12/21/Index-Improvment/" data-id="cjj789ahu000ek6axwn77cm8p" class="article-share-link">Share</a>
+      <a data-url="http://vurtnec.github.io/2017/12/21/Index-Improvment/" data-id="cjniy0cvt000g14axx6xdjjyz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Endeca/">Endeca</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索引擎/">搜索引擎</a></li></ul>
@@ -294,134 +423,10 @@
 
 
   
-    <article id="post-Markdown-Sublime" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/07/Markdown-Sublime/" class="article-date">
-  <time datetime="2017-11-06T16:00:00.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/Markdown-Sublime/">Sublime中配置Markdown</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="编辑插件"><a href="#编辑插件" class="headerlink" title="编辑插件"></a>编辑插件</h2><p>安装Markdown Editing，然后在视图-&gt;语法里选择MarkdownEditing启用,支持三种风格,分别是Standard Markdown, GitHub flavored Markdown, MultiMarkdown.</p>
-<h2 id="预览插件"><a href="#预览插件" class="headerlink" title="预览插件"></a>预览插件</h2><p>MarkdownLivePreview<br>MarkdownLivePreview可以实现实时预览,在首选项-&gt;Package Setting里修改MarkdownLivePreview的user配置文件,设置在打开时同步预览</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开一个新的md文件，按下alt+m</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2017/11/07/Markdown-Sublime/" data-id="cjj789ai6000qk6axlp536m6s" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tips/">Tips</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Java-Understanding" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/08/Java-Understanding/" class="article-date">
-  <time datetime="2017-03-07T16:00:00.000Z" itemprop="datePublished">2017-03-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/programing/">programing</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/08/Java-Understanding/">我对Java的理解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Java平台"><a href="#Java平台" class="headerlink" title="Java平台"></a>Java平台</h3><p>Java不仅仅只是一门编程语言，还是一个由一系列计算机软件和规范形成的技术体系。</p>
-<ul>
-<li>Java程序设计语言：基本语言特性，语法糖，面向对象，反射，泛型。。。</li>
-<li>Java生态：各种框架，Spring，hadoop。。。</li>
-<li>Java基础类库，API<ul>
-<li>核心类库：IO/NIO，网络，utils。。。</li>
-<li>安全类库</li>
-<li>jdk.management等类库</li>
-<li>第三方类库</li>
-</ul>
-</li>
-<li>Java虚拟机<ul>
-<li>垃圾收集器</li>
-<li>运行时</li>
-<li>动态编译</li>
-<li>辅助功能，JFR等</li>
-</ul>
-</li>
-<li>工具包<ul>
-<li>辅助工具：如Jlink，jar，jdeps</li>
-<li>编译器：javac，sjavac</li>
-<li>诊断工具：jmap，jstack，jconsole，jcmd</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://i.loli.net/2018/06/27/5b3398b5be351.png" alt="20bc6a900fc0b829c2f0e723df050732.png"></p>
-<h3 id="JDK-amp-JRE"><a href="#JDK-amp-JRE" class="headerlink" title="JDK &amp; JRE"></a>JDK &amp; JRE</h3><p>JDK是Java开发工具包，JRE是Java运行环境，它包含虚拟机，但不包含编译器。<br><img src="https://i.loli.net/2018/06/27/5b33a20c031f9.jpg" alt="1530110442146.jpg"></p>
-<h3 id="Java编译"><a href="#Java编译" class="headerlink" title="Java编译"></a>Java编译</h3><ol>
-<li>首先是使用Java的编译工具，比如javac将源码编译成虚拟机可以认识的字节码。</li>
-<li><strong>字节码会给不同的虚拟机（Windows，Mac上的虚拟机）在运行时，通过类加载器加载字节码，解释或编译成对应的机器码执行。</strong>这里就两点要注意的:<ol>
-<li>第一是可以给虚拟机设置参数，是使用解释还是编译的方式。编译会导致启动较慢，而解释会导致执行稍慢。可以针对不同场景进行调整。</li>
-<li>这里还有个一个<strong>动态编译器（JIT）</strong>，会在运行时将热点代码（以方法为单位，那些会反复执行或者循环的代码）编译成机器码，这部分代码也是编译执行的。</li>
-</ol>
-</li>
-</ol>
-<h3 id="参考和引用"><a href="#参考和引用" class="headerlink" title="参考和引用"></a>参考和引用</h3><p><strong>极客时间</strong>：Java核心36讲</p>
-<p><strong>书籍</strong>：深入理解Java虚拟机</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://vurtnec.github.io/2017/03/08/Java-Understanding/" data-id="cjj789ahw000gk6ax1q9r2gl6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Favorites/">Favorites</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">NEXT &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">NEXT &raquo;</a>
   </nav>
 </section>
         
@@ -432,6 +437,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/21/magnum/">读后感：世界的眼睛</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/22/Blu-ray movie collection directory/">蓝光电影收藏目录</a>
+          </li>
         
           <li>
             <a href="/2018/07/03/kafka-partial-index/">利用kafka的增量索引优化思路</a>
@@ -445,14 +458,6 @@
             <a href="/2018/06/17/Torres-del-Paine/">印象百内</a>
           </li>
         
-          <li>
-            <a href="/2018/06/13/NodeJs-Asynchronous-I:O/">NodeJs异步I/O</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/07/Idea-Configuration/">Idea 基本配置</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -462,7 +467,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Endeca/">Endeca</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Favorites/">Favorites</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJs/">NodeJs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tips/">Tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/">http</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/movie/">movie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小程序/">小程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索引擎/">搜索引擎</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/摄影/">摄影</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书/">读书</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -472,7 +477,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -524,7 +529,7 @@
 </nav>
     
 
-<script src="jquery-2.0.3.min.js"></script>he
+<script src="/jquery-2.0.3.min.js"></script>he
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
